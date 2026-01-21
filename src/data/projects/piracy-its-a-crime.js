@@ -3,7 +3,7 @@ export const PiracyItsACrime = {
   title: "Piracy, it's a crime!",
   tagline: "In this game you play as a space pirate who wants the treasure of some cute robots.",
   description: "Deze topdown shooter begon als een experiment om enemy AI te bouwen en groeide uit tot een complete arcade-style game. Het doel was om tight, responsive controls te combineren met challenging maar faire enemy behaviors.\n\nLater werd het uitgebreid met verschillende enemy types, wave progression systems en satisfying hit-feedback door screen shake en particle effects te combineren.\n\nHet project hielp mij de basis van AI state machines, navmesh pathfinding en difficulty balancing beter te leren begrijpen.",
-  thumbnail: "/assets/piracy/thumbnail.png",
+  thumbnail: "assets/piracy/thumbnail.png",
   youtube: "https://www.youtube.com/embed/OGp_lGlqNQY",
   screenshots: [
     "https://picsum.photos/seed/shooter1/1200/800",
