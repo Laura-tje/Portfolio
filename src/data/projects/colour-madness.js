@@ -25,6 +25,6 @@ export const ColourMadness = {
       code: "public void OnSelectEntered(SelectEnterEventArgs args)\n{\n    grabbed = true;\n    rb.isKinematic = true;\n}\n\npublic void OnSelectExited(SelectExitEventArgs args)\n{\n    grabbed = false;\n    rb.isKinematic = false;\n}"
     }
   ],
-  git: "https://github.com/fvugt/asteroids-3d",
+  git: "https://github.com/Daangulitz/XRpedition-team-10",
   itch: "https://fvugt.itch.io/asteroids-3d"
 };

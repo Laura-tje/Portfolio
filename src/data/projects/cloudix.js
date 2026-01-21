@@ -4,7 +4,7 @@ export const CloudIX = {
   tagline: "Een 3D platformer gebuild naar verschillende platformen",
   description: "Asteroids 3D is een moderne remake van de klassieke arcade game. Het doel was om physics-based movement te combineren met een minimalistische sci-fi stijl. Door veel playtesting vond ik de perfecte balans tussen thrust force, rotation speed en projectile velocity.\n\nTijdens het project focuste ik op iteratief werken en het snel ontwikkelen van speelbare prototypes. Daarbij heb ik veel geleerd over component-based architecture, het gebruik van ScriptableObjects voor game balancing en het implementeren van object pooling voor betere performance.",
   thumbnail: "assets/cloudix/thumbnail.png",
-  gameUrl: "assets/cloudix/cloudix-webgl/index.html",
+  //gameUrl: "assets/cloudix/cloudix-webgl/index.html",
   gameWidth: "100%",
   gameAspectRatio: "16 / 9",
   youtube: "https://www.youtube.com/embed/dQw4w9WgXcQ",
