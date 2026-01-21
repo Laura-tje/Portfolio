@@ -1,0 +1,103 @@
+@import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
+@import "tailwindcss";
+
+:root {
+  --bg: #c0c0c0;          /* Klassiek Nokia grijs */
+  --surface: #a0a0a0;     /* Donkerder grijs accent */
+  --text: #000000;
+  --muted: #505050;
+
+  --accent: #00aa44;      /* Nokia groen */
+  --accent-hover: #00cc55;
+  --accent-text: #003d18;
+  --bordercolor: #808080;
+
+  --overlay: rgba(192, 192, 192, 0.4);
+  --overlay-hover: rgba(170, 170, 170, 0.6);
+
+  --radius-sm: 0rem;
+  --radius-md: 0.25rem;
+  --radius-lg: 0.5rem;
+
+  --shadow-sm: 5 4px 12px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.5);
+
+  --font-main: "Roboto", sans-serif;
+}
+
+
+body {
+  background: linear-gradient(135deg, #a0a0a0 0%, #808080 100%);
+  color: var(--text);
+  font-family: var(--font-main);
+  margin: 0;
+  padding: 0;
+}
+
+/* Nokia-inspired 3D effect */
+* {
+  box-sizing: border-box;
+}
+
+/* Retro beveled button style */
+button, input[type="button"], input[type="submit"] {
+  background: linear-gradient(135deg, #dfdfdf 0%, #a0a0a0 100%);
+  border: 2px outset #fff;
+  border-right-color: #808080;
+  border-bottom-color: #808080;
+  padding: 4px 12px;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-family: var(--font-main);
+  font-weight: bold;
+  color: var(--text);
+  transition: all 0.05s;
+  box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.8),
+              -1px -1px 0 rgba(0, 0, 0, 0.2);
+}
+
+button:active, input[type="button"]:active, input[type="submit"]:active {
+  border-style: inset;
+  border-right-color: #fff;
+  border-bottom-color: #fff;
+  border-left-color: #808080;
+  border-top-color: #808080;
+  box-shadow: inset 1px 1px 0 rgba(0, 0, 0, 0.2),
+              inset -1px -1px 0 rgba(255, 255, 255, 0.8);
+}
+
+button:disabled, input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.container {
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  background: linear-gradient(135deg, #c0c0c0 0%, #a8a8a8 100%);
+  border: 2px outset #ffffff;
+  border-right-color: #808080;
+  border-bottom-color: #808080;
+  padding: 12px;
+  box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.8),
+              -1px -1px 0 rgba(0, 0, 0, 0.3),
+              inset 1px 1px 0 rgba(255, 255, 255, 0.8),
+              inset -1px -1px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Nokia green accent elements */
+.tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  padding: 0.375rem 0.75rem;
+  background: rgba(0, 170, 68, 0.2);
+  color: var(--accent-text);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-md);
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
