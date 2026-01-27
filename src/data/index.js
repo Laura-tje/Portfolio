@@ -2,6 +2,7 @@ import { CloudIX } from "./projects/cloudix";
 import { ColourMadness } from "./projects/colour-madness";
 import { PiracyItsACrime } from "./projects/piracy-its-a-crime";
 import { Tamagotchi } from "./projects/tamagotchi";
+import { Fruitpocalypse } from "./projects/fruitpocalypse";
 //import { Template } from "./projects/template";
 
 export const projects = [
@@ -9,5 +10,6 @@ export const projects = [
   PiracyItsACrime,
   CloudIX,
   Tamagotchi,
+  Fruitpocalypse,
   //Template
 ];

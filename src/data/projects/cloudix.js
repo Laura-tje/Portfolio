@@ -10,10 +10,9 @@ export const CloudIX = {
   youtube: "https://www.youtube.com/embed/dQw4w9WgXcQ",
   screenshots: [],
   tags: [
-    "Unity",
-    "C#",
-    "3D",
-    "Physics"
+    "Unity (C#)",
+    "Verschillende platformen",
+    "3D"
   ],
   projectRole: "Developer",
   timeline: "2 weken",

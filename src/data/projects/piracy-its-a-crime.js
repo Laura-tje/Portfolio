@@ -6,12 +6,10 @@ export const PiracyItsACrime = {
   thumbnail: "assets/piracy/thumbnail.png",
   youtube: "https://www.youtube.com/embed/OGp_lGlqNQY",
   screenshots: [
-    "https://picsum.photos/seed/shooter1/1200/800",
-    "https://picsum.photos/seed/shooter2/1200/800"
+    "assets/piracy/thumbnail.png"
   ],
   tags: [
-    "Unity",
-    "C#",
+    "Unity (C#)",
     "VR"
   ],
   projectRole: "Programmeur",
@@ -20,7 +18,7 @@ export const PiracyItsACrime = {
     {
         subtitle: "Gun",
         description: "Een finite state machine voor vijanden die dynamisch schakelt tussen Idle → Chase → Attack → Retreat states. In Chase gebruiken enemies navmesh pathfinding, in Attack positioneren ze zich tactisch, en in Retreat trekken ze zich terug naar cover bij lage health. Verschillende enemy types hebben eigen parameters voor aggression range en attack patterns.",
-        gif: "/assets/piracy/gun.gif",
+        gif: "assets/piracy/gun.gif",
         code: "void Update()\n{\n    switch(state)\n    {\n        case Idle:\n            LookForPlayer();\n            break;\n\n        case Chase:\n            MoveTowardPlayer();\n            break;\n\n        case Attack:\n            TryShoot();\n            break;\n    }\n}"
     },
     {
@@ -32,7 +30,7 @@ export const PiracyItsACrime = {
     {
         subtitle: "Pickup systeem",
         description: "Een finite state machine voor vijanden die dynamisch schakelt tussen Idle → Chase → Attack → Retreat states. In Chase gebruiken enemies navmesh pathfinding, in Attack positioneren ze zich tactisch, en in Retreat trekken ze zich terug naar cover bij lage health. Verschillende enemy types hebben eigen parameters voor aggression range en attack patterns.",
-        gif: "/assets/piracy/pickup.gif",
+        gif: "assets/piracy/pickup.gif",
         code: "void Update()\n{\n    switch(state)\n    {\n        case Idle:\n            LookForPlayer();\n            break;\n\n        case Chase:\n            MoveTowardPlayer();\n            break;\n\n        case Attack:\n            TryShoot();\n            break;\n    }\n}"
     }
   ],
