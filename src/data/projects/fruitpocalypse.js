@@ -21,7 +21,7 @@ export const Fruitpocalypse = {
     {
       subtitle: "Checkout",
       description: "De speler gebruikt thrust-based movement en smooth rotation, net als klassieke arcade shooters. In plaats van directe positie updates werkt alles met physics forces, wat zorgt voor natuurlijk momentum en inertia. Ook implementeerde ik screen-wrap waarbij je aan de ene kant verdwijnt en aan de andere kant verschijnt.",
-      gif: "assets/fruitpocalypse/checkout.gif",
+      gif: "assets/fruitpocalypse/checkout2.gif",
       code: `void Update()\n{\n    if (Input.GetKey(KeyCode.W))\n        rb.AddForce(transform.up * thrust);\n\n    float rotate = Input.GetAxis(\"Horizontal\");\n    rb.MoveRotation(rb.rotation - rotate * rotateSpeed * Time.deltaTime);\n}`
     },
     {

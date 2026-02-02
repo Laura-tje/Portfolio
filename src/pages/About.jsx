@@ -106,3 +106,5 @@ export default function About() {
     </div>
   );
 }
+
+//github stats : https://lamzka.github.io/RaymondBesson.github.io/
