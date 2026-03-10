@@ -4,6 +4,7 @@ export const Fruitpocalypse = {
   tagline: "Dit is een template project beschrijving.",
   description: "Dikke vette template",
   thumbnail: "assets/fruitpocalypse/thumbnail.png",
+  gif: "assets/fruitpocalypse/checkout2.gif",
   youtube: "",
   screenshots: [
   ],

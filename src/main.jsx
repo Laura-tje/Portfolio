@@ -8,7 +8,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import ProjectPage from "./pages/ProjectPage";
 
-import "./index.css";
+import './index.css';
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

@@ -1,13 +1,23 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 export default function ProjectCard({ project }) {
+  const [isHovering, setIsHovering] = useState(false);
   const isDisabled = project.disabled;
   
   const cardContent = (
     <>
       {/* Thumbnail met overlay */}
-      <div className="relative aspect-video overflow-hidden">
-        <img src={`${import.meta.env.BASE_URL}${project.thumbnail}`} alt={project.title} className={`w-full h-full object-cover ${!isDisabled ? 'group-hover:scale-105' : 'opacity-50'} transition-transform duration-300`}/>
+      <div 
+        className="relative aspect-video overflow-hidden"
+        onMouseEnter={() => setIsHovering(true)}
+        onMouseLeave={() => setIsHovering(false)}
+      >
+        {isHovering && project.gif ? (
+          <img src={`${import.meta.env.BASE_URL}${project.gif}`} alt={project.title} className="w-full h-full object-cover" />
+        ) : (
+          <img src={`${import.meta.env.BASE_URL}${project.thumbnail}`} alt={project.title} className={`w-full h-full object-cover ${!isDisabled ? 'group-hover:scale-105' : 'opacity-50'} transition-transform duration-300`}/>
+        )}
         {/* Status badge */}
         {isDisabled && (
           <div className="absolute inset-0 flex items-center justify-center bg-black/40">
