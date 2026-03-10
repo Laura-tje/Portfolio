@@ -2,33 +2,33 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #c0c0c0;          /* Klassiek Nokia grijs */
-  --surface: #a0a0a0;     /* Donkerder grijs accent */
-  --text: #000000;
-  --muted: #505050;
+  --bg: #0f0f1e;          /* Donker navy/charcoal */
+  --surface: #1a1a2e;     /* Donkere purple-bg */
+  --text: #f5f5f5;        /* Helderwit */
+  --muted: #a0a0a0;       /* Zilverwit */
 
-  --accent: #00aa44;      /* Nokia groen */
-  --accent-hover: #00cc55;
-  --accent-text: #003d18;
-  --bordercolor: #808080;
+  --accent: #d946ef;      /* Electric violet/fuchsia */
+  --accent-hover: #e94eff;
+  --accent-text: #f5f5f5;
+  --bordercolor: #404060;
 
-  --overlay: rgba(192, 192, 192, 0.4);
-  --overlay-hover: rgba(170, 170, 170, 0.6);
+  --overlay: rgba(15, 15, 30, 0.4);
+  --overlay-hover: rgba(26, 26, 46, 0.6);
 
   --radius-sm: 0rem;
   --radius-md: 0.25rem;
   --radius-lg: 0.5rem;
 
-  --shadow-sm: 5 4px 12px rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.4);
-  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.5);
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 8px rgba(217, 70, 239, 0.2);
+  --shadow-lg: 0 8px 16px rgba(217, 70, 239, 0.15);
 
   --font-main: "Roboto", sans-serif;
 }
 
 
 body {
-  background: linear-gradient(135deg, #a0a0a0 0%, #808080 100%);
+  background: linear-gradient(135deg, #0f0f1e 0%, #1a1a2e 100%);
   color: var(--text);
   font-family: var(--font-main);
   margin: 0;
@@ -42,10 +42,10 @@ body {
 
 /* Retro beveled button style */
 button, input[type="button"], input[type="submit"] {
-  background: linear-gradient(135deg, #dfdfdf 0%, #a0a0a0 100%);
-  border: 2px outset #fff;
-  border-right-color: #808080;
-  border-bottom-color: #808080;
+  background: linear-gradient(135deg, #2d1b4e 0%, #1a1a2e 100%);
+  border: 2px outset #d946ef;
+  border-right-color: #404060;
+  border-bottom-color: #404060;
   padding: 4px 12px;
   border-radius: var(--radius-md);
   cursor: pointer;
@@ -53,18 +53,18 @@ button, input[type="button"], input[type="submit"] {
   font-weight: bold;
   color: var(--text);
   transition: all 0.05s;
-  box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.8),
-              -1px -1px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 1px 0 rgba(217, 70, 239, 0.3),
+              -1px -1px 0 rgba(0, 0, 0, 0.4);
 }
 
 button:active, input[type="button"]:active, input[type="submit"]:active {
   border-style: inset;
-  border-right-color: #fff;
-  border-bottom-color: #fff;
-  border-left-color: #808080;
-  border-top-color: #808080;
-  box-shadow: inset 1px 1px 0 rgba(0, 0, 0, 0.2),
-              inset -1px -1px 0 rgba(255, 255, 255, 0.8);
+  border-right-color: #404060;
+  border-bottom-color: #404060;
+  border-left-color: #d946ef;
+  border-top-color: #d946ef;
+  box-shadow: inset 1px 1px 0 rgba(217, 70, 239, 0.2),
+              inset -1px -1px 0 rgba(0, 0, 0, 0.4);
 }
 
 button:disabled, input:disabled {
@@ -78,15 +78,15 @@ button:disabled, input:disabled {
   margin-right: auto;
   margin-top: 12px;
   margin-bottom: 12px;
-  background: linear-gradient(135deg, #c0c0c0 0%, #a8a8a8 100%);
-  border: 2px outset #ffffff;
-  border-right-color: #808080;
-  border-bottom-color: #808080;
+  background: linear-gradient(135deg, #1a1a2e 0%, #0f0f1e 100%);
+  border: 2px outset #d946ef;
+  border-right-color: #404060;
+  border-bottom-color: #404060;
   padding: 12px;
-  box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.8),
-              -1px -1px 0 rgba(0, 0, 0, 0.3),
-              inset 1px 1px 0 rgba(255, 255, 255, 0.8),
-              inset -1px -1px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 1px 0 rgba(217, 70, 239, 0.2),
+              -1px -1px 0 rgba(0, 0, 0, 0.5),
+              inset 1px 1px 0 rgba(217, 70, 239, 0.1),
+              inset -1px -1px 0 rgba(0, 0, 0, 0.3);
 }
 
 /* Nokia green accent elements */
@@ -94,8 +94,8 @@ button:disabled, input:disabled {
   display: inline-block;
   font-size: 0.75rem;
   padding: 0.375rem 0.75rem;
-  background: rgba(0, 170, 68, 0.2);
-  color: var(--accent-text);
+  background: rgba(217, 70, 239, 0.15);
+  color: #e94eff;
   border: 1px solid var(--accent);
   border-radius: var(--radius-md);
   font-weight: bold;

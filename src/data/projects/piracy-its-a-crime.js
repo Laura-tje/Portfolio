@@ -10,7 +10,8 @@ export const PiracyItsACrime = {
   ],
   tags: [
     "Unity (C#)",
-    "VR"
+    "VR",
+    "Team Project",
   ],
   projectRole: "Programmeur",
   timeline: "4 weken",

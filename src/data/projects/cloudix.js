@@ -1,9 +1,10 @@
 export const CloudIX = {
   id: "CloudIX",
-  title: "CloudIX",
-  tagline: "Een 3D platformer speedrun gebuild naar verschillende platformen",
-  description: "CloudIX is een 3D platformer speedrun. Het project was gericht op het bouwen van een game die soepel draait op verschillende platformen, waaronder PC, steamdeck en mobiele apparaten. Ik heb veel aandacht besteed aan optimalisatie en platform-specifieke aanpassingen om ervoor te zorgen dat de game een consistente ervaring biedt, ongeacht het apparaat waarop het wordt gespeeld.",
+  title: "Cloud IX",
+  tagline: "Een 3D platformer speedrun geport naar verschillende platformen",
+  description: "Cloud IX is een 3D platformer speedrun. Het project was gericht op het bouwen van een game die soepel draait op verschillende platformen, waaronder PC, steamdeck en mobiele apparaten. Ik heb veel aandacht besteed aan optimalisatie en platform-specifieke aanpassingen om ervoor te zorgen dat de game een consistente ervaring biedt, ongeacht het apparaat waarop het wordt gespeeld.",
   thumbnail: "assets/cloudix/thumbnail.png",
+  banner: "assets/cloudix/banner.png",
   //gameUrl: "https://itch.io/embed-upload/16183616?color=c0c0c0",
   gameWidth: "100%",
   gameAspectRatio: "16 / 9",
@@ -11,7 +12,7 @@ export const CloudIX = {
   screenshots: [],
   tags: [
     "Unity (C#)",
-    "Verschillende platformen",
+    "Porting",
     "3D"
   ],
   projectRole: "Developer",
@@ -24,10 +25,10 @@ export const CloudIX = {
       //code: "void Update()\n{\n    if (Input.GetKey(KeyCode.W))\n        rb.AddForce(transform.up * thrust);\n\n    float rotate = Input.GetAxis(\"Horizontal\");\n    rb.MoveRotation(rb.rotation - rotate * rotateSpeed * Time.deltaTime);\n}"
     },
     {
-      subtitle: "Asteroid Spawner",
-      description: "Asteroïden spawnen in willekeurige groottes, rotaties en snelheid om elke wave uniek te maken. Het spawning systeem gebruikt een sphere-based approach waarbij asteroids altijd buiten het zichtveld verschijnen. Grote asteroids splitsen in kleinere stukken wanneer ze geraakt worden, wat voor dynamische gameplay zorgt.",
+      subtitle: "Android Build",
+      description: "Voor de Android build heb ik de input van de game moeten aanpassen naar touch controls. Ik heb een virtuele joystick geïmplementeerd voor beweging en touch buttons voor acties zoals springen. Daarnaast heb ik de UI aangepast om beter te werken op kleinere schermen en heb ik verschillende optimalisaties doorgevoerd om ervoor te zorgen dat de game soepel draait op een breed scala aan Android-apparaten.",
       image: "https://picsum.photos/seed/e2/1200/800",
-      code: "void SpawnAsteroid()\n{\n    Vector3 pos = Random.onUnitSphere * spawnRadius;\n    float size = Random.Range(0.5f, 2.5f);\n\n    GameObject ast = Instantiate(asteroidPrefab, pos, Random.rotation);\n    ast.transform.localScale = Vector3.one * size;\n\n    Rigidbody rb = ast.GetComponent<Rigidbody>();\n    rb.AddForce(Random.onUnitSphere * Random.Range(5,15), ForceMode.Impulse);\n}"
+      //code: "void SpawnAsteroid()\n{\n    Vector3 pos = Random.onUnitSphere * spawnRadius;\n    float size = Random.Range(0.5f, 2.5f);\n\n    GameObject ast = Instantiate(asteroidPrefab, pos, Random.rotation);\n    ast.transform.localScale = Vector3.one * size;\n\n    Rigidbody rb = ast.GetComponent<Rigidbody>();\n    rb.AddForce(Random.onUnitSphere * Random.Range(5,15), ForceMode.Impulse);\n}"
     }
   ],
   git: "https://github.com/Laura-tje/CloudIX",

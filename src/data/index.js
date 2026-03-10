@@ -3,6 +3,8 @@ import { ColourMadness } from "./projects/colour-madness";
 import { PiracyItsACrime } from "./projects/piracy-its-a-crime";
 import { Tamagotchi } from "./projects/tamagotchi";
 import { Fruitpocalypse } from "./projects/fruitpocalypse";
+import { Chess } from "./projects/chess";
+import { Distractiontracker } from "./projects/distractiontracker";
 //import { Template } from "./projects/template";
 
 export const projects = [
@@ -10,6 +12,8 @@ export const projects = [
   PiracyItsACrime,
   CloudIX,
   Tamagotchi,
-  Fruitpocalypse,
+  //Fruitpocalypse,
+  Chess,
+  Distractiontracker,
   //Template
 ];

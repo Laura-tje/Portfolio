@@ -1,9 +1,12 @@
 export default function ProjectHeader({ project }) {
+  // Use banner if available, fallback to thumbnail
+  const bannerImage = project.banner || project.thumbnail;
+  
   return (
     <div className="relative w-full mb-4 overflow-hidden">
       {/* Banner Image */}
       <img 
-        src={`${import.meta.env.BASE_URL}${project.thumbnail}`}
+        src={`${import.meta.env.BASE_URL}${bannerImage}`}
         alt={project.title} 
         className="w-full h-48 sm:h-120 object-cover" 
       />

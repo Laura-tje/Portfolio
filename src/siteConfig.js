@@ -2,7 +2,11 @@ export const siteConfig = {
   name: "Laura Delissen",
   role: "XR Developer",
   tagline: "Ik bouw interactieve XR-ervaringen die zich natuurlijk en intuïtief aanvoelen.",
-  aboutImage: "https://api.dicebear.com/7.x/notionists/png?seed=portfolio",
+  aboutImage: "assets/aboutme/profilepic1.png",
+  profileImages: [
+    "assets/aboutme/profilepic1.png",
+    "assets/aboutme/vr.jpg",
+  ],
   cv: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
 
   socials: {

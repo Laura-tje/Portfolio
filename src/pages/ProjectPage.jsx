@@ -1,4 +1,5 @@
 import { useParams } from "react-router-dom";
+import { useEffect } from "react";
 import { projects } from "../data/index";
 import ProjectHeader from "../components/projects/ProjectHeader";
 import ProjectInfo from "../components/projects/ProjectInfo";
@@ -9,6 +10,12 @@ import ProjectPrevNext from "../components/projects/ProjectPrevNext";
 
 export default function ProjectPage() {
   const { projectId } = useParams();
+  
+  // Scroll to top when project changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [projectId]);
+  
   const project = projects.find(p => p.id === projectId);
 
   if (!project) {
@@ -20,17 +27,40 @@ export default function ProjectPage() {
   }
 
   const currentIndex = projects.findIndex(p => p.id === projectId);
-  const previousIndex = currentIndex > 0 ? currentIndex - 1 : projects.length - 1;
-  const nextIndex = currentIndex < projects.length - 1 ? currentIndex + 1 : 0;
+  
+  // Find next enabled project
+  let nextIndex = currentIndex;
+  let nextFound = false;
+  for (let i = 1; i < projects.length; i++) {
+    const idx = (currentIndex + i) % projects.length;
+    if (!projects[idx].disabled) {
+      nextIndex = idx;
+      nextFound = true;
+      break;
+    }
+  }
+  
+  // Find previous enabled project
+  let previousIndex = currentIndex;
+  let previousFound = false;
+  for (let i = 1; i < projects.length; i++) {
+    const idx = (currentIndex - i + projects.length) % projects.length;
+    if (!projects[idx].disabled) {
+      previousIndex = idx;
+      previousFound = true;
+      break;
+    }
+  }
 
-  const previousProject = { 
+  const previousProject = previousFound ? { 
     title: projects[previousIndex].title, 
     url: `/projects/${projects[previousIndex].id}` 
-  };
-  const nextProject = { 
+  } : null;
+  
+  const nextProject = nextFound ? { 
     title: projects[nextIndex].title, 
     url: `/projects/${projects[nextIndex].id}` 
-  };
+  } : null;
 
   return (
     <div>

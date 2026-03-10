@@ -1,23 +1,30 @@
 import { Link } from "react-router-dom";
 
 export default function ProjectCard({ project }) {
-  return (
-    <Link
-      to={`/projects/${project.id}`}
-      className="group block bg-(--surface) rounded-lg overflow-hidden border border-(--bordercolor) hover:border-(--accent) transition-all duration-300">
-
+  const isDisabled = project.disabled;
+  
+  const cardContent = (
+    <>
       {/* Thumbnail met overlay */}
       <div className="relative aspect-video overflow-hidden">
-        <img src={`${import.meta.env.BASE_URL}${project.thumbnail}`} alt={project.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"/>
+        <img src={`${import.meta.env.BASE_URL}${project.thumbnail}`} alt={project.title} className={`w-full h-full object-cover ${!isDisabled ? 'group-hover:scale-105' : 'opacity-50'} transition-transform duration-300`}/>
+        {/* Status badge */}
+        {isDisabled && (
+          <div className="absolute inset-0 flex items-center justify-center bg-black/40">
+            <span className="text-white font-semibold text-center px-4">Werk in uitvoering</span>
+          </div>
+        )}
         {/* Hover overlay */}
-        <div className="absolute inset-0 bg-(--overlay) opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-          <span className="text-(--text) font-semibold">Bekijk Project →</span>
-        </div>
+        {!isDisabled && (
+          <div className="absolute inset-0 bg-(--overlay) opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+            <span className="text-(--text) font-semibold">Bekijk Project →</span>
+          </div>
+        )}
       </div>
 
       {/* Content */}
-      <div className="p-4">
-        <h3 className="text-lg font-semibold text-(--text) mb-1 group-hover:text-(--accent) transition-colors">{project.title}</h3>
+      <div className={`p-4 ${isDisabled ? 'opacity-60' : ''}`}>
+        <h3 className={`text-lg font-semibold ${isDisabled ? 'text-(--muted)' : 'text-(--text) group-hover:text-(--accent)'} mb-1 transition-colors`}>{project.title}</h3>
         <p className="text-sm text-(--muted) line-clamp-2">{project.tagline}</p>
 
         {/* Tags */}
@@ -29,6 +36,24 @@ export default function ProjectCard({ project }) {
           ))}
         </div>
       </div>
+    </>
+  );
+
+  const baseClasses = "group block bg-(--surface) rounded-lg overflow-hidden border transition-all duration-300";
+  const baseClasses2 = isDisabled 
+    ? `${baseClasses} border-(--bordercolor) opacity-75 cursor-not-allowed` 
+    : `${baseClasses} border-(--bordercolor) hover:border-(--accent)`;
+
+  return isDisabled ? (
+    <div className={baseClasses2}>
+      {cardContent}
+    </div>
+  ) : (
+    <Link
+      to={`/projects/${project.id}`}
+      className={baseClasses2}
+    >
+      {cardContent}
     </Link>
   );
 }

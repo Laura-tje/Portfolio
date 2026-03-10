@@ -11,6 +11,7 @@ export const ColourMadness = {
   tags: [
     "Unity (C#)",
     "MR",
+    "Team Project",
   ],
   projectRole: "Developer",
   timeline: "3 weken",
