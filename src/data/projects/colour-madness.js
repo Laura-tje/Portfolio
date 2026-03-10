@@ -6,9 +6,7 @@ export const ColourMadness = {
   thumbnail: "assets/colourmadness/thumbnail.png",
   youtube: "https://www.youtube.com/embed/dQw4w9WgXcQ",
   screenshots: [
-    "https://picsum.photos/seed/xr1/1200/800",
-    "https://picsum.photos/seed/xr2/1200/800",
-    "https://picsum.photos/seed/xr3/1200/800"
+
   ],
   tags: [
     "Unity (C#)",

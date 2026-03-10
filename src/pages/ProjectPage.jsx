@@ -37,7 +37,7 @@ export default function ProjectPage() {
       <ProjectHeader project={project} />
       <ProjectInfo project={project} />
       <ProjectMechanics project={project} />
-      {project.screenshots && project.screenshots.length > 0 && <ProjectGallery project={project} />}
+      {(project.youtube || (project.screenshots && project.screenshots.length > 0)) && <ProjectGallery project={project} />}
       {project.gameUrl && (
         <div className="container mx-auto px-4 mt-12">
           <h2 className="text-3xl font-bold mb-6">Preview</h2>

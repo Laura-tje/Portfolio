@@ -1,13 +1,13 @@
 export const CloudIX = {
   id: "CloudIX",
   title: "CloudIX",
-  tagline: "Een 3D platformer gebuild naar verschillende platformen",
-  description: "Asteroids 3D is een moderne remake van de klassieke arcade game. Het doel was om physics-based movement te combineren met een minimalistische sci-fi stijl. Door veel playtesting vond ik de perfecte balans tussen thrust force, rotation speed en projectile velocity.\n\nTijdens het project focuste ik op iteratief werken en het snel ontwikkelen van speelbare prototypes. Daarbij heb ik veel geleerd over component-based architecture, het gebruik van ScriptableObjects voor game balancing en het implementeren van object pooling voor betere performance.",
+  tagline: "Een 3D platformer speedrun gebuild naar verschillende platformen",
+  description: "CloudIX is een 3D platformer speedrun. Het project was gericht op het bouwen van een game die soepel draait op verschillende platformen, waaronder PC, steamdeck en mobiele apparaten. Ik heb veel aandacht besteed aan optimalisatie en platform-specifieke aanpassingen om ervoor te zorgen dat de game een consistente ervaring biedt, ongeacht het apparaat waarop het wordt gespeeld.",
   thumbnail: "assets/cloudix/thumbnail.png",
-  gameUrl: "https://itch.io/embed-upload/16183616?color=c0c0c0",
+  //gameUrl: "https://itch.io/embed-upload/16183616?color=c0c0c0",
   gameWidth: "100%",
   gameAspectRatio: "16 / 9",
-  youtube: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+  youtube: "https://www.youtube.com/embed/Erl9RNMznnE",
   screenshots: [],
   tags: [
     "Unity (C#)",
@@ -19,9 +19,9 @@ export const CloudIX = {
   mechanics: [
     {
       subtitle: "SteamDeck Build",
-      description: "De speler gebruikt thrust-based movement en smooth rotation, net als klassieke arcade shooters. In plaats van directe positie updates werkt alles met physics forces, wat zorgt voor natuurlijk momentum en inertia. Ook implementeerde ik screen-wrap waarbij je aan de ene kant verdwijnt en aan de andere kant verschijnt.",
-      image: "https://picsum.photos/seed/e1/1200/800",
-      code: "void Update()\n{\n    if (Input.GetKey(KeyCode.W))\n        rb.AddForce(transform.up * thrust);\n\n    float rotate = Input.GetAxis(\"Horizontal\");\n    rb.MoveRotation(rb.rotation - rotate * rotateSpeed * Time.deltaTime);\n}"
+      description: "De SteamDeck build vereiste specifieke optimalisaties om soepel te draaien op de hardware. Ik heb gebruik gemaakt van Unity's Profiler om bottlenecks te identificeren en heb verschillende technieken toegepast, zoals occlusion culling, level of detail (LOD) systemen en het optimaliseren van shaders. Daarnaast heb ik de controls aangepast voor een betere ervaring op de SteamDeck, waarbij ik rekening hield met de unieke inputmogelijkheden van het apparaat.",
+      gif: "assets/cloudix/SteamDeckBuild.gif",
+      //code: "void Update()\n{\n    if (Input.GetKey(KeyCode.W))\n        rb.AddForce(transform.up * thrust);\n\n    float rotate = Input.GetAxis(\"Horizontal\");\n    rb.MoveRotation(rb.rotation - rotate * rotateSpeed * Time.deltaTime);\n}"
     },
     {
       subtitle: "Asteroid Spawner",
