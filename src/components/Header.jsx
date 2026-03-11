@@ -23,22 +23,22 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 bg-(--surface) border-b border-(--bordercolor)">
-      <nav className="container mx-auto px-4 h-16 flex items-center justify-between">
+      <nav className="container mx-auto px-4 py-3 md:py-0 md:h-16 flex items-center justify-between gap-2 md:gap-6">
         {/* Logo / Site naam */}
         <Link 
           to="/" 
           onClick={scrollToTop}
-          className="text-xl font-bold text-(--accent) hover:opacity-80 transition-opacity"
+          className="text-lg md:text-xl font-bold text-(--accent) hover:opacity-80 transition-opacity shrink-0"
         >
           Portfolio
         </Link>
 
         {/* Navigatie links */}
-        <div className="flex gap-6 items-center">
+        <div className="flex gap-2 md:gap-6 items-center flex-1 md:flex-none justify-end md:justify-start">
           <Link
             to="/"
             onClick={scrollToTop}
-            className={`transition-colors ${
+            className={`text-sm md:text-lg transition-colors ${
               isActive("/") 
                 ? "text-(--accent) font-semibold" 
                 : "text-(--muted) hover:text-(--text)"
@@ -50,7 +50,7 @@ export default function Header() {
           <Link
             to="/about"
             onClick={scrollToTop}
-            className={`transition-colors ${
+            className={`text-sm md:text-lg transition-colors whitespace-nowrap ${
               isActive("/about") 
                 ? "text-(--accent) font-semibold" 
                 : "text-(--muted) hover:text-(--text)"
@@ -62,7 +62,7 @@ export default function Header() {
           <Link
             to="/contact"
             onClick={scrollToTop}
-            className={`transition-colors ${
+            className={`text-sm md:text-lg transition-colors ${
               isActive("/contact") 
                 ? "text-(--accent) font-semibold" 
                 : "text-(--muted) hover:text-(--text)"
@@ -71,7 +71,7 @@ export default function Header() {
             {t("contact")}
           </Link>
 
-          <div className="border-l border-(--bordercolor) h-6" />
+          <div className="hidden md:block border-l border-(--bordercolor) h-6" />
           <LanguageSwitcher />
         </div>
       </nav>
