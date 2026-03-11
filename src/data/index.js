@@ -12,7 +12,7 @@ export const projects = [
   PiracyItsACrime,
   CloudIX,
   Tamagotchi,
-  Fruitpocalypse,
+  //Fruitpocalypse,
   Chess,
   Distractiontracker,
   //Template
