@@ -100,13 +100,13 @@ export default function Home() {
                   to="/contact"
                   className="px-8 py-4 bg-(--surface) border-2 border-(--accent) text-(--text) font-bold rounded-lg hover:border-(--accent-hover) transition-all"
                 >
-                  Neem contact op
+                  {language === "nl" ? "Neem contact op" : "Get in touch"}
                 </Link>
               </div>
 
               {/* Socials */}
               <div className="pt-8 border-t border-(--bordercolor)">
-                <p className="text-sm text-(--muted) uppercase tracking-wider mb-4">Vind mij op</p>
+                <p className="text-sm text-(--muted) uppercase tracking-wider mb-4">{language === "nl" ? "Vind mij op" : "Find me on"}</p>
                 <div className="flex gap-4">
                   {siteConfig.socials.github && (
                     <a href={siteConfig.socials.github} target="_blank" rel="noopener noreferrer" 
