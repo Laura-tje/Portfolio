@@ -28,6 +28,17 @@
   --font-main: "Roboto", sans-serif;
 }
 
+@keyframes card-hover-lift {
+  0% {
+    transform: translateY(0) scale(1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  }
+  100% {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(180, 114, 255, 0.3), 0 0 20px rgba(6, 255, 255, 0.15);
+  }
+}
+
 @keyframes glow-around {
   0% {
     left: 0;
@@ -73,6 +84,8 @@
     bottom: 0;
   }
 }
+
+
 
 html, body {
   width: 100%;

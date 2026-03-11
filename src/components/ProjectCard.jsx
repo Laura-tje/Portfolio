@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 
 export default function ProjectCard({ project }) {
-  const [isHovering, setIsHovering] = useState(false);
+  const [isCardHovering, setIsCardHovering] = useState(false);
   const isDisabled = project.disabled;
   
   const cardContent = (
@@ -10,10 +10,8 @@ export default function ProjectCard({ project }) {
       {/* Thumbnail met overlay */}
       <div 
         className="relative aspect-video overflow-hidden"
-        onMouseEnter={() => setIsHovering(true)}
-        onMouseLeave={() => setIsHovering(false)}
       >
-        {isHovering && project.gif ? (
+        {isCardHovering && project.gif ? (
           <img src={`${import.meta.env.BASE_URL}${project.gif}`} alt={project.title} className="w-full h-full object-cover" />
         ) : (
           <img src={`${import.meta.env.BASE_URL}${project.thumbnail}`} alt={project.title} className={`w-full h-full object-cover ${!isDisabled ? 'group-hover:scale-105' : 'opacity-50'} transition-transform duration-300`}/>
@@ -50,6 +48,10 @@ export default function ProjectCard({ project }) {
   );
 
   const baseClasses = "group block bg-(--surface) rounded-lg overflow-hidden border transition-all duration-300";
+  const hoverStyle = !isDisabled && isCardHovering ? {
+    animation: 'card-hover-lift 300ms ease-out forwards'
+  } : {};
+  
   const baseClasses2 = isDisabled 
     ? `${baseClasses} border-(--bordercolor) opacity-75 cursor-not-allowed` 
     : `${baseClasses} border-(--bordercolor) hover:border-(--accent)`;
@@ -62,6 +64,9 @@ export default function ProjectCard({ project }) {
     <Link
       to={`/projects/${project.id}`}
       className={baseClasses2}
+      onMouseEnter={() => setIsCardHovering(true)}
+      onMouseLeave={() => setIsCardHovering(false)}
+      style={hoverStyle}
     >
       {cardContent}
     </Link>
