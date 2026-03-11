@@ -19,7 +19,7 @@ export default function ProjectCard({ project }) {
         {/* Status badge */}
         {isDisabled && (
           <div className="absolute inset-0 flex items-center justify-center bg-black/40">
-            <span className="text-white font-semibold text-center px-4">Werk in uitvoering</span>
+            <span className="text-white font-semibold text-center px-4">In ontwikkeling</span>
           </div>
         )}
         {/* Hover overlay */}

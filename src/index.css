@@ -162,8 +162,8 @@ button:disabled, input:disabled {
   margin-bottom: 12px;
   background: linear-gradient(135deg, #1a1a2e 0%, #0f0f1e 100%);
   border: 2px outset #b472ff;
-  border-right-color: #404060;
-  border-bottom-color: #404060;
+  /* border-right-color: #404060;
+  border-bottom-color: #404060; */
   padding: 12px;
   box-shadow: 1px 1px 0 rgba(180, 114, 255, 0.3),
               -1px -1px 0 rgba(0, 0, 0, 0.5),

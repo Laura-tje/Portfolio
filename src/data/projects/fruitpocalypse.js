@@ -1,17 +1,17 @@
 export const Fruitpocalypse = {
   id: "fruitpocalypse",
   title: "Fruitpocalypse",
-  tagline: "Dit is een template project beschrijving.",
-  description: "Dikke vette template",
+  disabled: true,
+  tagline: "Een VR supermarkt simulatie.",
+  description: "Fruitpocalypse is een 3D VR supermarkt simulatie. De speler navigeert door de supermarkt met een winkelmand of winkelwagen ",
   thumbnail: "assets/fruitpocalypse/thumbnail.png",
   gif: "assets/fruitpocalypse/checkout2.gif",
   youtube: "",
-  screenshots: [
-  ],
+  screenshots: [],
   tags: [
     "Unity (C#)",
     "3D",
-    "Physics"
+    "VR",
   ],
   projectRole: "Developer",
   timeline: "2 weken",
