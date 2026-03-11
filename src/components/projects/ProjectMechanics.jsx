@@ -1,7 +1,10 @@
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { useState } from "react";
 
 export default function ProjectMechanics({ project }) {
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+
   if (!project.mechanics || project.mechanics.length === 0) {
     return null;
   }
@@ -50,7 +53,11 @@ export default function ProjectMechanics({ project }) {
                 </div>
 
                 {/* Media */}
-                <div className="w-full h-60 rounded-lg overflow-hidden">
+                <div 
+                  className="w-full h-60 rounded-lg overflow-hidden relative"
+                  onMouseEnter={() => setHoveredIndex(i)}
+                  onMouseLeave={() => setHoveredIndex(null)}
+                >
                   {m.youtube && (
                     <iframe
                       src={m.youtube}
@@ -61,7 +68,24 @@ export default function ProjectMechanics({ project }) {
                     />
                   )}
                 
-                  {!m.youtube && m.gif && (
+                  {!m.youtube && m.gif && m.image && (
+                    <>
+                      <img
+                        src={`${import.meta.env.BASE_URL}${m.image}`}
+                        alt={m.subtitle}
+                        className="absolute w-full h-full object-contain rounded-lg transition-opacity"
+                        style={{ opacity: hoveredIndex === i ? 0 : 1 }}
+                      />
+                      <img
+                        src={`${import.meta.env.BASE_URL}${m.gif}`}
+                        alt={m.subtitle}
+                        className="w-full h-full object-contain rounded-lg transition-opacity"
+                        style={{ opacity: hoveredIndex === i ? 1 : 0 }}
+                      />
+                    </>
+                  )}
+                
+                  {!m.youtube && m.gif && !m.image && (
                     <img
                       src={`${import.meta.env.BASE_URL}${m.gif}`}
                       alt={m.subtitle}
@@ -92,7 +116,11 @@ export default function ProjectMechanics({ project }) {
               </div>
 
               {/* Media */}
-              <div className="w-full h-60 rounded-lg overflow-hidden">
+              <div 
+                className="w-full h-60 rounded-lg overflow-hidden relative"
+                onMouseEnter={() => setHoveredIndex(i)}
+                onMouseLeave={() => setHoveredIndex(null)}
+              >
                 {m.youtube && (
                   <iframe
                     src={m.youtube}
@@ -103,7 +131,24 @@ export default function ProjectMechanics({ project }) {
                   />
                 )}
               
-                {!m.youtube && m.gif && (
+                {!m.youtube && m.gif && m.image && (
+                  <>
+                    <img
+                      src={`${import.meta.env.BASE_URL}${m.image}`}
+                      alt={m.subtitle}
+                      className="absolute w-full h-full object-contain rounded-lg transition-opacity"
+                      style={{ opacity: hoveredIndex === i ? 0 : 1 }}
+                    />
+                    <img
+                      src={`${import.meta.env.BASE_URL}${m.gif}`}
+                      alt={m.subtitle}
+                      className="w-full h-full object-contain rounded-lg transition-opacity"
+                      style={{ opacity: hoveredIndex === i ? 1 : 0 }}
+                    />
+                  </>
+                )}
+              
+                {!m.youtube && m.gif && !m.image && (
                   <img
                     src={`${import.meta.env.BASE_URL}${m.gif}`}
                     alt={m.subtitle}
