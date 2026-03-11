@@ -1,7 +1,12 @@
 import { Link, useLocation } from "react-router-dom";
+import { useContext } from "react";
+import { LanguageContext } from "../contexts/LanguageContext";
+import { LanguageSwitcher } from "./LanguageSwitcher";
+import { usePageTranslations } from "../hooks/useTranslations";
 
 export default function Header() {
   const location = useLocation();
+  const { t } = usePageTranslations("navigation");
 
   //Helper functie om te checken of een link actief is
   const isActive = (path) => {
@@ -29,7 +34,7 @@ export default function Header() {
         </Link>
 
         {/* Navigatie links */}
-        <div className="flex gap-6">
+        <div className="flex gap-6 items-center">
           <Link
             to="/"
             onClick={scrollToTop}
@@ -39,7 +44,7 @@ export default function Header() {
                 : "text-(--muted) hover:text-(--text)"
             }`}
           >
-            Projects
+            {t("projects")}
           </Link>
 
           <Link
@@ -51,7 +56,7 @@ export default function Header() {
                 : "text-(--muted) hover:text-(--text)"
             }`}
           >
-            Over Mij
+            {t("about")}
           </Link>
 
           <Link
@@ -63,8 +68,11 @@ export default function Header() {
                 : "text-(--muted) hover:text-(--text)"
             }`}
           >
-            Contact
+            {t("contact")}
           </Link>
+
+          <div className="border-l border-(--bordercolor) h-6" />
+          <LanguageSwitcher />
         </div>
       </nav>
     </header>

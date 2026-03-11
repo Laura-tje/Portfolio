@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useContext } from "react";
 import { projects } from "../data/index";
 import ProjectHeader from "../components/projects/ProjectHeader";
 import ProjectInfo from "../components/projects/ProjectInfo";
@@ -7,24 +7,30 @@ import ProjectGallery from "../components/projects/ProjectGallery";
 import GamePreview from "../components/projects/GamePreview";
 import ProjectMechanics from "../components/projects/ProjectMechanics";
 import ProjectPrevNext from "../components/projects/ProjectPrevNext";
+import { LanguageContext } from "../contexts/LanguageContext";
 
 export default function ProjectPage() {
   const { projectId } = useParams();
+  const { language } = useContext(LanguageContext);
   
   // Scroll to top when project changes
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [projectId]);
   
-  const project = projects.find(p => p.id === projectId);
-
-  if (!project) {
+  const baseProject = projects.find(p => p.id === projectId);
+  
+  if (!baseProject) {
     return (
       <div className="container mx-auto px-4 py-12 text-center">
-        Project niet gevonden
+        {language === 'nl' ? 'Project niet gevonden' : 'Project not found'}
       </div>
     );
   }
+
+  // Merge base project data with language-specific data
+  const projectContent = baseProject[language] || baseProject.nl;
+  const project = { ...baseProject, ...projectContent };
 
   const currentIndex = projects.findIndex(p => p.id === projectId);
   
@@ -53,12 +59,12 @@ export default function ProjectPage() {
   }
 
   const previousProject = previousFound ? { 
-    title: projects[previousIndex].title, 
+    title: projects[previousIndex][language]?.title || projects[previousIndex].nl.title, 
     url: `/projects/${projects[previousIndex].id}` 
   } : null;
   
   const nextProject = nextFound ? { 
-    title: projects[nextIndex].title, 
+    title: projects[nextIndex][language]?.title || projects[nextIndex].nl.title, 
     url: `/projects/${projects[nextIndex].id}` 
   } : null;
 

@@ -1,9 +1,11 @@
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { LanguageContext } from "../../contexts/LanguageContext";
 
 export default function ProjectMechanics({ project }) {
   const [hoveredIndex, setHoveredIndex] = useState(null);
+  const { language } = useContext(LanguageContext);
 
   if (!project.mechanics || project.mechanics.length === 0) {
     return null;

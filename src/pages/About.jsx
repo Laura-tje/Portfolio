@@ -1,9 +1,13 @@
 import { siteConfig } from "../siteConfig";
 import { Download, Users, Tech } from "../components/icons/icons.jsx";
+import { useContext } from "react";
+import { LanguageContext } from "../contexts/LanguageContext";
 
 export default function About() {
+  const { language } = useContext(LanguageContext);
   // Split de about tekst in paragrafen
-  const paragraphs = siteConfig.aboutLong
+  const aboutText = siteConfig[language]?.aboutLong || siteConfig.nl.aboutLong;
+  const paragraphs = aboutText
     .split("\n\n")
     .map((p) => p.trim())
     .filter(Boolean);
@@ -11,8 +15,8 @@ export default function About() {
   return (
     <div className="py-12 px-4">
       <div className="text-center mb-12">
-        <h1 className="text-5xl font-bold text-(--text) mb-4">Over mij</h1>
-        <p className="text-xl text-(--muted) max-w-2xl mx-auto">{siteConfig.tagline}</p>
+        <h1 className="text-5xl font-bold text-(--text) mb-4">{language === "nl" ? "Over mij" : "About Me"}</h1>
+        <p className="text-xl text-(--muted) max-w-2xl mx-auto">{siteConfig[language]?.tagline || siteConfig.nl.tagline}</p>
       </div>
 
       <div className="container mx-auto max-w-5xl">
@@ -47,7 +51,7 @@ export default function About() {
                            px-4 py-3 bg-(--accent) text-(--accent-text) rounded-lg 
                            font-semibold hover:bg-(--accent-hover) transition-colors">
                 <Download className="w-5 h-5" />
-                Download CV
+                {language === "nl" ? "Download CV" : "Download CV"}
               </a>
             </div>
           </div>
@@ -56,7 +60,7 @@ export default function About() {
           <div className="flex flex-col gap-8 lg:flex-2">
             {/* Bio */}
             <section className="bg-(--surface) border border-(--bordercolor) rounded-lg p-8">
-              <h2 className="text-2xl font-semibold text-(--text) mb-6">Mijn Verhaal</h2>
+              <h2 className="text-2xl font-semibold text-(--text) mb-6">{language === "nl" ? "Mijn Verhaal" : "My Story"}</h2>
               <div className="space-y-4">
                 {paragraphs.map((text, i) => (
                   <p key={i} className="text-(--muted) leading-relaxed">
@@ -72,10 +76,10 @@ export default function About() {
               <section className="bg-(--surface) border border-(--bordercolor) rounded-lg p-6 flex flex-col">
                 <h3 className="text-lg font-semibold text-(--text) mb-4 flex items-center gap-2">
                   <Users className="w-5 h-5 text-(--accent)" />
-                  Soft Skills
+                  {language === "nl" ? "Soft Skills" : "Soft Skills"}
                 </h3>
                 <ul className="space-y-2">
-                  {siteConfig.softSkills.map((skill) => (
+                  {(siteConfig[language]?.softSkills || siteConfig.nl.softSkills).map((skill) => (
                     <li key={skill} className="flex items-start gap-2 text-(--muted)">
                       <span className="text-(--accent) mt-1">•</span>
                       <span>{skill}</span>
@@ -88,10 +92,10 @@ export default function About() {
               <section className="bg-(--surface) border border-(--bordercolor) rounded-lg p-6 flex flex-col">
                 <h3 className="text-lg font-semibold text-(--text) mb-4 flex items-center gap-2">
                   <Tech className="w-5 h-5 text-(--accent)" />
-                  Hard Skills
+                  {language === "nl" ? "Hard Skills" : "Hard Skills"}
                 </h3>
                 <ul className="space-y-2">
-                  {siteConfig.hardSkills.map((skill) => (
+                  {(siteConfig[language]?.hardSkills || siteConfig.nl.hardSkills).map((skill) => (
                     <li key={skill} className="flex items-start gap-2 text-(--muted)">
                       <span className="text-(--accent) mt-1">•</span>
                       <span>{skill}</span>

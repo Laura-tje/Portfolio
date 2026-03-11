@@ -3,10 +3,12 @@ import { Link } from "react-router-dom";
 import ProjectCard from "../components/ProjectCard";
 import { projects } from "../data/index";
 import { GitHub, LinkedIn, Itch, Envelope } from "../components/icons/icons";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { LanguageContext } from "../contexts/LanguageContext";
 
 export default function Home() {
   const [isHovering, setIsHovering] = useState(false);
+  const { language } = useContext(LanguageContext);
 
   const handleImageHover = () => {
     setIsHovering(true);
@@ -74,16 +76,16 @@ export default function Home() {
             {/* RIGHT: Text & CTA */}
             <div className="space-y-8 order-2 lg:order-2">
               <div>
-                <p className="text-lg text-(--accent) font-medium mb-2 uppercase tracking-widest">Welkom 👋</p>
+                <p className="text-lg text-(--accent) font-medium mb-2 uppercase tracking-widest">{language === "nl" ? "Welkom 👋" : "Welcome 👋"}</p>
                 <h1 className="text-6xl lg:text-7xl font-bold text-(--text) mb-4">
-                  Hey, ik ben <span className="text-(--accent)">Laura</span>
+                  {language === "nl" ? "Hey, ik ben" : "Hey, I'm"} <span className="text-(--accent)">Laura</span>
                 </h1>
                 <p className="text-xl text-(--accent) font-medium mb-6">{siteConfig.role}</p>
               </div>
 
               {/* Tagline met meer punch */}
               <p className="text-lg text-(--muted) leading-relaxed max-w-lg">
-                {siteConfig.tagline}
+                {siteConfig[language]?.tagline || siteConfig.nl.tagline}
               </p>
 
               {/* CTA Buttons */}
@@ -92,7 +94,7 @@ export default function Home() {
                   onClick={handleScrollToProjects}
                   className="px-8 py-4 bg-(--accent) text-(--accent-text) font-bold rounded-lg hover:bg-(--accent-hover) transition-all shadow-lg hover:shadow-xl transform hover:scale-105 cursor-pointer"
                 >
-                  Bekijk mijn werk
+                  {language === "nl" ? "Bekijk mijn werk" : "View my work"}
                 </button>
                 <Link 
                   to="/contact"
@@ -135,7 +137,7 @@ export default function Home() {
       {/* Projecten Section */}
       <section id="projects" className="py-16 px-4">
         <div className="container mx-auto">
-          <h2 className="text-3xl font-bold text-(--text) mb-8 text-center">Mijn Projecten</h2>
+          <h2 className="text-3xl font-bold text-(--text) mb-8 text-center">{language === "nl" ? "Mijn Projecten" : "My Projects"}</h2>
 
           {/* Grid met ProjectCards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

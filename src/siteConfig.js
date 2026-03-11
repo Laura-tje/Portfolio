@@ -1,7 +1,6 @@
 export const siteConfig = {
   name: "Laura Delissen",
   role: "XR Developer",
-  tagline: "Ik bouw interactieve XR-ervaringen die zich natuurlijk en intuïtief aanvoelen.",
   aboutImage: "assets/aboutme/profilepic1.png",
   profileImages: [
     "assets/aboutme/profilepic1.png",
@@ -16,18 +15,28 @@ export const siteConfig = {
     itch: "https://laura-tje.itch.io"
   },
 
-  aboutLong: `
-    Ik ben een XR Developer die energie krijgt van het bouwen van interactieve, 
-    fysieke en intuïtieve ervaringen in VR en AR. Voor mij draait goede XR niet 
-    alleen om technologie, maar vooral om hoe gebruikers een digitale wereld 
-    *voelen*. Ik werk graag iteratief met prototypes: snel testen, verbeteren en 
-    opnieuw testen — net zo lang tot interacties natuurlijk en prettig aanvoelen.
+  nl: {
+    tagline: "Ik bouw interactieve XR-ervaringen die zich natuurlijk en intuïtief aanvoelen.",
+    aboutLong: `
+      Ik ben een XR Developer die energie krijgt van het bouwen van interactieve, 
+      fysieke en intuïtieve ervaringen in VR en AR. Voor mij draait goede XR niet 
+      alleen om technologie, maar vooral om hoe gebruikers een digitale wereld 
+      *voelen*. Ik werk graag iteratief met prototypes: snel testen, verbeteren en 
+      opnieuw testen — net zo lang tot interacties natuurlijk en prettig aanvoelen.
 
-    Ik ga deze tekst aanpassen en een stuk persoonlijker maken door ook iets leuks
-    over mijzelf te vertellen!
-  `,
+      Ik ga deze tekst aanpassen en een stuk persoonlijker maken door ook iets leuks
+      over mijzelf te vertellen!
+    `,
+    softSkills: ["Samenwerken met artists", "Feedback geven & ontvangen", "Probleemoplossend denken"],
+    hardSkills: ["Unity & XR Interaction Toolkit", "C# Scripting", "Git & Version Control"],
+  },
 
-  softSkills: ["Samenwerken met artists", "Feedback geven & ontvangen", "Probleemoplossend denken"],
-
-  hardSkills: ["Unity & XR Interaction Toolkit", "C# Scripting", "Git & Version Control"],
+  en: {
+    tagline: "VOEG ENGELSE TAGLINE IN",
+    aboutLong: `
+      VOEG ENGELSE ABOUT BESCHRIJVING IN
+    `,
+    softSkills: ["VOEG ENGELSE SOFT SKILLS IN"],
+    hardSkills: ["VOEG ENGELSE HARD SKILLS IN"],
+  }
 };
