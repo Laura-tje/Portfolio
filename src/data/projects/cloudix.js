@@ -3,8 +3,8 @@ export const CloudIX = {
   thumbnail: "assets/cloudix/banner.png",
   gif: "assets/cloudix/SteamDeckBuild.gif",
   banner: "assets/cloudix/banner.png",
-  gameWidth: "100%",
-  gameAspectRatio: "16 / 9",
+  //gameWidth: "100%",
+  //gameAspectRatio: "16 / 9",
   youtube: "https://www.youtube.com/embed/Erl9RNMznnE",
   screenshots: [],
   tags: [
@@ -28,7 +28,7 @@ export const CloudIX = {
                 de controls aanpasten voor elk platform.`,
 
     projectRole: "Developer",
-    timeline: "2 x 3 weken",
+    timeline: "6 weken",
     mechanics: [
       {
         subtitle: "SteamDeck Build",
@@ -63,7 +63,7 @@ export const CloudIX = {
                 platform.`,
 
     projectRole: "Developer",
-    timeline: "2 x 3 weeks",
+    timeline: "6 weeks",
     mechanics: [
       {
         subtitle: "SteamDeck Build",

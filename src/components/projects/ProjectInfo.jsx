@@ -1,13 +1,16 @@
+import { usePageTranslations } from "../../hooks/useTranslations";
 import ProjectGallery from "./ProjectGallery";
 
 export default function ProjectInfo({ project, hasMoreContent = false }) {
+  const { t } = usePageTranslations('projects');
+
   return (
     <div className={`mb-4 ${hasMoreContent ? 'border-b border-(--bordercolor) pb-8' : ''} ml-4 mr-4 mt-8`}>
       {/* Grid layout: 2 columns on desktop, stacks on mobile */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Description - left column */}
         <div className="space-y-3">
-          <h2 className="text-xl font-semibold text-(--text) mb-4">Over dit project</h2>
+          <h2 className="text-xl font-semibold text-(--text) mb-4">{t('aboutThisProject')}</h2>
           {project.description && project.description.split("\n\n").map((text, i) => (
             <p key={i} className="leading-relaxed text-(--muted)">
               {text}
@@ -21,17 +24,17 @@ export default function ProjectInfo({ project, hasMoreContent = false }) {
             <ProjectGallery project={project} />
           ) : (
             <>
-              <h3 className="text-xl font-semibold mb-4 text-(--text) border-b border-(--bordercolor) pb-2">Details</h3>
+              <h3 className="text-xl font-semibold mb-4 text-(--text) border-b border-(--bordercolor) pb-2">{t('details')}</h3>
 
               <ul className="text-sm space-y-2 text-(--muted)">
                 <li className="flex justify-between border-b border-(--bordercolor) pb-1">
-                  <span className="font-medium text-(--text)">Rol</span>
+                  <span className="font-medium text-(--text)">{t('role')}</span>
                   <span>{project.projectRole}</span>
                 </li>
 
                 {project.timeline && (
                   <li className="flex justify-between border-b border-(--bordercolor) pb-1">
-                    <span className="font-medium text-(--text)">Tijdlijn</span>
+                    <span className="font-medium text-(--text)">{t('timeline')}</span>
                     <span>{project.timeline}</span>
                   </li>
                 )}

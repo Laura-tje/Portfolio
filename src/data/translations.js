@@ -50,6 +50,10 @@ export const pageTranslations = {
       nextProject: "Volgende project",
       previous: "Vorige",
       next: "Volgende",
+      aboutThisProject: "Over dit project",
+      details: "Details",
+      role: "Rol",
+      timeline: "Tijdlijn",
     },
     en: {
       backToProjects: "Back to projects",
@@ -57,6 +61,10 @@ export const pageTranslations = {
       nextProject: "Next project",
       previous: "Previous",
       next: "Next",
+      aboutThisProject: "About this project",
+      details: "Details",
+      role: "Role",
+      timeline: "Timeline",
     }
   },
 
