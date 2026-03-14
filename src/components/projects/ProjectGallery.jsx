@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "../icons/icons.jsx";
 
-export default function ProjectGallery({ project }) {
+export default function ProjectGallery({ project, showDetails = false }) {
   const { screenshots, youtube } = project;
 
   // Combineer video (als eerste) en screenshots in één array
@@ -23,11 +23,9 @@ export default function ProjectGallery({ project }) {
   };
 
   return (
-    <div className="mb-4 mx-4">
-      <h2 className="text-xl font-semibold text-(--text)">Gallery</h2>
-
+    <div>
       {slides.length > 0 && (
-        <div className="relative group mt-4">
+        <div className="relative group max-w-2xl">
           {/* Slide Container */}
           <div className="overflow-hidden bg-(--surface) aspect-video">
             {/* Video Slide */}

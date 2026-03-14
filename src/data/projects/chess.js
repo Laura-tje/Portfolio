@@ -1,45 +1,37 @@
 export const Chess = {
   id: "chess",
-  disabled: true,
   thumbnail: "assets/chess/banner3.jpg",
   youtube: "",
-  screenshots: [
-    "https://picsum.photos/seed/a1/1200/800",
-    "https://picsum.photos/seed/a2/1200/800"
-  ],
+  screenshots: [],
   tags: [
     "Server",
     "Multiplayer",
     "Javascript",
   ],
-  git: "https://github.com/fvugt/asteroids-3d",
-  itch: "https://fvugt.itch.io/asteroids-3d",
+  git: "",
+  itch: "",
 
   nl: {
     title: "Chess",
     tagline: "Een multiplayer schaakspel voor in de browser.",
-    description: "Een volledig functioneel schaakspel met soepele gameplay en intuïtieve bediening.",
+    description: `Een multiplayer schaakspel gebouwd met Node.js en Socket.IO. Spelers kunnen tegen 
+                elkaar spelen in realtime, waarbij de server de spelstatus bijhoudt en synchroniseert 
+                tussen clients. Het project omvatte het implementeren van schaakregels, een 
+                gebruikersinterface en netwerkcommunicatie.`,
+
     projectRole: "Developer",
-    timeline: "2 weken",
-    mechanics: [
-      {
-        subtitle: "Movement System",
-        description: "De speler gebruikt thrust-based movement en smooth rotation."
-      }
-    ]
+    timeline: "",
   },
 
   en: {
     title: "Chess",
     tagline: "A multiplayer chess game for the browser.",
-    description: "VOEG ENGELSE BESCHRIJVING IN",
+    description: `A multiplayer chess game built with Node.js and Socket.IO. Players can play against 
+                each other in real-time, with the server managing the game state and synchronizing it 
+                between clients. The project involved implementing chess rules, a user interface, and 
+                network communication.`,
+
     projectRole: "Developer",
-    timeline: "2 weeks",
-    mechanics: [
-      {
-        subtitle: "Movement System",
-        description: "VOEG ENGELSE BESCHRIJVING IN"
-      }
-    ]
+    timeline: "",
   }
 };

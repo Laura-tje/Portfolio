@@ -19,7 +19,7 @@ export const Tamagotchi = {
     mechanics: [
       {
         subtitle: "Bubbles",
-        description: "Een finite state machine voor vijanden die dynamisch schakelt."
+        description: `Een finite state machine voor vijanden die dynamisch schakelt.`
       }
     ]
   },

@@ -3,7 +3,7 @@ import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { useState, useContext } from "react";
 import { LanguageContext } from "../../contexts/LanguageContext";
 
-export default function ProjectMechanics({ project }) {
+export default function ProjectMechanics({ project, hasMoreContent = false }) {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const { language } = useContext(LanguageContext);
 
@@ -12,15 +12,11 @@ export default function ProjectMechanics({ project }) {
   }
 
   return (
-    <div className="mx-4">
-      <h2 className="text-xl font-semibold text-(--text) mb-4">
-        Code Highlights
-      </h2>
-
-      {project.mechanics.map((m, i) => (
+    <div className={`mx-4 mt-12 ${!hasMoreContent ? 'mb-4' : ''}`}>
+      {project.mechanics.map((m, i, arr) => (
         <div
           key={i}
-          className="flex flex-col gap-4 border-b border-(--bordercolor) pb-4 mb-4"
+          className={`flex flex-col gap-4 pb-8 ${i === 0 ? 'pt-0' : 'pt-6'} ${i !== arr.length - 1 ? 'border-b border-(--bordercolor)' : ''}`}
         >
           {m.code ? (
             // With code: title/description on top, code+media below
@@ -36,24 +32,7 @@ export default function ProjectMechanics({ project }) {
               </div>
 
               {/* Code + Media */}
-              <div className="grid gap-4 grid-cols-1 md:grid-cols-[65%_35%]">
-                {/* Code */}
-                <div className="h-60 overflow-auto rounded-lg">
-                  <SyntaxHighlighter
-                    language="csharp"
-                    style={vscDarkPlus}
-                    customStyle={{
-                      margin: 0,
-                      borderRadius: "0.5rem",
-                      fontSize: "0.95rem",
-                      height: "100%",
-                    }}
-                    showLineNumbers
-                  >
-                    {m.code}
-                  </SyntaxHighlighter>
-                </div>
-
+              <div className="grid gap-4 grid-cols-1 md:grid-cols-[35%_65%]">
                 {/* Media */}
                 <div 
                   className="w-full h-60 rounded-lg overflow-hidden relative"
@@ -103,20 +82,28 @@ export default function ProjectMechanics({ project }) {
                     />
                   )}
                 </div>
+
+                {/* Code */}
+                <div className="h-60 overflow-auto rounded-lg">
+                  <SyntaxHighlighter
+                    language="csharp"
+                    style={vscDarkPlus}
+                    customStyle={{
+                      margin: 0,
+                      borderRadius: "0.5rem",
+                      fontSize: "0.95rem",
+                      height: "100%",
+                    }}
+                    showLineNumbers
+                  >
+                    {m.code}
+                  </SyntaxHighlighter>
+                </div>
               </div>
             </>
           ) : (
-            // Without code: title/description left, media right
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-start">
-              <div>
-                <h3 className="text-lg font-semibold mb-2 text-(--text)">
-                  {m.subtitle}
-                </h3>
-                <p className="leading-relaxed text-(--muted)">
-                  {m.description}
-                </p>
-              </div>
-
+            // Without code: media left, title/description right
+            <div className="grid gap-4 grid-cols-1 md:grid-cols-[35%_65%] items-start">
               {/* Media */}
               <div 
                 className="w-full h-60 rounded-lg overflow-hidden relative"
@@ -165,6 +152,15 @@ export default function ProjectMechanics({ project }) {
                     className="w-full h-full object-contain rounded-lg"
                   />
                 )}
+              </div>
+
+              <div>
+                <h3 className="text-lg font-semibold mb-2 text-(--text)">
+                  {m.subtitle}
+                </h3>
+                <p className="leading-relaxed text-(--muted)">
+                  {m.description}
+                </p>
               </div>
             </div>
           )}

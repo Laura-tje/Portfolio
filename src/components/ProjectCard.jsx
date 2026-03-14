@@ -2,10 +2,9 @@ import { Link } from "react-router-dom";
 import { useState, useContext } from "react";
 import { LanguageContext } from "../contexts/LanguageContext";
 
-export default function ProjectCard({ project }) {
+export default function ProjectCard({ project, inDevelopment = false }) {
   const [isCardHovering, setIsCardHovering] = useState(false);
   const { language } = useContext(LanguageContext);
-  const isDisabled = project.disabled;
   
   // Get language-specific content
   const content = project[language] || project.nl;
@@ -19,25 +18,18 @@ export default function ProjectCard({ project }) {
         {isCardHovering && project.gif ? (
           <img src={`${import.meta.env.BASE_URL}${project.gif}`} alt={content.title} className="w-full h-full object-cover" />
         ) : (
-          <img src={`${import.meta.env.BASE_URL}${project.thumbnail}`} alt={content.title} className={`w-full h-full object-cover ${!isDisabled ? 'group-hover:scale-105' : 'opacity-50'} transition-transform duration-300`}/>
-        )}
-        {/* Status badge */}
-        {isDisabled && (
-          <div className="absolute inset-0 flex items-center justify-center bg-black/40">
-            <span className="text-white font-semibold text-center px-4">{language === 'nl' ? 'In ontwikkeling' : 'In development'}</span>
-          </div>
+          <img src={`${import.meta.env.BASE_URL}${project.thumbnail}`} alt={content.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"/>
         )}
         {/* Hover overlay */}
-        {!isDisabled && (
-          <div className="absolute inset-0 bg-(--overlay) opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-            <span className="text-(--text) font-semibold">{language === 'nl' ? 'Bekijk Project' : 'View Project'} →</span>
-          </div>
-        )}
+        <div className="absolute inset-0 bg-(--overlay) opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center gap-0.5">
+          <div className="text-lg text-(--text) font-semibold">{content.projectRole}</div>
+          <div className="text-lg text-(--muted)">{content.timeline}</div>
+        </div>
       </div>
 
       {/* Content */}
-      <div className={`p-4 ${isDisabled ? 'opacity-60' : ''}`}>
-        <h3 className={`text-lg font-semibold ${isDisabled ? 'text-(--muted)' : 'text-(--text) group-hover:text-(--accent)'} mb-1 transition-colors`}>{content.title}</h3>
+      <div className="p-4">
+        <h3 className="text-lg font-semibold text-(--text) group-hover:text-(--accent) mb-1 transition-colors">{content.title}</h3>
         <p className="text-sm text-(--muted) line-clamp-2">{content.tagline}</p>
 
         {/* Tags */}
@@ -53,19 +45,13 @@ export default function ProjectCard({ project }) {
   );
 
   const baseClasses = "group block bg-(--surface) rounded-lg overflow-hidden border transition-all duration-300";
-  const hoverStyle = !isDisabled && isCardHovering ? {
+  const hoverStyle = isCardHovering ? {
     animation: 'card-hover-lift 300ms ease-out forwards'
   } : {};
   
-  const baseClasses2 = isDisabled 
-    ? `${baseClasses} border-(--bordercolor) opacity-75 cursor-not-allowed` 
-    : `${baseClasses} border-(--bordercolor) hover:border-(--accent)`;
+  const baseClasses2 = `${baseClasses} border-(--bordercolor) hover:border-(--accent)`;
 
-  return isDisabled ? (
-    <div className={baseClasses2}>
-      {cardContent}
-    </div>
-  ) : (
+  return (
     <Link
       to={`/projects/${project.id}`}
       className={baseClasses2}

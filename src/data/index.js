@@ -5,6 +5,7 @@ import { Tamagotchi } from "./projects/tamagotchi";
 import { Fruitpocalypse } from "./projects/fruitpocalypse";
 import { Chess } from "./projects/chess";
 import { Distractiontracker } from "./projects/distractiontracker";
+import { ImmersiveInstallation } from "./projects/immersiveinstallation";
 //import { Template } from "./projects/template";
 
 export const projects = [
@@ -12,8 +13,11 @@ export const projects = [
   PiracyItsACrime,
   CloudIX,
   Tamagotchi,
+];
+
+export const inDevelopment = [
   //Fruitpocalypse,
   Chess,
   Distractiontracker,
-  //Template
+  ImmersiveInstallation,
 ];

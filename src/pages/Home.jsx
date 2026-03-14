@@ -1,7 +1,7 @@
 import { siteConfig } from "../siteConfig";
 import { Link } from "react-router-dom";
 import ProjectCard from "../components/ProjectCard";
-import { projects } from "../data/index";
+import { projects, inDevelopment } from "../data/index";
 import { GitHub, LinkedIn, Itch, Envelope } from "../components/icons/icons";
 import { useState, useContext } from "react";
 import { LanguageContext } from "../contexts/LanguageContext";
@@ -147,6 +147,22 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Waaraan ik werk Section */}
+      {inDevelopment.length > 0 && (
+        <section id="developing" className="py-16 px-4 bg-(--surface)">
+          <div className="container mx-auto">
+            <h2 className="text-3xl font-bold text-(--text) mb-8 text-center">{language === "nl" ? "Projecten waar ik aan werk" : "Projects I'm Working On"}</h2>
+
+            {/* Grid met ProjectCards */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {inDevelopment.map((project) => (
+                <ProjectCard key={project.id} project={project} inDevelopment={true} />
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
     </div>
   );
 }
