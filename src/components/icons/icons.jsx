@@ -50,6 +50,14 @@ export function ChevronRight(props) {
   );
 }
 
+export function ChevronDown(props) {
+  return (
+    <svg {...props} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" xmlns="http://www.w3.org/2000/svg">
+      <path d="M6 9l6 6 6-6" />
+    </svg>
+  );
+}
+
 export function Download(props) {
   return (
     <svg
@@ -139,6 +147,7 @@ const icons = {
   ArrowRight,
   ChevronLeft,
   ChevronRight,
+  ChevronDown,
   Download,
   Users,
   Tech,

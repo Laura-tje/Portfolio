@@ -63,7 +63,7 @@ export default function ProjectInfo({ project, hasMoreContent = false }) {
                   )}
                   {project.itch && (
                     <a href={project.itch} target="_blank" rel="noopener noreferrer"
-                       className="px-3 py-2 bg-(--accent) text-(--accent-text) rounded-lg 
+                       className="px-3 py-2 bg-(--accent) text-white rounded-lg 
                                   hover:bg-(--accent-hover) text-sm transition-colors">
                       Itch.io
                     </a>

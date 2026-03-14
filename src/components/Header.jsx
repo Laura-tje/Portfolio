@@ -22,25 +22,25 @@ export default function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-(--surface) border-b border-(--bordercolor)">
-      <nav className="container mx-auto px-4 py-3 md:py-0 md:h-16 flex items-center justify-between gap-2 md:gap-6">
+    <header className="sticky top-0 z-50 bg-(--surface) border-b border-(--bordercolor) backdrop-blur-sm bg-opacity-95">
+      <nav className="container mx-auto px-4 py-4 flex items-center justify-between gap-2 md:gap-8">
         {/* Logo / Site naam */}
         <Link 
           to="/" 
           onClick={scrollToTop}
-          className="text-lg md:text-xl font-bold text-(--accent) hover:opacity-80 transition-opacity shrink-0"
+          className="text-lg md:text-xl font-bold bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent hover:opacity-80 transition-opacity shrink-0"
         >
-          Portfolio
+          Laura
         </Link>
 
         {/* Navigatie links */}
-        <div className="flex gap-2 md:gap-6 items-center flex-1 md:flex-none justify-end md:justify-start">
+        <div className="flex gap-2 md:gap-8 items-center flex-1 md:flex-none justify-end md:justify-start">
           <Link
             to="/"
             onClick={scrollToTop}
-            className={`text-sm md:text-lg transition-colors ${
+            className={`text-sm md:text-base transition-colors font-medium ${
               isActive("/") 
-                ? "text-(--accent) font-semibold" 
+                ? "text-(--accent)" 
                 : "text-(--muted) hover:text-(--text)"
             }`}
           >
@@ -50,9 +50,9 @@ export default function Header() {
           <Link
             to="/about"
             onClick={scrollToTop}
-            className={`text-sm md:text-lg transition-colors whitespace-nowrap ${
+            className={`text-sm md:text-base transition-colors font-medium whitespace-nowrap ${
               isActive("/about") 
-                ? "text-(--accent) font-semibold" 
+                ? "text-(--accent)" 
                 : "text-(--muted) hover:text-(--text)"
             }`}
           >
@@ -62,9 +62,9 @@ export default function Header() {
           <Link
             to="/contact"
             onClick={scrollToTop}
-            className={`text-sm md:text-lg transition-colors ${
+            className={`text-sm md:text-base transition-colors font-medium ${
               isActive("/contact") 
-                ? "text-(--accent) font-semibold" 
+                ? "text-(--accent)" 
                 : "text-(--muted) hover:text-(--text)"
             }`}
           >

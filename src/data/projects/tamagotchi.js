@@ -1,6 +1,7 @@
 export const Tamagotchi = {
   id: "Tamagotchi",
   thumbnail: "assets/tamagotchi/thumbnail.png",
+  gif: "assets/tamagotchi/bubbles.gif",
   gameUrl: "https://laura-tje.github.io/Tamagotchi/",
   screenshots: [],
   tags: [
