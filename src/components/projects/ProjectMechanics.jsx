@@ -35,30 +35,14 @@ export default function ProjectMechanics({ project, hasMoreContent = false }) {
                 </p>
               </div>
 
-              {/* Code + Media */}
-              <div className="grid gap-4 grid-cols-1 md:grid-cols-[65%_35%]">
-                {/* Code */}
-                <div className="h-60 overflow-auto rounded-lg">
-                  <SyntaxHighlighter
-                    language="csharp"
-                    style={vscDarkPlus}
-                    customStyle={{
-                      margin: 0,
-                      borderRadius: "0.5rem",
-                      fontSize: "0.95rem",
-                      height: "100%",
-                    }}
-                    showLineNumbers
-                  >
-                    {m.code}
-                  </SyntaxHighlighter>
-                </div>
-
+              {/* Media + Code */}
+              <div className="grid gap-4 grid-cols-1 md:grid-cols-[35%_65%]">
                 {/* Media */}
                 <div 
                   className="w-full h-60 rounded-lg overflow-hidden relative"
                   onMouseEnter={() => setHoveredIndex(i)}
                   onMouseLeave={() => setHoveredIndex(null)}
+                  style={{ borderRadius: "0.5rem" }}
                 >
                   {m.youtube && (
                     <iframe
@@ -76,13 +60,13 @@ export default function ProjectMechanics({ project, hasMoreContent = false }) {
                         src={`${import.meta.env.BASE_URL}${m.image}`}
                         alt={m.subtitle}
                         className="absolute w-full h-full object-contain rounded-lg transition-opacity"
-                        style={{ opacity: hoveredIndex === i ? 0 : 1 }}
+                        style={{ opacity: hoveredIndex === i ? 0 : 1, borderRadius: "0.5rem" }}
                       />
                       <img
                         src={`${import.meta.env.BASE_URL}${m.gif}`}
                         alt={m.subtitle}
                         className="w-full h-full object-contain rounded-lg transition-opacity"
-                        style={{ opacity: hoveredIndex === i ? 1 : 0 }}
+                        style={{ opacity: hoveredIndex === i ? 1 : 0, borderRadius: "0.5rem" }}
                       />
                     </>
                   )}
@@ -92,6 +76,7 @@ export default function ProjectMechanics({ project, hasMoreContent = false }) {
                       src={`${import.meta.env.BASE_URL}${m.gif}`}
                       alt={m.subtitle}
                       className="w-full h-full object-contain rounded-lg"
+                      style={{ borderRadius: "0.5rem" }}
                     />
                   )}
                 
@@ -103,20 +88,28 @@ export default function ProjectMechanics({ project, hasMoreContent = false }) {
                     />
                   )}
                 </div>
+
+                {/* Code */}
+                <div className="h-60 overflow-auto rounded-lg">
+                  <SyntaxHighlighter
+                    language="csharp"
+                    style={vscDarkPlus}
+                    customStyle={{
+                      margin: 0,
+                      borderRadius: "0.5rem",
+                      fontSize: "0.95rem",
+                      height: "100%",
+                    }}
+                    showLineNumbers
+                  >
+                    {m.code}
+                  </SyntaxHighlighter>
+                </div>
               </div>
             </>
           ) : (
-            // Without code: title/description left, media right
+            // Without code: media left, title/description right
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-start">
-              <div>
-                <h3 className="text-lg font-semibold mb-2 text-(--text)">
-                  {m.subtitle}
-                </h3>
-                <p className="leading-relaxed text-(--muted)">
-                  {m.description}
-                </p>
-              </div>
-
               {/* Media */}
               <div 
                 className="w-full h-60 rounded-lg overflow-hidden relative"
@@ -139,13 +132,13 @@ export default function ProjectMechanics({ project, hasMoreContent = false }) {
                       src={`${import.meta.env.BASE_URL}${m.image}`}
                       alt={m.subtitle}
                       className="absolute w-full h-full object-contain rounded-lg transition-opacity"
-                      style={{ opacity: hoveredIndex === i ? 0 : 1 }}
+                      style={{ opacity: hoveredIndex === i ? 0 : 1, borderRadius: "0.5rem" }}
                     />
                     <img
                       src={`${import.meta.env.BASE_URL}${m.gif}`}
                       alt={m.subtitle}
                       className="w-full h-full object-contain rounded-lg transition-opacity"
-                      style={{ opacity: hoveredIndex === i ? 1 : 0 }}
+                      style={{ opacity: hoveredIndex === i ? 1 : 0, borderRadius: "0.5rem" }}
                     />
                   </>
                 )}
@@ -155,6 +148,7 @@ export default function ProjectMechanics({ project, hasMoreContent = false }) {
                     src={`${import.meta.env.BASE_URL}${m.gif}`}
                     alt={m.subtitle}
                     className="w-full h-full object-contain rounded-lg"
+                    style={{ borderRadius: "0.5rem" }}
                   />
                 )}
               
@@ -165,6 +159,15 @@ export default function ProjectMechanics({ project, hasMoreContent = false }) {
                     className="w-full h-full object-contain rounded-lg"
                   />
                 )}
+              </div>
+
+              <div>
+                <h3 className="text-lg font-semibold mb-2 text-(--text)">
+                  {m.subtitle}
+                </h3>
+                <p className="leading-relaxed text-(--muted)">
+                  {m.description}
+                </p>
               </div>
             </div>
           )}

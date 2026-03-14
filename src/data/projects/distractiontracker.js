@@ -22,7 +22,7 @@ export const Distractiontracker = {
   en: {
     title: "Distraction Tracker",
     tagline: "A program that tracks whenever you look away from your screen, to help you become more aware of your distractions and improve focus.",
-    description: `A app designed to help users become more aware of their distractions and improve 
+    description: `An app designed to help users become more aware of their distractions and improve 
                 their focus.`,
 
     projectRole: "Developer",

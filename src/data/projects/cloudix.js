@@ -67,12 +67,18 @@ export const CloudIX = {
     mechanics: [
       {
         subtitle: "SteamDeck Build",
-        description: "VOEG ENGELSE BESCHRIJVING IN",
+        description: `The SteamDeck build required specific optimizations to run smoothly on the hardware. 
+                    I used the SteamOS Devkit client for development. Additionally, I adapted the controls 
+                    for a better experience on the SteamDeck, taking into account the unique input 
+                    capabilities of the device.`,
         gif: "assets/cloudix/SteamDeckBuild.gif",
       },
       {
         subtitle: "Android Build",
-        description: "VOEG ENGELSE BESCHRIJVING IN",
+        description: `For the Android build, I had to adapt the game's input to touch controls. I 
+                    implemented a virtual joystick for movement and touch buttons for actions like jumping. 
+                    Additionally, I modified the UI to work better on smaller screens and implemented various 
+                    optimizations to ensure the game runs smoothly on a wide range of Android devices.`,
         gif: "assets/cloudix/AndroidBuild.gif",
       }
     ]

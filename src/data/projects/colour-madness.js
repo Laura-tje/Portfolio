@@ -31,26 +31,16 @@ export const ColourMadness = {
     projectRole: "Developer",
     timeline: "5 weken",
     mechanics: [
-      {
+      { //NOT FINISHED
         subtitle: "Fish Game",
-        description: `Objecten worden fysiek opgepakt door middel van XR Grab Interactables waarbij physics 
-                    properties dynamisch worden aangepast. Voor kleine objecten gebruik ik precision grabs, 
-                    terwijl grote objecten velocity-based grabs gebruiken die natuurlijker aanvoelen. De throw 
-                    mechanic tracks controller velocity over meerdere frames voor realistische gooibewegingen.`,
+        description: `In de fish game moet de speler vissen van de juiste kleur vangen terwijl ze 
+                    door de ruimte bewegen. Ik heb gebruik gemaakt van de XR Interaction Toolkit om de interactie 
+                    te implementeren, waarbij de speler de vissen kan grijpen en vasthouden. De vissen hebben 
+                    verschillende snelheden en bewegingen, waardoor het een uitdagende en dynamische ervaring wordt.`,
         gif: "assets/colourmadness/Vissen.gif",
-        code: `public void OnSelectEntered(SelectEnterEventArgs args)
-{
-    grabbed = true;
-    rb.isKinematic = true;
-}
-
-public void OnSelectExited(SelectExitEventArgs args)
-{
-    grabbed = false;
-    rb.isKinematic = false;
-}`
+        code: `code for fish game`
       },
-      {
+      { //NOT FINISHED
         subtitle: "Memory Game",
         description: `In de Memory Game worden objecten willekeurig gepositioneerd binnen een bepaald gebied. 
                     Ik heb gebruik gemaakt van Unity's Random.Range om de x- en z-coördinaten te bepalen, 
