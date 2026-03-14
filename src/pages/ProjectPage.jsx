@@ -56,7 +56,7 @@ export default function ProjectPage() {
 
   return (
     <div>
-      <ProjectHeader project={project} />
+      <ProjectHeader project={project} hasMoreContent={hasMoreContent} />
       <ProjectInfo project={project} hasMoreContent={hasMoreContent} />
       {hasHighlights && <ProjectMechanics project={project} hasMoreContent={hasGallery} />}
       {project.gameUrl && (
