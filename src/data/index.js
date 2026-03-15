@@ -10,8 +10,8 @@ import { ImmersiveInstallation } from "./projects/immersiveinstallation";
 
 export const projects = [
   ColourMadness,
-  PiracyItsACrime,
   CloudIX,
+  PiracyItsACrime,
   Tamagotchi,
 ];
 
