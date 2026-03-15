@@ -104,7 +104,6 @@ export default function Home() {
                     { name: "Unity", logo: "unity.png" },
                     { name: "C#", logo: "csharp.png" },
                     { name: "Python", logo: "python.png" },
-                    { name: "JavaScript", logo: "javascript.png" },
                   ].map((skill, idx) => (
                     <div 
                       key={idx}

@@ -11,39 +11,6 @@ export default function ProjectPrevNext({ previous, next }) {
 
   return (
     <>
-      {/* STICKY SIDE NAVIGATION - always visible */}
-      <div className="fixed top-1/2 -translate-y-1/2 left-0 right-0 pointer-events-none z-40 hidden lg:block">
-        <div className="max-w-screen-2xl mx-auto px-4 flex justify-between items-center">
-          {/* Previous button - positioned outside content */}
-          {previous ? (
-            <Link
-              to={previous.url}
-              onClick={scrollToTop}
-              className="pointer-events-auto w-12 h-12 rounded-full bg-(--surface) border-2 border-(--bordercolor) hover:border-(--accent) hover:bg-(--accent) hover:text-white flex items-center justify-center transition-all shadow-lg group -ml-20"
-              title={`${t("previous")}: ${previous.title}`}
-            >
-              <ArrowLeft className="w-6 h-6 text-(--muted) group-hover:text-(--accent) group-hover:-translate-x-0.5 transition-transform" aria-hidden />
-            </Link>
-          ) : (
-            <div />
-          )}
-
-          {/* Next button - positioned outside content */}
-          {next ? (
-            <Link
-              to={next.url}
-              onClick={scrollToTop}
-              className="pointer-events-auto w-12 h-12 rounded-full bg-(--surface) border-2 border-(--bordercolor) hover:border-(--accent) hover:bg-(--accent) hover:text-white flex items-center justify-center transition-all shadow-lg group -mr-20"
-              title={`${t("next")}: ${next.title}`}
-            >
-              <ArrowRight className="w-6 h-6 text-(--muted) group-hover:text-(--accent) group-hover:translate-x-0.5 transition-transform" aria-hidden />
-            </Link>
-          ) : (
-            <div />
-          )}
-        </div>
-      </div>
-
       {/* FOOTER NAVIGATION - at the bottom */}
       {(previous || next) && (
         <nav className="mt-16 pt-8 border-t border-(--bordercolor) mx-4">

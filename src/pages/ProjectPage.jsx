@@ -6,6 +6,7 @@ import ProjectInfo from "../components/projects/ProjectInfo";
 import GamePreview from "../components/projects/GamePreview";
 import ProjectMechanics from "../components/projects/ProjectMechanics";
 import ProjectPrevNext from "../components/projects/ProjectPrevNext";
+import ProjectSideMenu from "../components/projects/ProjectSideMenu";
 import { LanguageContext } from "../contexts/LanguageContext";
 
 export default function ProjectPage() {
@@ -56,21 +57,24 @@ export default function ProjectPage() {
 
   return (
     <div>
-      <ProjectHeader project={project} hasMoreContent={hasMoreContent} />
-      <ProjectInfo project={project} hasMoreContent={hasMoreContent} />
-      {hasHighlights && <ProjectMechanics project={project} hasMoreContent={hasGallery} />}
-      {project.gameUrl && (
-        <div className="container mx-auto px-4 mt-12">
-          <h2 className="text-3xl font-bold mb-6">Preview</h2>
-          <GamePreview 
-            gameUrl={project.gameUrl}
-            width={project.gameWidth || '600px'}
-            height={project.gameHeight || '500px'}
-            aspectRatio={project.gameAspectRatio || null}
-          />
-        </div>
-      )}
-      <ProjectPrevNext previous={previousProject} next={nextProject} />
+      <ProjectSideMenu currentProjectId={projectId} allProjects={allProjects} />
+      <div className="pb-32 lg:pb-0">
+        <ProjectHeader project={project} hasMoreContent={hasMoreContent} />
+        <ProjectInfo project={project} hasMoreContent={hasMoreContent} />
+        {hasHighlights && <ProjectMechanics project={project} hasMoreContent={hasGallery} />}
+        {project.gameUrl && (
+          <div className="container mx-auto px-4 mt-12">
+            <h2 className="text-3xl font-bold mb-6">Preview</h2>
+            <GamePreview 
+              gameUrl={project.gameUrl}
+              width={project.gameWidth || '600px'}
+              height={project.gameHeight || '500px'}
+              aspectRatio={project.gameAspectRatio || null}
+            />
+          </div>
+        )}
+        <ProjectPrevNext previous={previousProject} next={nextProject} />
+      </div>
     </div>
   );
 }
