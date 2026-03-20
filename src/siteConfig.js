@@ -16,23 +16,36 @@ export const siteConfig = {
   },
 
   nl: {
-    tagline: "Ik bouw interactieve XR-ervaringen die zich natuurlijk en intuïtief aanvoelen.",
+    tagline: "Ik bouw interactieve ervaringen met een doel; mensen iets nieuws leren.",
     aboutLong: `
-      Ik ben een XR Developer die energie krijgt van het bouwen van interactieve, 
-      fysieke en intuïtieve ervaringen in VR en AR. Voor mij draait goede XR niet 
-      alleen om technologie, maar vooral om hoe gebruikers een digitale wereld 
-      *voelen*. Ik werk graag iteratief met prototypes: snel testen, verbeteren en 
-      opnieuw testen — net zo lang tot interacties natuurlijk en prettig aanvoelen.
+      Ik ben iemand die vooral gedreven wordt door het maken van dingen die iets betekenen 
+      voor anderen. Waar veel mensen zich richten op het bouwen van games, ligt mijn 
+      interesse ergens anders: ik wil technologie gebruiken om mensen te helpen of
+      iets te leren.
 
-      Ik ga deze tekst aanpassen en een stuk persoonlijker maken door ook iets leuks
-      over mijzelf te vertellen!
-    `,
+      Tijdens mijn projecten merk ik dat ik automatisch denk vanuit de gebruiker. Wat ziet 
+      iemand? Wat snapt iemand niet? Waar haakt iemand af? Die vragen sturen mijn werk. 
+      Zo heb ik bijvoorbeeld een simulatie gemaakt die laat zien hoe kleurenblindheid wordt 
+      ervaren, met als doel om iets abstracts ineens concreet en invoelbaar te maken. Ook 
+      werk ik in mijn vrije tijd aan een distraction tracker, die mensen bewust maakt van 
+      hoe snel en vaak ze eigenlijk worden afgeleid — iets waar veel mensen zich nauwelijks v
+      an bewust zijn.
+
+      Mijn motivatie komt niet uit een liefde voor games, want die heb ik eigenlijk nooit 
+      gehad. Ik ben opgegroeid zonder, en daardoor kijk ik er ook anders naar. Waar anderen 
+      focussen op entertainment en “feeling”, ben ik juist gefocust op duidelijkheid, 
+      inzicht en impact. Ik wil dat iemand iets gebruikt en daarna denkt: “nu snap ik het.”
+
+      Dat betekent ook dat ik kritisch ben op mijn eigen werk. Ik weet dat ik minder leun 
+      op speelsheid of game-gevoel, en juist daarom focus ik extra op hoe een ervaring 
+      logisch, helder en betekenisvol kan zijn. Voor mij is een project pas geslaagd als 
+      het niet alleen werkt, maar ook echt iets overbrengt.`,
     softSkills: ["Samenwerken met artists", "Feedback geven & ontvangen", "Probleemoplossend denken"],
     hardSkills: ["Unity & XR Interaction Toolkit", "C# Scripting", "Git & Version Control"],
   },
 
   en: {
-    tagline: "VOEG ENGELSE TAGLINE IN",
+    tagline: "I build simulations with a purpose; to help people learn something new.",
     aboutLong: `
       VOEG ENGELSE ABOUT BESCHRIJVING IN
     `,

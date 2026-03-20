@@ -253,7 +253,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Design Tools & Hardware */}
+          {/* Tools & Hardware */}
           <div className="mb-16 flex justify-center">
             <div>
               <h3 className="text-2xl font-semibold text-(--muted) mb-6 text-center">
@@ -263,10 +263,15 @@ export default function Home() {
                 {[
                   { name: "Arduino", logo: "arduino.png" },
                   { name: "Raspberry Pi", logo: "raspberrypi.png" },
-                  { name: "Github", logo: "github.png" },
-                  { name: "Git", logo: "git.png" },
                   { name: "OpenCV", logo: "opencv.png" },
+                  { name: "Socket.io", logo: "socketio.png" },
                   { name: "P5.js", logo: "p5.png" },
+                  { name: "Git", logo: "git.png" },
+                  { name: "Github", logo: "github.png" },
+                  { name: "Copilot", logo: "copilot.png" },
+                  { name: "Claude", logo: "claude.png" },
+                  { name: "Lightroom", logo: "lightroom.png" },
+                  { name: "Illustrator", logo: "illustrator.png" },
                 ].map((skill, idx) => (
                   <div 
                     key={idx}
