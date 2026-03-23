@@ -16,34 +16,56 @@ export const PiracyItsACrime = {
 
   nl: {
     title: "Piracy, it's a crime!",
-    tagline: "Een VR shooter waarin je vecht tegen robotvijanden, sleutels verzamelt en een boss verslaat om te ontsnappen.",
+    tagline: `Een VR shooter waarin je vecht tegen robotvijanden, 
+            sleutels verzamelt en een boss verslaat om te ontsnappen.`,
     description: `Deze VR shooter is mijn eerste project waar ik samenwerkt met artists.`,
     projectRole: "Programmeur",
     timeline: "4 weken",
     mechanics: [
       {
-        subtitle: "Gun",
-        description: `Een finite state machine voor vijanden die dynamisch schakelt tussen Idle → Chase → 
-                    Attack → Retreat states. In Chase gebruiken enemies navmesh pathfinding, in Attack 
-                    positioneren ze zich tactisch, en in Retreat trekken ze zich terug naar cover bij lage 
-                    health. Verschillende enemy types hebben eigen parameters voor aggression range en attack 
-                    patterns.`,
+        subtitle: "projectile gun",
+        description: `Een raycast-gun. `,
         gif: "assets/piracy/gun.gif",
-        code: `void Update()
+        code: `public void Shoot()
 {
-    switch(state)
+    Vector3 rayOrigin = shootPoint.position;
+    Vector3 rayDirection = shootPoint.forward;
+
+    bool hitSomething = Physics.Raycast(rayOrigin, rayDirection, out RaycastHit hit, maxDistance, layerMask);
+
+    // Instantieer raket op shootPoint met dezelfde rotatie
+    GameObject _bullet = Instantiate(bulletPrefab, shootPoint.position, shootPoint.rotation);
+    Bullets bulletScript = _bullet.GetComponent<Bullets>();
+    Debug.Log($"bullet damage: {bulletScript.Damage}");
+
+    Vector3 direction = shootPoint.forward.normalized;
+
+    Rigidbody rb = _bullet.GetComponent<Rigidbody>();
+
+    if (!rb)
     {
-        case Idle:
-            LookForPlayer();
-            break;
+        rb.linearVelocity = direction * shootSpeed;
+    }
+    else
+    {
+        Debug.LogWarning("Geen Rigidbody gevonden op bulletPrefab!");
+    }
 
-        case Chase:
-            MoveTowardPlayer();
-            break;
+    if (leftHandController.PreviousHeldObject == gun)
+    {
+        InputDevices.GetDeviceAtXRNode(XRNode.LeftHand).SendHapticImpulse(0, 1.0f, 0.2f);
+    }
+    else if (rightHandController.PreviousHeldObject == gun)
+    {
+        InputDevices.GetDeviceAtXRNode(XRNode.RightHand).SendHapticImpulse(0, 1.0f, 0.2f);
+    }
 
-        case Attack:
-            TryShoot();
-            break;
+    //Hit handling
+    if (hitSomething)
+    {
+            GameObject gameObjectWeHit = hit.transform.gameObject;
+            Debug.Log($"hit: {gameObjectWeHit.name}");
+
     }
 }`
       },
