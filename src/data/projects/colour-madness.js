@@ -2,7 +2,7 @@ export const ColourMadness = {
   id: "Colour Madness",
   gif: "assets/colourmadness/Vissen.gif",
   thumbnail: "assets/colourmadness/thumbnail.png",
-  youtube: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+  youtube: "https://www.youtube.com/embed/3PNnsLEMaro?si=rhQtYKY3wi8NyvAx",
   screenshots: [],
   tags: [
     "Unity",
@@ -10,6 +10,7 @@ export const ColourMadness = {
     "Team Project",
     "C#",
     "Oculus Quest",
+    "3D",
   ],
   git: "https://github.com/Daangulitz/XRpedition-team-10",
   itch: "https://daangulitz.itch.io/colormadness",

@@ -7,7 +7,8 @@ export const Tamagotchi = {
   tags: [
     "JavaScript",
     "P5.js",
-    "Game Preview"
+    "Game Preview",
+    "2D",
   ],
   git: "https://github.com/Laura-tje/Tamagotchi",
 

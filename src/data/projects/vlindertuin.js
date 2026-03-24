@@ -8,6 +8,7 @@ export const Vlindertuin = {
     "API",
     "Team Project",
     "OpenCV",
+    "2D",
   ],
   git: "",
   itch: "",

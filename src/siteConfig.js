@@ -43,6 +43,7 @@ export const siteConfig = {
     type: {
       label: "Type",
       tags: [
+        "2D",
         "3D",
         //"Porting",
         "Multiplayer",

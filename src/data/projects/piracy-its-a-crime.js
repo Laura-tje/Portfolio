@@ -12,6 +12,7 @@ export const PiracyItsACrime = {
     "Team Project",
     "C#",
     "Oculus Quest",
+    "3D",
   ],
   git: "https://github.com/Laura-tje/Piracy-Its-A-Crime",
   itch: "https://avocadosauce.itch.io/piracy-its-a-crime",
