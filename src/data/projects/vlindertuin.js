@@ -2,14 +2,12 @@ export const Vlindertuin = {
   id: "vlindertuin",
   thumbnail: "assets/vlindertuin/banner.png",
   youtube: "",
-  screenshots: [
-    "https://picsum.photos/seed/a1/1200/800",
-    "https://picsum.photos/seed/a2/1200/800"
-  ],
+  screenshots: [],
   tags: [
     "Raspberry Pi",
-    "Server",
+    "API",
     "Team Project",
+    "OpenCV",
   ],
   git: "",
   itch: "",
@@ -22,7 +20,7 @@ export const Vlindertuin = {
                 gebruikersinterface en netwerkcommunicatie.`,
 
     projectRole: "Developer",
-    timeline: "",
+    timeline: "8 weken",
   },
 
   en: {
@@ -33,6 +31,6 @@ export const Vlindertuin = {
                 user interface, and network communication.`,
 
     projectRole: "Developer",
-    timeline: "",
+    timeline: "8 weeks",
   }
 };

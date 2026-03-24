@@ -5,6 +5,7 @@ export const Distractiontracker = {
   screenshots: [],
   tags: [
     "Python",
+    "OpenCV",
   ],
   git: "",
   itch: "",

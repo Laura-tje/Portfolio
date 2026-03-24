@@ -8,6 +8,59 @@ export const siteConfig = {
   ],
   cv: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
 
+  // Include in-development projects in the filter system
+  includeInDevelopmentInFilters: true,
+
+  // Tags georganiseerd in categorieën voor het filter systeem
+  filterableTags: {
+    engine: {
+      label: "Engine",
+      tags: [
+        "Unity",
+        //"Unreal",
+        //"Godot",
+      ]
+    },
+    hardware: {
+      label: "Hardware",
+      tags: [
+        //"Raspberry Pi",
+        //"Arduino",
+        "Steam Deck",
+        "Android",
+        "Oculus Quest",
+      ]
+    },
+    language: {
+      label: "Language",
+      tags: [
+        "C#",
+        "JavaScript",
+        //"Python",
+        //"C++"
+      ]
+    },
+    type: {
+      label: "Type",
+      tags: [
+        "3D",
+        //"Porting",
+        "Multiplayer",
+        "Virtual Reality",
+        "Mixed Reality",
+      ]
+    },
+    tools: {
+      label: "Tools",
+      tags: [
+        //"API",
+        //"Socket.io",
+        "P5.js",
+        //"OpenCV",
+      ]
+    }
+  },
+
   socials: {
     email: "lauradelissen@hotmail.com",
     github: "https://github.com/Laura-tje",

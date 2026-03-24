@@ -17,7 +17,7 @@ export const projects = [
 
 export const inDevelopment = [
   //Fruitpocalypse,
+  Vlindertuin,
   Chess,
   Distractiontracker,
-  Vlindertuin,
 ];

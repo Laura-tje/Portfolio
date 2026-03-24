@@ -8,9 +8,12 @@ export const CloudIX = {
   youtube: "https://www.youtube.com/embed/Erl9RNMznnE",
   screenshots: [],
   tags: [
-    "Unity (C#)",
+    "Unity",
     "Porting",
-    "3D"
+    "3D",
+    "C#",
+    "Steam Deck",
+    "Android",
   ],
   git: "https://github.com/Laura-tje/CloudIX",
   itch: "https://laura-tje.itch.io/cloudix",

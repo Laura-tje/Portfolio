@@ -5,6 +5,7 @@ export const Tamagotchi = {
   gameUrl: "https://laura-tje.github.io/Tamagotchi/",
   screenshots: [],
   tags: [
+    "JavaScript",
     "P5.js",
     "Game Preview"
   ],

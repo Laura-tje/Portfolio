@@ -4,7 +4,7 @@ export const Chess = {
   youtube: "",
   screenshots: [],
   tags: [
-    "Server",
+    "Socket.io",
     "Multiplayer",
     "Javascript",
   ],

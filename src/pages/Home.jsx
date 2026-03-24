@@ -1,14 +1,62 @@
 import { siteConfig } from "../siteConfig";
 import { Link } from "react-router-dom";
 import ProjectCard from "../components/ProjectCard";
+import ProjectFilter from "../components/ProjectFilter";
 import { projects, inDevelopment } from "../data/index";
 import { ChevronDown, ArrowRight } from "../components/icons/icons";
-import { useContext, useState } from "react";
+import { useContext, useState, useMemo } from "react";
 import { LanguageContext } from "../contexts/LanguageContext";
 
 export default function Home() {
   const { language } = useContext(LanguageContext);
   const [hoveredImage, setHoveredImage] = useState(false);
+  const [selectedFilters, setSelectedFilters] = useState([]);
+
+  // Extract all unique tags from config
+  const availableFilters = useMemo(() => {
+    const allTags = [];
+    if (siteConfig.filterableTags && typeof siteConfig.filterableTags === 'object') {
+      Object.values(siteConfig.filterableTags).forEach(category => {
+        if (category.tags && Array.isArray(category.tags)) {
+          allTags.push(...category.tags);
+        }
+      });
+    }
+    return allTags;
+  }, []);
+
+  // Get all projects for filtering (optionally including in-development)
+  const allProjectsForFiltering = useMemo(() => {
+    const allProjects = [...projects];
+    if (siteConfig.includeInDevelopmentInFilters) {
+      allProjects.push(...inDevelopment);
+    }
+    return allProjects;
+  }, []);
+
+  // Filter projects based on selected filters
+  const filteredProjects = useMemo(() => {
+    if (selectedFilters.length === 0) {
+      return projects;
+    }
+    return projects.filter(project =>
+      selectedFilters.every(filter =>
+        project.tags && project.tags.includes(filter)
+      )
+    );
+  }, [selectedFilters]);
+
+  // Filter in development projects with the same filters
+  const filteredInDevelopment = useMemo(() => {
+    if (selectedFilters.length === 0) {
+      return inDevelopment;
+    }
+    return inDevelopment.filter(project =>
+      selectedFilters.every(filter =>
+        project.tags && project.tags.includes(filter)
+      )
+    );
+  }, [selectedFilters]);
 
   const handleScrollToProjects = (e) => {
     e.preventDefault();
@@ -140,25 +188,45 @@ export default function Home() {
             <div className="h-1 w-12 bg-gradient-to-r from-cyan-400 to-purple-500 mx-auto" />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-            {projects.map((project, index) => (
-              <div 
-                key={index} 
-                style={{ animation: `fade-in-up 0.8s ease-out ${0.2 + index * 0.1}s both` }}
-              >
-                <ProjectCard project={project} />
-              </div>
-            ))}
-          </div>
+          {/* Filter Section */}
+          <ProjectFilter 
+            selectedFilters={selectedFilters}
+            onFilterChange={setSelectedFilters}
+            availableFilters={availableFilters}
+            filterCategories={siteConfig.filterableTags}
+            allProjects={allProjectsForFiltering}
+          />
+
+          {/* Projects Grid */}
+          {filteredProjects.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+              {filteredProjects.map((project, index) => (
+                <div 
+                  key={index} 
+                  style={{ animation: `fade-in-up 0.8s ease-out ${0.2 + index * 0.1}s both` }}
+                >
+                  <ProjectCard project={project} />
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-12">
+              <p className="text-(--muted) text-lg">
+                {language === "nl" 
+                  ? "Geen projecten gevonden met deze filters" 
+                  : "No projects found with these filters"}
+              </p>
+            </div>
+          )}
 
           {/* In Development */}
-          {inDevelopment.length > 0 && (
+          {filteredInDevelopment.length > 0 && (
             <div className="mt-16">
               <h3 className="text-2xl font-bold text-(--text) mb-8 text-center">
                 {language === "nl" ? "In Ontwikkeling" : "In Development"}
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {inDevelopment.map((project, index) => (
+                {filteredInDevelopment.map((project, index) => (
                   <div 
                     key={index} 
                     style={{ animation: `fade-in-up 0.8s ease-out ${0.2 + index * 0.1}s both` }}

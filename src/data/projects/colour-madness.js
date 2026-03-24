@@ -5,9 +5,11 @@ export const ColourMadness = {
   youtube: "https://www.youtube.com/embed/dQw4w9WgXcQ",
   screenshots: [],
   tags: [
-    "Unity (C#)",
-    "MR",
+    "Unity",
+    "Mixed Reality",
     "Team Project",
+    "C#",
+    "Oculus Quest",
   ],
   git: "https://github.com/Daangulitz/XRpedition-team-10",
   itch: "https://daangulitz.itch.io/colormadness",
@@ -62,18 +64,16 @@ export const ColourMadness = {
   en: {
     title: "Colour Madness",
     tagline: "A color blindness simulation with 3 minigames in mixed reality.",
-    description: `Colour Madness is a mixed reality project that simulates different types of color 
-                blindness. Players can choose from four types of color blindness and three minigames. 
-                Because the minigames rely heavily on color, players are challenged to recognize other 
-                visual characteristics such as shape and texture.
+    description: `Colour Madness is a mixed reality project that simulates different types of colorblindness.
+                Players can choose from four types of colorblindness and three minigames. Since the minigames are
+                color-dependent, players are challenged to recognize other visual cues such as shape and texture.
 
-                The project contains three minigames. In the first minigame, the player makes a smoothie 
-                by collecting fruit from a list. In the second minigame, the player catches fish of the 
-                correct color as they move through the space. The third minigame is a memory game where 
-                the player must find matching pairs.
+                The project features three minigames. In the first minigame, players make a smoothie by collecting
+                fruit from a list. In the second minigame, players catch fish of the correct color that move through space.
+                The third minigame is a memory game where players must find pairs.
 
-                I mainly worked on the last two minigames, using Unity and the XR Interaction Toolkit to 
-                create an immersive mixed reality experience.`,
+                I primarily worked on the last two minigames, using Unity and the XR Interaction Toolkit to create an 
+                immersive mixed reality experience.`,
     projectRole: "Developer",
     timeline: "5 weeks",
     mechanics: [

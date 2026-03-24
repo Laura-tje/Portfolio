@@ -7,9 +7,11 @@ export const PiracyItsACrime = {
     //"assets/piracy/thumbnail.png"
   ],
   tags: [
-    "Unity (C#)",
-    "VR",
+    "Unity",
+    "Virtual Reality",
     "Team Project",
+    "C#",
+    "Oculus Quest",
   ],
   git: "https://github.com/Laura-tje/Piracy-Its-A-Crime",
   itch: "https://avocadosauce.itch.io/piracy-its-a-crime",
