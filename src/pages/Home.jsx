@@ -4,6 +4,7 @@ import ProjectCard from "../components/ProjectCard";
 import ProjectFilter from "../components/ProjectFilter";
 import { projects, inDevelopment } from "../data/index";
 import { ChevronDown, ArrowRight } from "../components/icons/icons";
+import CommitCalendar from "../components/CommitCalendar";
 import { useContext, useState, useMemo } from "react";
 import { LanguageContext } from "../contexts/LanguageContext";
 
@@ -142,37 +143,8 @@ export default function Home() {
                 </Link>
               </div>
 
-              {/* Quick Skills Overview */}
-              <div className="pt-8 border-t border-(--bordercolor)" style={{ animation: 'fade-in-up 1.4s ease-out 0.5s both' }}>
-                <p className="text-xs text-(--accent) font-semibold uppercase tracking-[0.2em] mb-4">
-                  {language === "nl" ? "Expertise" : "Expertise"}
-                </p>
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                  {[
-                    { name: "Unity", logo: "unity.png" },
-                    { name: "C#", logo: "csharp.png" },
-                    { name: "Python", logo: "python.png" },
-                  ].map((skill, idx) => (
-                    <div 
-                      key={idx}
-                      className="flex items-center gap-2"
-                      style={{ animation: `fade-in-up 1.4s ease-out ${0.5 + idx * 0.05}s both` }}
-                    >
-                      <img 
-                        src={`${import.meta.env.BASE_URL}assets/skills/${skill.logo}`} 
-                        alt={skill.name}
-                        className="h-8 object-contain"
-                        onError={(e) => {
-                          e.target.style.display = 'none';
-                        }}
-                      />
-                      <span className="text-sm font-semibold text-(--text)">
-                        {skill.name}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
+              {/* GitHub Activity */}
+              <CommitCalendar />
             </div>
           </div>
         </div>

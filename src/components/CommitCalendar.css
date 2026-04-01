@@ -1,0 +1,93 @@
+/* GitHub Contribution Calendar */
+.commit-calendar-wrapper {
+    width: 100%;
+    margin-top: 24px;
+}
+
+.commit-calendar-content {
+    width: 100%;
+}
+
+.commit-calendar-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    margin-bottom: 16px;
+    display: block;
+}
+
+.commit-calendar-chart-container {
+    width: 100%;
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(168, 85, 247, 0.3) transparent;
+}
+
+.commit-calendar-chart-container::-webkit-scrollbar {
+    height: 6px;
+}
+
+.commit-calendar-chart-container::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.commit-calendar-chart-container::-webkit-scrollbar-thumb {
+    background: rgba(168, 85, 247, 0.3);
+    border-radius: 3px;
+}
+
+.commit-calendar-chart-container::-webkit-scrollbar-thumb:hover {
+    background: rgba(168, 85, 247, 0.5);
+}
+
+.commit-calendar-link {
+    display: flex;
+    text-decoration: none;
+    width: fit-content;
+    min-width: 100%;
+}
+
+.commit-calendar-chart {
+    height: auto;
+    display: block;
+    filter: invert(1) hue-rotate(250deg) brightness(1.25) contrast(1.3) saturate(1.25);
+}
+
+@media (max-width: 1024px) {
+    .commit-calendar-wrapper {
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .commit-calendar-wrapper {
+        margin-top: 16px;
+    }
+
+    .commit-calendar-label {
+        font-size: 0.7rem;
+        margin-bottom: 12px;
+    }
+
+    .commit-calendar-chart {
+        filter: invert(1) hue-rotate(250deg) brightness(1.2) contrast(1.25) saturate(1.2);
+    }
+}
+
+@media (max-width: 640px) {
+    .commit-calendar-wrapper {
+        margin-top: 12px;
+    }
+
+    .commit-calendar-label {
+        font-size: 0.65rem;
+        margin-bottom: 10px;
+    }
+
+    .commit-calendar-chart {
+        filter: invert(1) hue-rotate(250deg) brightness(1.15) contrast(1.2) saturate(1.15);
+    }
+}
