@@ -56,8 +56,10 @@ export const siteConfig = {
       tags: [
         //"API",
         //"Socket.io",
-        "P5.js",
+        //"P5.js",
         //"OpenCV",
+        "MongoDB",
+        "Render",
       ]
     }
   },

@@ -22,6 +22,32 @@ export const Vlindertuin = {
 
     projectRole: "Developer",
     timeline: "8 weken",
+    mechanics: [
+      {
+        subtitle: "Render",
+        description: `De SteamDeck build vereiste specifieke optimalisaties om soepel te draaien op de hardware. 
+                    Ik heb gebruik gemaakt van de SteamOS Devkit client. Daarnaast heb ik de controls 
+                    aangepast voor een betere ervaring op de SteamDeck, waarbij ik rekening hield met de 
+                    unieke inputmogelijkheden van het apparaat.`,
+        //gif: "assets/vlindertuin/renderlogo.png",
+      },
+      {
+        subtitle: "API",
+        description: `De SteamDeck build vereiste specifieke optimalisaties om soepel te draaien op de hardware. 
+                    Ik heb gebruik gemaakt van de SteamOS Devkit client. Daarnaast heb ik de controls 
+                    aangepast voor een betere ervaring op de SteamDeck, waarbij ik rekening hield met de 
+                    unieke inputmogelijkheden van het apparaat.`,
+        gif: "assets/cloudix/SteamDeckBuild.gif",
+      },
+      {
+        subtitle: "Teken omgeving",
+        description: `De SteamDeck build vereiste specifieke optimalisaties om soepel te draaien op de hardware. 
+                    Ik heb gebruik gemaakt van de SteamOS Devkit client. Daarnaast heb ik de controls 
+                    aangepast voor een betere ervaring op de SteamDeck, waarbij ik rekening hield met de 
+                    unieke inputmogelijkheden van het apparaat.`,
+        gif: "assets/vlindertuin/tekenomgeving.png",
+      },
+    ]
   },
 
   en: {

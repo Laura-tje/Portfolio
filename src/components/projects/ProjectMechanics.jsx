@@ -11,6 +11,9 @@ export default function ProjectMechanics({ project, hasMoreContent = false }) {
     return null;
   }
 
+  // Helper function to check if a mechanic has media
+  const hasMedia = (m) => m.youtube || m.gif || m.image;
+
   return (
     <div className={`mx-4 mt-12 ${!hasMoreContent ? 'mb-4' : ''}`}>
       {/* <h2 className="text-xl font-semibold text-(--text) mb-4">
@@ -23,74 +26,107 @@ export default function ProjectMechanics({ project, hasMoreContent = false }) {
           className={`flex flex-col gap-4 pb-8 ${i === 0 ? 'pt-0' : 'pt-2'} ${i !== arr.length - 1 ? 'border-b border-(--bordercolor)' : ''}`}
         >
           {m.code ? (
-            // With code: title/description on top, code+media below
-            <>
-              {/* Title + Description */}
-              <div>
-                <h3 className="text-lg font-semibold mb-2 text-(--text)">
-                  {m.subtitle}
-                </h3>
-                <p className="leading-relaxed text-(--muted)">
-                  {m.description}
-                </p>
-              </div>
+            // With code
+            hasMedia(m) ? (
+              // With code AND media: title/description on top, code+media below
+              <>
+                {/* Title + Description */}
+                <div>
+                  <h3 className="text-lg font-semibold mb-2 text-(--text)">
+                    {m.subtitle}
+                  </h3>
+                  <p className="leading-relaxed text-(--muted)">
+                    {m.description}
+                  </p>
+                </div>
 
-              {/* Media + Code */}
-              <div className="grid gap-4 grid-cols-1 md:grid-cols-[35%_65%]">
-                {/* Media */}
-                <div 
-                  className="w-full h-60 rounded-lg overflow-hidden relative"
-                  onMouseEnter={() => setHoveredIndex(i)}
-                  onMouseLeave={() => setHoveredIndex(null)}
-                  style={{ borderRadius: "0.5rem" }}
-                >
-                  {m.youtube && (
-                    <iframe
-                      src={m.youtube}
-                      title={m.subtitle}
-                      className="w-full h-full"
-                      frameBorder="0"
-                      allowFullScreen
-                    />
-                  )}
-                
-                  {!m.youtube && m.gif && m.image && (
-                    <>
-                      <img
-                        src={`${import.meta.env.BASE_URL}${m.image}`}
-                        alt={m.subtitle}
-                        className="absolute w-full h-full object-contain rounded-lg transition-opacity"
-                        style={{ opacity: hoveredIndex === i ? 0 : 1, borderRadius: "0.5rem" }}
+                {/* Media + Code */}
+                <div className="grid gap-4 grid-cols-1 md:grid-cols-[35%_65%]">
+                  {/* Media */}
+                  <div 
+                    className="w-full h-60 rounded-lg overflow-hidden relative"
+                    onMouseEnter={() => setHoveredIndex(i)}
+                    onMouseLeave={() => setHoveredIndex(null)}
+                    style={{ borderRadius: "0.5rem" }}
+                  >
+                    {m.youtube && (
+                      <iframe
+                        src={m.youtube}
+                        title={m.subtitle}
+                        className="w-full h-full"
+                        frameBorder="0"
+                        allowFullScreen
                       />
+                    )}
+                  
+                    {!m.youtube && m.gif && m.image && (
+                      <>
+                        <img
+                          src={`${import.meta.env.BASE_URL}${m.image}`}
+                          alt={m.subtitle}
+                          className="absolute w-full h-full object-contain rounded-lg transition-opacity"
+                          style={{ opacity: hoveredIndex === i ? 0 : 1, borderRadius: "0.5rem" }}
+                        />
+                        <img
+                          src={`${import.meta.env.BASE_URL}${m.gif}`}
+                          alt={m.subtitle}
+                          className="w-full h-full object-contain rounded-lg transition-opacity"
+                          style={{ opacity: hoveredIndex === i ? 1 : 0, borderRadius: "0.5rem" }}
+                        />
+                      </>
+                    )}
+                  
+                    {!m.youtube && m.gif && !m.image && (
                       <img
                         src={`${import.meta.env.BASE_URL}${m.gif}`}
                         alt={m.subtitle}
-                        className="w-full h-full object-contain rounded-lg transition-opacity"
-                        style={{ opacity: hoveredIndex === i ? 1 : 0, borderRadius: "0.5rem" }}
+                        className="w-full h-full object-contain rounded-lg"
+                        style={{ borderRadius: "0.5rem" }}
                       />
-                    </>
-                  )}
-                
-                  {!m.youtube && m.gif && !m.image && (
-                    <img
-                      src={`${import.meta.env.BASE_URL}${m.gif}`}
-                      alt={m.subtitle}
-                      className="w-full h-full object-contain rounded-lg"
-                      style={{ borderRadius: "0.5rem" }}
-                    />
-                  )}
-                
-                  {!m.youtube && !m.gif && m.image && (
-                    <img
-                      src={`${import.meta.env.BASE_URL}${m.image}`}
-                      alt={m.subtitle}
-                      className="w-full h-full object-contain rounded-lg"
-                    />
-                  )}
+                    )}
+                  
+                    {!m.youtube && !m.gif && m.image && (
+                      <img
+                        src={`${import.meta.env.BASE_URL}${m.image}`}
+                        alt={m.subtitle}
+                        className="w-full h-full object-contain rounded-lg"
+                      />
+                    )}
+                  </div>
+
+                  {/* Code */}
+                  <div className="h-60 overflow-auto rounded-lg">
+                    <SyntaxHighlighter
+                      language="csharp"
+                      style={vscDarkPlus}
+                      customStyle={{
+                        margin: 0,
+                        borderRadius: "0.5rem",
+                        fontSize: "0.95rem",
+                        height: "100%",
+                      }}
+                      showLineNumbers
+                    >
+                      {m.code}
+                    </SyntaxHighlighter>
+                  </div>
+                </div>
+              </>
+            ) : (
+              // With code but NO media: full-width code
+              <>
+                {/* Title + Description */}
+                <div>
+                  <h3 className="text-lg font-semibold mb-2 text-(--text)">
+                    {m.subtitle}
+                  </h3>
+                  <p className="leading-relaxed text-(--muted)">
+                    {m.description}
+                  </p>
                 </div>
 
-                {/* Code */}
-                <div className="h-60 overflow-auto rounded-lg">
+                {/* Only Code */}
+                <div className="overflow-auto rounded-lg">
                   <SyntaxHighlighter
                     language="csharp"
                     style={vscDarkPlus}
@@ -98,17 +134,16 @@ export default function ProjectMechanics({ project, hasMoreContent = false }) {
                       margin: 0,
                       borderRadius: "0.5rem",
                       fontSize: "0.95rem",
-                      height: "100%",
                     }}
                     showLineNumbers
                   >
                     {m.code}
                   </SyntaxHighlighter>
                 </div>
-              </div>
-            </>
-          ) : (
-            // Without code: media left, title/description right
+              </>
+            )
+          ) : hasMedia(m) ? (
+            // Without code but WITH media: media left, title/description right
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-start">
               {/* Media */}
               <div 
@@ -169,6 +204,16 @@ export default function ProjectMechanics({ project, hasMoreContent = false }) {
                   {m.description}
                 </p>
               </div>
+            </div>
+          ) : (
+            // Without code and WITHOUT media: just title and description
+            <div>
+              <h3 className="text-lg font-semibold mb-2 text-(--text)">
+                {m.subtitle}
+              </h3>
+              <p className="leading-relaxed text-(--muted)">
+                {m.description}
+              </p>
             </div>
           )}
         </div>

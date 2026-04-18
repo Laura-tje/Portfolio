@@ -12,12 +12,12 @@ export const projects = [
   ColourMadness,
   CloudIX,
   PiracyItsACrime,
-  Tamagotchi,
+  Vlindertuin,
+  //Tamagotchi,
 ];
 
 export const inDevelopment = [
   //Fruitpocalypse,
-  Vlindertuin,
   Chess,
   Distractiontracker,
 ];
