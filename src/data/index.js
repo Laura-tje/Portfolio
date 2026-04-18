@@ -9,10 +9,10 @@ import { Vlindertuin } from "./projects/vlindertuin";
 //import { Template } from "./projects/template";
 
 export const projects = [
+  Vlindertuin,
   ColourMadness,
   CloudIX,
   PiracyItsACrime,
-  Vlindertuin,
   //Tamagotchi,
 ];
 
