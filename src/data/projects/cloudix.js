@@ -39,7 +39,8 @@ export const CloudIX = {
                     Ik heb gebruik gemaakt van de SteamOS Devkit client. Daarnaast heb ik de controls 
                     aangepast voor een betere ervaring op de SteamDeck, waarbij ik rekening hield met de 
                     unieke inputmogelijkheden van het apparaat.`,
-        gif: "assets/cloudix/SteamDeckBuild.gif",
+        images: [],
+        gifs: ["assets/cloudix/SteamDeckBuild.gif"],
       },
       {
         subtitle: "Android Build",
@@ -48,7 +49,8 @@ export const CloudIX = {
                     zoals springen. Daarnaast heb ik de UI aangepast om beter te werken op kleinere schermen 
                     en heb ik verschillende optimalisaties doorgevoerd om ervoor te zorgen dat de game soepel 
                     draait op een breed scala aan Android-apparaten.`,
-        gif: "assets/cloudix/AndroidBuild.gif",
+        images: [],
+        gifs: ["assets/cloudix/AndroidBuild.gif"],
       }
     ]
   },
@@ -74,7 +76,8 @@ export const CloudIX = {
                     I used the SteamOS Devkit client for development. Additionally, I adapted the controls 
                     for a better experience on the SteamDeck, taking into account the unique input 
                     capabilities of the device.`,
-        gif: "assets/cloudix/SteamDeckBuild.gif",
+        images: [],
+        gifs: ["assets/cloudix/SteamDeckBuild.gif"],
       },
       {
         subtitle: "Android Build",
@@ -82,7 +85,8 @@ export const CloudIX = {
                     implemented a virtual joystick for movement and touch buttons for actions like jumping. 
                     Additionally, I modified the UI to work better on smaller screens and implemented various 
                     optimizations to ensure the game runs smoothly on a wide range of Android devices.`,
-        gif: "assets/cloudix/AndroidBuild.gif",
+        images: [],
+        gifs: ["assets/cloudix/AndroidBuild.gif"],
       }
     ]
   }

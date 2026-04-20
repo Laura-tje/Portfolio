@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap");
 @import "tailwindcss";
 
 :root {
@@ -213,4 +213,62 @@ button:disabled, input:disabled {
   font-weight: bold;
   box-shadow: 0 2px 6px rgba(180, 114, 255, 0.3),
               0 0 8px rgba(6, 255, 255, 0.1);
+}
+
+/* Award Ribbon */
+.award-ribbon {
+  position: absolute;
+  top: 15px;
+  right: -100px;
+  width: 300px;
+  height: 50px;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--secondary) 100%);
+  color: var(--accent-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  transform: rotate(45deg);
+  /* box-shadow: 0 6px 16px rgba(0, 217, 255, 0.5),
+              inset 0 1px 0 rgba(255, 255, 255, 0.3),
+              0 -2px 8px rgba(0, 0, 0, 0.3); */
+  z-index: 15;
+  overflow: visible;
+}
+
+.award-text {
+  display: block;
+  white-space: normal;
+  text-shadow: 0 3px 8px rgba(0, 0, 0, 0.7);
+  font-size: 0.7rem;
+  line-height: 1.1;
+  letter-spacing: 0.3px;
+  max-width: 90px;
+  word-wrap: break-word;
+  word-break: break-word;
+  font-weight: 900;
+  color: #ffffff;
+  text-align: center;
+  padding-left: 5px;
+}
+
+.award-image {
+  height: 60px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+  position: absolute;
+  bottom: -30px;
+  right: 65px;
+  transform: rotate(-45deg);
+  overflow: visible;
+}
+
+/* Project card with overflow for ribbon visibility */
+.project-card {
+  overflow: hidden;
+}
+
+.project-card > .award-ribbon {
+  overflow: visible;
 }

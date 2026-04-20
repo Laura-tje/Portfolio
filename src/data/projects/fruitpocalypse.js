@@ -27,7 +27,8 @@ export const Fruitpocalypse = {
                     shooters. In plaats van directe positie updates werkt alles met physics forces, wat zorgt 
                     voor natuurlijk momentum en inertia. Ook implementeerde ik screen-wrap waarbij je aan de 
                     ene kant verdwijnt en aan de andere kant verschijnt.`,
-        gif: "assets/fruitpocalypse/checkout2.gif",
+        images: [],
+        gifs: ["assets/fruitpocalypse/checkout2.gif"],
         code: `void Update()
 {
     if (Input.GetKey(KeyCode.W))
@@ -40,6 +41,8 @@ export const Fruitpocalypse = {
                     Het spawning systeem gebruikt een sphere-based approach waarbij asteroids altijd buiten het 
                     zichtveld verschijnen. Grote asteroids splitsen in kleinere stukken wanneer ze geraakt 
                     worden, wat voor dynamische gameplay zorgt.`,
+        images: [],
+        gifs: [],
         code: `void SpawnAsteroid()
 {
     Vector3 pos = Random.onUnitSphere * spawnRadius;
@@ -58,7 +61,8 @@ export const Fruitpocalypse = {
       {
         subtitle: "Checkout",
         description: "VOEG ENGELSE BESCHRIJVING IN",
-        gif: "assets/fruitpocalypse/checkout2.gif",
+        images: [],
+        gifs: ["assets/fruitpocalypse/checkout2.gif"],
         code: `void Update()
 {
     if (Input.GetKey(KeyCode.W))
@@ -68,6 +72,8 @@ export const Fruitpocalypse = {
       {
         subtitle: "Asteroid Spawner",
         description: "VOEG ENGELSE BESCHRIJVING IN",
+        images: [],
+        gifs: [],
         code: `void SpawnAsteroid()
 {
     Vector3 pos = Random.onUnitSphere * spawnRadius;

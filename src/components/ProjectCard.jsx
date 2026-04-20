@@ -11,6 +11,20 @@ export default function ProjectCard({ project, inDevelopment = false }) {
   
   const cardContent = (
     <>
+      {/* Award Ribbon */}
+      {project.oustanding && (
+        <div className="award-ribbon">
+          <span className="award-text">
+            {typeof project.oustanding === 'string' 
+              ? project.oustanding 
+              : project.oustanding.text}
+          </span>
+          {project.oustanding.image && (
+            <img src={`${import.meta.env.BASE_URL}${project.oustanding.image}`} alt="Award" className="award-image" />
+          )}
+        </div>
+      )}
+      
       {/* Thumbnail met overlay */}
       <div 
         className="relative aspect-video overflow-hidden"
@@ -44,7 +58,7 @@ export default function ProjectCard({ project, inDevelopment = false }) {
     </>
   );
 
-  const baseClasses = "group block bg-(--surface) rounded-lg overflow-hidden border transition-all duration-300";
+  const baseClasses = "group relative block bg-(--surface) rounded-lg border transition-all duration-300 project-card";
   const hoverStyle = isCardHovering ? {
     animation: 'card-hover-lift 300ms ease-out forwards'
   } : {};

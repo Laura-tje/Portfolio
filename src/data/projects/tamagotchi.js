@@ -23,7 +23,8 @@ export const Tamagotchi = {
       {
         subtitle: "Bubbles",
         description: `Een finite state machine voor vijanden die dynamisch schakelt.`,
-        gif: "assets/tamagotchi/bubbles.gif",
+        images: [],
+        gifs: ["assets/tamagotchi/bubbles.gif"],
         code: `function drawFrog()
 {
   ...
@@ -62,7 +63,8 @@ function cleaningLook()
       {
         subtitle: "Tong",
         description: `Een tongue mechanic waarbij de speler een tongue uitsteekt om vijanden te vangen.`,
-        gif:`assets/tamagotchi/tongue.gif`,
+        images: [],
+        gifs: ["assets/tamagotchi/tongue.gif"],
         code:`function tongueFollow(whatIsFed) 
 {
     strokeWeight(5);
@@ -79,7 +81,8 @@ function cleaningLook()
       {
         subtitle: "Naam",
         description: `description`,
-        gif: `assets/tamagotchi/name.gif`,
+        images: [],
+        gifs: ["assets/tamagotchi/name.gif"],
         code:` code`,
       }
     ]
@@ -95,7 +98,8 @@ function cleaningLook()
       {
         subtitle: "Bubbles",
         description: "VOEG ENGELSE BESCHRIJVING IN",
-        gif: "assets/tamagotchi/bubbles.gif",
+        images: [],
+        gifs: ["assets/tamagotchi/bubbles.gif"],
         code: `function drawFrog()
 {
   ...
@@ -134,7 +138,8 @@ function cleaningLook()
       {
         subtitle: "Tong",
         description: "VOEG ENGELSE BESCHRIJVING IN",
-        gif:`assets/tamagotchi/tongue.gif`,
+        images: [],
+        gifs: ["assets/tamagotchi/tongue.gif"],
         code:`function tongueFollow(whatIsFed) 
 {
     strokeWeight(5);
@@ -151,7 +156,8 @@ function cleaningLook()
       {
         subtitle: "Naam",
         description: "VOEG ENGELSE BESCHRIJVING IN",
-        gif: `assets/tamagotchi/name.gif`,
+        images: [],
+        gifs: ["assets/tamagotchi/name.gif"],
         code: ` code`,
       }
     ]

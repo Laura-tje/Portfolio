@@ -2,11 +2,11 @@ import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "../icons/icons.jsx";
 
 export default function ProjectGallery({ project, showDetails = false }) {
-  const { screenshots, youtube } = project;
+  const { screenshots, youtube, gif } = project;
 
-  // Combineer video (als eerste) en screenshots in één array
+  // Toon YouTube video als beschikbaar, anders GIF, daarna screenshots
   const slides = [
-    ...(youtube ? [{ type: "video", src: youtube }] : []),
+    ...(youtube ? [{ type: "video", src: youtube }] : gif ? [{ type: "gif", src: gif }] : []),
     ...screenshots.map((s) => ({ type: "image", src: s })),
   ];
 
@@ -35,6 +35,15 @@ export default function ProjectGallery({ project, showDetails = false }) {
                 title="Project Video"
                 allowFullScreen
                 className="w-full h-full"
+              />
+            )}
+
+            {/* GIF Slide */}
+            {slides[currentIndex].type === "gif" && (
+              <img
+                src={`${import.meta.env.BASE_URL}${slides[currentIndex].src}`}
+                alt="Project GIF"
+                className="w-full h-full object-contain"
               />
             )}
 

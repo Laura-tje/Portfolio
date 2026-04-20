@@ -2,7 +2,7 @@ export const ColourMadness = {
   id: "Colour Madness",
   gif: "assets/colourmadness/Vissen.gif",
   thumbnail: "assets/colourmadness/thumbnail.png",
-  youtube: "https://www.youtube.com/embed/3PNnsLEMaro?si=rhQtYKY3wi8NyvAx",
+  youtube: "https://www.youtube.com/embed/O6ANmIr9i7E",
   screenshots: [],
   tags: [
     "Unity",
@@ -42,7 +42,8 @@ export const ColourMadness = {
                     
                     De uitdaging ligt in het herkennen van de juiste kleur, wat voor kleurenblinde spelers een extra laag van 
                     moeilijkheid toevoegt.`,
-        gif: "assets/colourmadness/Vissen.gif",
+        images: [],
+        gifs: ["assets/colourmadness/Vissen.gif"],
         code: `code for fish game`
       },
       { //NOT FINISHED
@@ -51,7 +52,8 @@ export const ColourMadness = {
                     Ik heb gebruik gemaakt van Unity's Random.Range om de x- en z-coördinaten te bepalen, 
                     terwijl de y-coördinaat constant blijft voor een consistente hoogte. Dit zorgt voor een 
                     dynamische en steeds veranderende speelomgeving.`,
-        gif: "assets/colourmadness/Memory.gif",
+        images: [],
+        gifs: ["assets/colourmadness/Memory.gif"],
         code: `void SpawnObject()
 {
     float x = Random.Range(-spawnAreaSize, spawnAreaSize);
@@ -83,7 +85,8 @@ export const ColourMadness = {
       {
         subtitle: "Fish Game",
         description: `Voeg ENGELSE BESCHRIJVING IN`,
-        gif: "assets/colourmadness/Vissen.gif",
+        images: [],
+        gifs: ["assets/colourmadness/Vissen.gif"],
         code: `public void OnSelectEntered(SelectEnterEventArgs args)
 {
     grabbed = true;
@@ -99,7 +102,8 @@ public void OnSelectExited(SelectExitEventArgs args)
       {
         subtitle: "Memory Game",
         description: "VOEG ENGELSE BESCHRIJVING IN",
-        gif: "assets/colourmadness/Memory.gif",
+        images: [],
+        gifs: ["assets/colourmadness/Memory.gif"],
         code: `void SpawnObject()
 {
     float x = Random.Range(-spawnAreaSize, spawnAreaSize);

@@ -16,6 +16,10 @@ export const PiracyItsACrime = {
   ],
   git: "https://github.com/Laura-tje/Piracy-Its-A-Crime",
   itch: "https://avocadosauce.itch.io/piracy-its-a-crime",
+  oustanding: {
+    text: "Showcased at GLUCON",
+    image: "assets/piracy/medal.png"
+  },
 
   nl: {
     title: "Piracy, it's a crime!",
@@ -28,7 +32,8 @@ export const PiracyItsACrime = {
       {
         subtitle: "projectile gun",
         description: `Een raycast-gun. `,
-        gif: "assets/piracy/gun.gif",
+        images: [],
+        gifs: ["assets/piracy/gun.gif"],
         code: `public void Shoot()
 {
     Vector3 rayOrigin = shootPoint.position;
@@ -78,6 +83,8 @@ export const PiracyItsACrime = {
                     physics-based projectiles. De raycast spawned een hit effect op het impact point en 
                     gebruikt layer masks om te bepalen wat geraakt kan worden. Elk schot krijgt een tracer 
                     effect die de bullet path visualiseert.`,
+        images: [],
+        gifs: [],
         code: `void Shoot()
 {
     Ray ray = new Ray(transform.position, transform.forward);
@@ -95,7 +102,8 @@ export const PiracyItsACrime = {
                     positioneren ze zich tactisch, en in Retreat trekken ze zich terug naar cover bij lage 
                     health. Verschillende enemy types hebben eigen parameters voor aggression range en attack 
                     patterns.`,
-        gif: "assets/piracy/pickup.gif",
+        images: [],
+        gifs: ["assets/piracy/pickup.gif"],
         code: `void Update()
 {
     switch(state)
@@ -127,7 +135,8 @@ export const PiracyItsACrime = {
       {
         subtitle: "Gun",
         description: "VOEG ENGELSE BESCHRIJVING IN",
-        gif: "assets/piracy/gun.gif",
+        images: [],
+        gifs: ["assets/piracy/gun.gif"],
         code: `void Update()
 {
     switch(state)
@@ -149,6 +158,8 @@ export const PiracyItsACrime = {
       {
         subtitle: "Lock and Key",
         description: "VOEG ENGELSE BESCHRIJVING IN",
+        images: [],
+        gifs: [],
         code: `void Shoot()
 {
     Ray ray = new Ray(transform.position, transform.forward);
@@ -162,7 +173,8 @@ export const PiracyItsACrime = {
       {
         subtitle: "Pickup systeem",
         description: "VOEG ENGELSE BESCHRIJVING IN",
-        gif: "assets/piracy/pickup.gif",
+        images: [],
+        gifs: ["assets/piracy/pickup.gif"],
         code: `void Update()
 {
     switch(state)
