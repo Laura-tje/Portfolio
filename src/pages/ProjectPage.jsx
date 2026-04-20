@@ -6,7 +6,6 @@ import ProjectInfo from "../components/projects/ProjectInfo";
 import GamePreview from "../components/projects/GamePreview";
 import ProjectMechanics from "../components/projects/ProjectMechanics";
 import ProjectPrevNext from "../components/projects/ProjectPrevNext";
-import ProjectSideMenu from "../components/projects/ProjectSideMenu";
 import { LanguageContext } from "../contexts/LanguageContext";
 
 export default function ProjectPage() {
@@ -57,7 +56,6 @@ export default function ProjectPage() {
 
   return (
     <div>
-      <ProjectSideMenu currentProjectId={projectId} allProjects={allProjects} />
       <div className="pb-32 lg:pb-0">
         <ProjectHeader project={project} hasMoreContent={hasMoreContent} />
         <ProjectInfo project={project} hasMoreContent={hasMoreContent} />
