@@ -1,6 +1,7 @@
 export const Vlindertuin = {
   id: "vlindertuin",
   thumbnail: "assets/vlindertuin/banner.png",
+  gif: "assets/vlindertuin/vlindertuin.gif",
   youtube: "",
   screenshots: [],
   tags: [

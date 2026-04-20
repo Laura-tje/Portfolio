@@ -38,8 +38,10 @@ export const ColourMadness = {
         subtitle: "Fish Game",
         description: `In de fish game moet de speler vissen van de juiste kleur vangen terwijl ze 
                     door de ruimte bewegen. Ik heb gebruik gemaakt van de XR Interaction Toolkit om de interactie 
-                    te implementeren, waarbij de speler de vissen kan grijpen en vasthouden. De vissen hebben 
-                    verschillende snelheden en bewegingen, waardoor het een uitdagende en dynamische ervaring wordt.`,
+                    te implementeren, waarbij de speler de vissen kan vangen met een netje. De vissen reageren op obstakels in de ruimte.
+                    
+                    De uitdaging ligt in het herkennen van de juiste kleur, wat voor kleurenblinde spelers een extra laag van 
+                    moeilijkheid toevoegt.`,
         gif: "assets/colourmadness/Vissen.gif",
         code: `code for fish game`
       },
