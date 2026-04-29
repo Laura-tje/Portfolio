@@ -18,7 +18,6 @@ export const Chess = {
                 elkaar spelen in realtime, waarbij de server de spelstatus bijhoudt en synchroniseert 
                 tussen clients. Het project omvatte het implementeren van schaakregels, een 
                 gebruikersinterface en netwerkcommunicatie.`,
-
     projectRole: "Developer",
     timeline: "",
   },

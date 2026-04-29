@@ -100,7 +100,7 @@ export default function ProjectMechanics({ project, hasMoreContent = false }) {
                               onClick={() => goToPrevMedia(i, getMediaArray(m).length)}
                               className="absolute left-2 top-1/2 -translate-y-1/2 p-2 rounded-full 
                                        bg-black/50 text-white hover:bg-black/70 transition-colors 
-                                       opacity-0 group-hover:opacity-100"
+                                       opacity-100 md:opacity-0 md:group-hover:opacity-100"
                             >
                               <ChevronLeft className="w-5 h-5" />
                             </button>
@@ -109,7 +109,7 @@ export default function ProjectMechanics({ project, hasMoreContent = false }) {
                               onClick={() => goToNextMedia(i, getMediaArray(m).length)}
                               className="absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-full 
                                        bg-black/50 text-white hover:bg-black/70 transition-colors 
-                                       opacity-0 group-hover:opacity-100"
+                                       opacity-100 md:opacity-0 md:group-hover:opacity-100"
                             >
                               <ChevronRight className="w-5 h-5" />
                             </button>
@@ -207,7 +207,7 @@ export default function ProjectMechanics({ project, hasMoreContent = false }) {
                           onClick={() => goToPrevMedia(i, getMediaArray(m).length)}
                           className="absolute left-2 top-1/2 -translate-y-1/2 p-2 rounded-full 
                                    bg-black/50 text-white hover:bg-black/70 transition-colors 
-                                   opacity-0 group-hover:opacity-100"
+                                   opacity-100 md:opacity-0 md:group-hover:opacity-100"
                         >
                           <ChevronLeft className="w-5 h-5" />
                         </button>
@@ -216,7 +216,7 @@ export default function ProjectMechanics({ project, hasMoreContent = false }) {
                           onClick={() => goToNextMedia(i, getMediaArray(m).length)}
                           className="absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-full 
                                    bg-black/50 text-white hover:bg-black/70 transition-colors 
-                                   opacity-0 group-hover:opacity-100"
+                                   opacity-100 md:opacity-0 md:group-hover:opacity-100"
                         >
                           <ChevronRight className="w-5 h-5" />
                         </button>
