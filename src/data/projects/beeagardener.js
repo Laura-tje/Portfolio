@@ -1,6 +1,6 @@
 export const BeeAGardener = {
   id: "Bee A Gardener",
-  thumbnail: "assets/beeagardener/Logo.png",
+  thumbnail: "assets/beeagardener/banner.png",
   youtube: "",
   screenshots: [],
   tags: [
@@ -10,6 +10,11 @@ export const BeeAGardener = {
   ],
   git: "",
   itch: "",
+  oustanding: {
+    text: "International Project",
+    image: "assets/beeagardener/madefinland.png"
+  },
+
 
   nl: {
     title: "Bee A Gardener",

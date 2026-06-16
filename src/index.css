@@ -241,10 +241,10 @@ button:disabled, input:disabled {
   display: block;
   white-space: normal;
   text-shadow: 0 3px 8px rgba(0, 0, 0, 0.7);
-  font-size: 0.7rem;
-  line-height: 1.1;
-  letter-spacing: 0.3px;
-  max-width: 90px;
+  font-size: 0.65rem;
+  line-height: 1;
+  letter-spacing: 0.2px;
+  max-width: 120px;
   word-wrap: break-word;
   word-break: break-word;
   font-weight: 900;
