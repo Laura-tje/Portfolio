@@ -1,34 +1,31 @@
 export const FightorFlirt = {
   id: "Fight or Flirt",
   thumbnail: "assets/fightorflirt/banner.png",
-  youtube: "",
+  youtube: "https://www.youtube.com/embed/sPJ91a0XsS0",
   screenshots: [],
   tags: [
     "Unity",
     "2,5D",
-    "Javascript",
   ],
   git: "",
   itch: "",
 
   nl: {
     title: "Fight or Flirt",
-    tagline: "Een multiplayer schaakspel voor in de browser.",
-    description: `Een multiplayer schaakspel gebouwd met Node.js en Socket.IO. Spelers kunnen tegen 
-                elkaar spelen in realtime, waarbij de server de spelstatus bijhoudt en synchroniseert 
-                tussen clients. Het project omvatte het implementeren van schaakregels, een 
-                gebruikersinterface en netwerkcommunicatie.`,
+    tagline: "Een dating game waarin je moet vechten of flirten om te winnen.",
+    description: `Een dating game waarin je moet vechten of flirten om te winnen. 
+                  De game is gebouwd met Unity en bevat interactieve elementen en een 
+                  aantrekkelijke gebruikersinterface.`,
     projectRole: "Developer",
-    timeline: "",
+    timeline: "4 weken",
   },
 
   en: {
     title: "Fight or Flirt",
-    tagline: "A multiplayer chess game for the browser.",
-    description: `A multiplayer chess game built with Node.js and Socket.IO. Players can play against 
-                each other in real-time, with the server managing the game state and synchronizing it 
-                between clients. The project involved implementing chess rules, a user interface, and 
-                network communication.`,
+    tagline: "A multiplayer dating game.",
+    description: `A multiplayer dating game where you must fight or flirt to win. 
+                  The game is built with Unity and features interactive elements and an 
+                  appealing user interface.`,
 
     projectRole: "Developer",
     timeline: "",

@@ -13,15 +13,15 @@ import { BeeAGardener } from "./projects/beeagardener";
 export const projects = [
   Vlindertuin,
   ColourMadness,
+  BeeAGardener,
   CloudIX,
+  Chess,
   PiracyItsACrime,
   //Tamagotchi,
 ];
 
 export const inDevelopment = [
   //Fruitpocalypse,
-  BeeAGardener,
-  Chess,
-  Distractiontracker,
   FightorFlirt,
+  Distractiontracker,
 ];
