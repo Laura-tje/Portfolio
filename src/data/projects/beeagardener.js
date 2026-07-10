@@ -1,9 +1,11 @@
 export const BeeAGardener = {
   id: "Bee A Gardener",
   thumbnail: "assets/beeagardener/banner.png",
+  gif: "assets/beeagardener/arcade.gif",
   youtube: "",
   screenshots: [],
-  tags: [
+  tags:
+  [
     "Unity",
     "International",
     "Arcade Machine",
@@ -12,7 +14,8 @@ export const BeeAGardener = {
   itch: "",
   oustanding: {
     text: "International Project",
-    image: "assets/beeagardener/madefinland.png"
+    //image: "assets/beeagardener/madefinland.png"
+    image: "assets/beeagardener/ribbon.png"
   },
 
 
@@ -22,6 +25,16 @@ export const BeeAGardener = {
     description: `Een schattige moestuin-tycoon game gebouwd met Unity. Spelers kunnen hun virtuele tuin beheren, verschillende soorten planten laten groeien en interageren met andere spelers in een gedeeld wereld. Het project omvatte het implementeren van spellen mechanics, een gebruikersinterface en netwerkcommunicatie.`,
     projectRole: "Developer",
     timeline: "4 weken",
+    mechanics: 
+    [
+      { 
+        subtitle: "Upgrading system",
+        description: `upgrading system`,
+        //images: ["assets/beeagardener/arcade.gif"],
+        gifs: [],
+        //code: ``
+      },
+    ]
   },
 
   en: {
@@ -31,5 +44,15 @@ export const BeeAGardener = {
 
     projectRole: "Developer",
     timeline: "4 weeks",
+        mechanics: 
+    [
+      { //NOT FINISHED
+        subtitle: "Upgrading system",
+        description: ``,
+        images: [],
+        gifs: [],
+        //code: ``
+      },
+    ]
   }
 };
