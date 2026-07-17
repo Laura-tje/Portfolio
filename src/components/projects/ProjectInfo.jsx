@@ -1,5 +1,6 @@
 import { usePageTranslations } from "../../hooks/useTranslations";
 import ProjectGallery from "./ProjectGallery";
+import TagBadge from "../TagBadge";
 
 export default function ProjectInfo({ project, hasMoreContent = false }) {
   const { t } = usePageTranslations('projects');
@@ -68,9 +69,7 @@ export default function ProjectInfo({ project, hasMoreContent = false }) {
                     <span className="font-medium text-(--text)">Tags</span>
                     <div className="flex flex-wrap gap-1.5 justify-end">
                       {project.tags.map((tag) => (
-                        <span key={tag} className="tag">
-                          {tag}
-                        </span>
+                        <TagBadge key={tag} tag={tag} />
                       ))}
                     </div>
                   </li>

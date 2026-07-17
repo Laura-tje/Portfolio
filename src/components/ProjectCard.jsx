@@ -8,6 +8,17 @@ export default function ProjectCard({ project, inDevelopment = false }) {
   
   // Get language-specific content
   const content = project[language] || project.nl;
+  const engineIcons = [
+    { key: "unity", src: "assets/skills/unity.png" },
+    { key: "unreal", src: "assets/skills/unreal.png" },
+    { key: "godot", src: "assets/skills/godot.png" },
+  ];
+  const engineIcon = engineIcons.find(({ key }) =>
+    project.tags?.some((tag) => tag.toLowerCase().includes(key))
+  );
+  const visibleTags = project.tags.filter(
+    (tag) => !engineIcons.some(({ key }) => tag.toLowerCase().includes(key))
+  );
   
   const cardContent = (
     <>
@@ -34,6 +45,19 @@ export default function ProjectCard({ project, inDevelopment = false }) {
         ) : (
           <img src={`${import.meta.env.BASE_URL}${project.thumbnail}`} alt={content.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
         )}
+        {engineIcon && (
+          <div
+            className="absolute left-2 bottom-2 z-10 rounded-md bg-black/55 px-2 py-1 shadow-[0_4px_14px_rgba(0,0,0,0.9)] backdrop-blur-[2px]"
+            aria-hidden="true"
+          >
+            <img
+              src={`${import.meta.env.BASE_URL}${engineIcon.src}`}
+              alt=""
+              className="h-5 w-5 object-contain"
+              loading="lazy"
+            />
+          </div>
+        )}
         {/* Hover overlay */}
         <div className="absolute inset-0 bg-(--overlay) opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center gap-0.5">
           <div className="text-lg text-(--text) font-semibold">{content.projectRole}</div>
@@ -48,7 +72,7 @@ export default function ProjectCard({ project, inDevelopment = false }) {
 
         {/* Tags */}
         <div className="flex flex-wrap gap-2 mt-3">
-          {project.tags.slice(0, 3).map((tag) => (
+          {visibleTags.slice(0, 3).map((tag) => (
             <span key={tag} className="tag">
               {tag}
             </span>

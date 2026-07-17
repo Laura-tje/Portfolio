@@ -1,3 +1,5 @@
+import TagBadge from "../TagBadge";
+
 export default function ProjectHeader({ project, hasMoreContent = false }) {
   // Use banner if available, fallback to thumbnail
   const bannerImage = project.banner || project.thumbnail;
@@ -46,9 +48,7 @@ export default function ProjectHeader({ project, hasMoreContent = false }) {
               <span className="font-medium text-(--text)">Tags</span>
               <div className="flex flex-wrap gap-1.5 justify-end">
                 {project.tags.map((tag) => (
-                  <span key={tag} className="tag">
-                    {tag}
-                  </span>
+                  <TagBadge key={tag} tag={tag} />
                 ))}
               </div>
             </li>

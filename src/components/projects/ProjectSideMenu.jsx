@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useContext, useState, useEffect, useRef } from "react";
 import { LanguageContext } from "../../contexts/LanguageContext";
+import TagBadge from "../TagBadge";
 
 export default function ProjectSideMenu({ currentProjectId, allProjects }) {
   const { language } = useContext(LanguageContext);
@@ -148,12 +149,7 @@ export default function ProjectSideMenu({ currentProjectId, allProjects }) {
                           {/* Tags */}
                           <div className="flex flex-wrap gap-2 mt-3">
                             {project.tags?.slice(0, 3).map((tag, idx) => (
-                              <span 
-                                key={idx}
-                                className="tag"
-                              >
-                                {tag}
-                              </span>
+                              <TagBadge key={idx} tag={tag} />
                             ))}
                           </div>
                         </div>
