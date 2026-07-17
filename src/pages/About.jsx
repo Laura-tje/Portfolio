@@ -39,6 +39,8 @@ export default function About() {
                 src={siteConfig.aboutImage}
                 alt={siteConfig.name}
                 className="relative w-full aspect-square object-cover rounded-lg border border-(--bordercolor) hover:border-(--accent) transition-colors"
+                loading="eager"
+                fetchPriority="high"
               />
             </div>
 

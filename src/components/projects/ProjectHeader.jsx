@@ -10,6 +10,8 @@ export default function ProjectHeader({ project, hasMoreContent = false }) {
           src={`${import.meta.env.BASE_URL}${bannerImage}`}
           alt={project.title} 
           className="w-full h-48 sm:h-120 object-cover" 
+          loading="eager"
+          fetchPriority="high"
         />
 
         {/* Gradient overlay voor leesbaarheid */}

@@ -20,7 +20,7 @@ export default function ProjectCard({ project, inDevelopment = false }) {
               : project.oustanding.text}
           </span>
           {project.oustanding.image && (
-            <img src={`${import.meta.env.BASE_URL}${project.oustanding.image}`} alt="Award" className="award-image" />
+            <img src={`${import.meta.env.BASE_URL}${project.oustanding.image}`} alt="Award" className="award-image" loading="lazy" />
           )}
         </div>
       )}
@@ -30,9 +30,9 @@ export default function ProjectCard({ project, inDevelopment = false }) {
         className="relative aspect-video overflow-hidden"
       >
         {isCardHovering && project.gif ? (
-          <img src={`${import.meta.env.BASE_URL}${project.gif}`} alt={content.title} className="w-full h-full object-cover" />
+          <img src={`${import.meta.env.BASE_URL}${project.gif}`} alt={content.title} className="w-full h-full object-cover" loading="lazy" />
         ) : (
-          <img src={`${import.meta.env.BASE_URL}${project.thumbnail}`} alt={content.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"/>
+          <img src={`${import.meta.env.BASE_URL}${project.thumbnail}`} alt={content.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
         )}
         {/* Hover overlay */}
         <div className="absolute inset-0 bg-(--overlay) opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center gap-0.5">

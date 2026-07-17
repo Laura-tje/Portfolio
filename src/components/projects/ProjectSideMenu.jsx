@@ -132,6 +132,7 @@ export default function ProjectSideMenu({ currentProjectId, allProjects }) {
                             src={project.thumbnail}
                             alt={projectTitle}
                             className="w-full h-full object-cover"
+                            loading="lazy"
                           />
                         </div>
 
@@ -164,6 +165,7 @@ export default function ProjectSideMenu({ currentProjectId, allProjects }) {
                           src={project.thumbnail}
                           alt={projectTitle}
                           className="w-full h-full object-cover"
+                          loading="lazy"
                         />
                       </>
                     )}
@@ -197,6 +199,7 @@ export default function ProjectSideMenu({ currentProjectId, allProjects }) {
                   className={`w-full h-full object-cover transition-all ${
                     isActive ? 'brightness-100' : 'brightness-60 group-hover:brightness-80'
                   }`}
+                  loading="lazy"
                 />
                 <div
                   className={`absolute inset-0 flex items-center justify-center transition-all ${

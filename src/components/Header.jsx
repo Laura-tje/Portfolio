@@ -30,7 +30,7 @@ export default function Header() {
           onClick={scrollToTop}
           className="hover:opacity-80 transition-opacity shrink-0"
         >
-          <img src="/squarelogo.png" alt="Logo" className="h-10 md:h-12" />
+          <img src="/squarelogo.png" alt="Logo" className="h-10 md:h-12" loading="eager" fetchPriority="high" />
         </Link>
 
         {/* Navigatie links */}

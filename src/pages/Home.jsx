@@ -95,6 +95,8 @@ export default function Home() {
                   src={`${import.meta.env.BASE_URL}${hoveredImage ? siteConfig.profileImages[1] : siteConfig.profileImages[0]}`}
                   alt="Laura"
                   className="relative w-full h-full object-cover rounded-2xl shadow-2xl transition-all duration-300"
+                  loading="eager"
+                  fetchPriority="high"
                 />
               </div>
             </div>
@@ -243,6 +245,7 @@ export default function Home() {
                       src={`${import.meta.env.BASE_URL}assets/skills/${skill.logo}`} 
                       alt={skill.name}
                       className="h-16 mb-2 object-contain"
+                      loading="lazy"
                       onError={(e) => {
                         e.target.style.display = 'none';
                       }}
@@ -280,6 +283,7 @@ export default function Home() {
                       src={`${import.meta.env.BASE_URL}assets/skills/${skill.logo}`} 
                       alt={skill.name}
                       className="h-16 mb-2 object-contain"
+                      loading="lazy"
                       onError={(e) => {
                         e.target.style.display = 'none';
                       }}
@@ -322,6 +326,7 @@ export default function Home() {
                       src={`${import.meta.env.BASE_URL}assets/skills/${skill.logo}`} 
                       alt={skill.name}
                       className="h-16 mb-2 object-contain"
+                      loading="lazy"
                       onError={(e) => {
                         e.target.style.display = 'none';
                       }}

@@ -17,11 +17,11 @@ export const projects = [
   CloudIX,
   Chess,
   PiracyItsACrime,
-  //Tamagotchi,
 ];
 
 export const inDevelopment = [
+  //Tamagotchi,
   //Fruitpocalypse,
-  FightorFlirt,
-  Distractiontracker,
+  //FightorFlirt,
+  //Distractiontracker,
 ];

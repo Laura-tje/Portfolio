@@ -9,6 +9,17 @@ export default function ProjectMechanics({ project, hasMoreContent = false }) {
   const [mediaIndices, setMediaIndices] = useState({}); // Track current media index for each mechanic
   const { language } = useContext(LanguageContext);
 
+  const renderDescription = (description) =>
+    description
+      .split(/\n\s*\n/)
+      .map((text) => text.trim())
+      .filter(Boolean)
+      .map((text, index) => (
+        <p key={index} className="leading-relaxed text-(--muted)">
+          {text}
+        </p>
+      ));
+
   if (!project.mechanics || project.mechanics.length === 0) {
     return null;
   }
@@ -61,9 +72,9 @@ export default function ProjectMechanics({ project, hasMoreContent = false }) {
                   <h3 className="text-lg font-semibold mb-2 text-(--text)">
                     {m.subtitle}
                   </h3>
-                  <p className="leading-relaxed text-(--muted)">
-                    {m.description}
-                  </p>
+                  <div className="space-y-3">
+                    {renderDescription(m.description)}
+                  </div>
                 </div>
 
                 {/* Media + Code */}
@@ -91,6 +102,7 @@ export default function ProjectMechanics({ project, hasMoreContent = false }) {
                           alt={m.subtitle}
                           className="w-full h-full object-contain"
                           style={{ borderRadius: "0.5rem" }}
+                          loading="lazy"
                         />
                         
                         {/* Navigation arrows */}
@@ -150,9 +162,9 @@ export default function ProjectMechanics({ project, hasMoreContent = false }) {
                   <h3 className="text-lg font-semibold mb-2 text-(--text)">
                     {m.subtitle}
                   </h3>
-                  <p className="leading-relaxed text-(--muted)">
-                    {m.description}
-                  </p>
+                  <div className="space-y-3">
+                    {renderDescription(m.description)}
+                  </div>
                 </div>
 
                 {/* Only Code */}
@@ -198,6 +210,7 @@ export default function ProjectMechanics({ project, hasMoreContent = false }) {
                       alt={m.subtitle}
                       className="w-full h-full object-contain"
                       style={{ borderRadius: "0.5rem" }}
+                      loading="lazy"
                     />
                     
                     {/* Navigation arrows */}
@@ -235,9 +248,9 @@ export default function ProjectMechanics({ project, hasMoreContent = false }) {
                 <h3 className="text-lg font-semibold mb-2 text-(--text)">
                   {m.subtitle}
                 </h3>
-                <p className="leading-relaxed text-(--muted)">
-                  {m.description}
-                </p>
+                <div className="space-y-3">
+                  {renderDescription(m.description)}
+                </div>
               </div>
             </div>
           ) : (
@@ -246,9 +259,9 @@ export default function ProjectMechanics({ project, hasMoreContent = false }) {
               <h3 className="text-lg font-semibold mb-2 text-(--text)">
                 {m.subtitle}
               </h3>
-              <p className="leading-relaxed text-(--muted)">
-                {m.description}
-              </p>
+              <div className="space-y-3">
+                {renderDescription(m.description)}
+              </div>
             </div>
           )}
         </div>

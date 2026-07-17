@@ -33,9 +33,16 @@ export const Vlindertuin = {
     projectRole: "Developer",
     timeline: "8 weken",
     mechanics: [
-      {
+      { //ciiic showcase
         subtitle: "CIIIC Showcase",
-        description: `blablabla`,
+        description: `Tijdens dit project zijn we uitgenodigd om onze installatie te presenteren op de CIIIC showcase.
+                    Dit was voor ons een geweldige kans om ons project te testen en laten zien aan een breder publiek.
+                    We hebben de installatie opgezet en bezoekers uitgenodigd om deel te nemen aan de interactieve ervaring.
+
+                    In het begin verliep het wat stroef, mede doordat we helemaal achterin in een hoekje stonden. Maar
+                    naarmate de dag vorderde, kwamen er steeds meer bezoekers langs die enthousiast waren om de installatie uit te proberen.
+                    We hebben veel feedback ontvangen van de bezoekers, die onder de indruk waren dat ze hun eigen getekende
+                    vlinder konden zien rondvliegen op het scherm.`,
         images: [
                   "assets/vlindertuin/groepsfoto.jpg",
                   "assets/vlindertuin/website.png",
@@ -44,32 +51,29 @@ export const Vlindertuin = {
                   "assets/vlindertuin/ciiic.gif",
                 ],
       },
-      {
+      { //tekenomgeving
         subtitle: "Tekenomgeving",
-        description: `De SteamDeck build vereiste specifieke optimalisaties om soepel te draaien op de hardware. 
-                    Ik heb gebruik gemaakt van de SteamOS Devkit client. Daarnaast heb ik de controls 
-                    aangepast voor een betere ervaring op de SteamDeck, waarbij ik rekening hield met de 
-                    unieke inputmogelijkheden van het apparaat.`,
-        images: [],
+        description: `De tekenomgeving is een webapplicatie die gebruikers in staat stelt om hun eigen vlinders te tekenen.
+                    De webapplicatie is geoptimaliseerd voor mobiele apparaten, zodat bezoekers eenvoudig via hun telefoon 
+                    kunnen deelnemen aan de interactieve ervaring.`,
         gifs: [
                   "assets/vlindertuin/tekenomgeving.gif"
               ],
       },
-      {
-        subtitle: "API",
-        description: `De SteamDeck build vereiste specifieke optimalisaties om soepel te draaien op de hardware. 
-                    Ik heb gebruik gemaakt van de SteamOS Devkit client. Daarnaast heb ik de controls 
-                    aangepast voor een betere ervaring op de SteamDeck, waarbij ik rekening hield met de 
-                    unieke inputmogelijkheden van het apparaat.`,
+      { //Database
+        subtitle: "Database",
+        description: `De database is een essentieel onderdeel van de installatie, omdat het de getekende vlinders opslaat en beheert.
+                    We hebben een database opgezet die de vlinders opslaat en beheert, zodat ze kunnen worden weergegeven op het scherm.
+                    De database is geoptimaliseerd voor snelheid en efficiëntie, zodat de installatie soepel kan draaien.`,
         images: [],
         gifs: [],
       },
-      {
+      { //Database manager
         subtitle: "Database Manager",
-        description: `De SteamDeck build vereiste specifieke optimalisaties om soepel te draaien op de hardware. 
-                    Ik heb gebruik gemaakt van de SteamOS Devkit client. Daarnaast heb ik de controls 
-                    aangepast voor een betere ervaring op de SteamDeck, waarbij ik rekening hield met de 
-                    unieke inputmogelijkheden van het apparaat.`,
+        description: `Tijdens het playtesten van ons project merkten we dat veel van onze medestudenten het grappig vond om 
+                    andere dingen dan vlinders te tekenen. Om dit probleem op te lossen, hebben we een database manager ontwikkeld
+                    waarin we kunnen zien wat er is getekend en door wie. Daarnaast hebben we een 'verwijder' knop toegevoegd,
+                    waarmee we aan de hand van een wachtwoord specifieke tekeningen kunnen verwijderen.`,
         images: [],
         gifs: [
           "assets/vlindertuin/databasemanager.gif"

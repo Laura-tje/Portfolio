@@ -46,6 +46,7 @@ export default function ProjectInfo({ project, hasMoreContent = false }) {
                       src={`${import.meta.env.BASE_URL}${project.gif}`}
                       alt={project.title}
                       className="w-full h-full object-contain rounded-lg"
+                      loading="lazy"
                     />
                   </div>
                 )}

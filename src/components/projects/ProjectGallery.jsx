@@ -44,6 +44,7 @@ export default function ProjectGallery({ project, showDetails = false }) {
                 src={`${import.meta.env.BASE_URL}${slides[currentIndex].src}`}
                 alt="Project GIF"
                 className="w-full h-full object-contain"
+                loading="lazy"
               />
             )}
 
@@ -53,6 +54,7 @@ export default function ProjectGallery({ project, showDetails = false }) {
                 src={slides[currentIndex].src}
                 alt={`Slide ${currentIndex + 1}`}
                 className="w-full h-full object-cover cursor-pointer"
+                loading="lazy"
                 onClick={() => window.open(slides[currentIndex].src, "_blank")}
               />
             )}

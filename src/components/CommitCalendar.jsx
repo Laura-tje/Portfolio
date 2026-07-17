@@ -24,6 +24,7 @@ export default function CommitCalendar() {
               className="commit-calendar-chart" 
               src={`https://ghchart.rshah.org/${GITHUB_USERNAME}?v=1`} 
               alt="GitHub Contribution Graph" 
+              loading="lazy"
             />
           </a>
         </div>
