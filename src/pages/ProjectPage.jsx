@@ -8,14 +8,17 @@ import ProjectMechanics from "../components/projects/ProjectMechanics";
 import ProjectPrevNext from "../components/projects/ProjectPrevNext";
 import { LanguageContext } from "../contexts/LanguageContext";
 
-export default function ProjectPage() {
-  const { projectId } = useParams();
+export default function ProjectPage({ projectId: projectIdProp, onNavigateProject, isModal = false }) {
+  const { projectId: routeProjectId } = useParams();
   const { language } = useContext(LanguageContext);
+  const projectId = projectIdProp || routeProjectId;
   
-  // Scroll to top when project changes
+  // Only scroll to top for standalone project pages, not for modal overlays
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [projectId]);
+    if (!isModal) {
+      window.scrollTo(0, 0);
+    }
+  }, [projectId, isModal]);
 
   const allProjects = [...projects, ...inDevelopment];
   const baseProject = allProjects.find(p => p.id === projectId);
@@ -41,11 +44,13 @@ export default function ProjectPage() {
   let previousIndex = (currentIndex - 1 + allProjects.length) % allProjects.length;
 
   const previousProject = { 
+    id: allProjects[previousIndex].id,
     title: allProjects[previousIndex][language]?.title || allProjects[previousIndex].nl.title, 
     url: `/projects/${allProjects[previousIndex].id}` 
   };
   
   const nextProject = { 
+    id: allProjects[nextIndex].id,
     title: allProjects[nextIndex][language]?.title || allProjects[nextIndex].nl.title, 
     url: `/projects/${allProjects[nextIndex].id}` 
   };
@@ -55,7 +60,7 @@ export default function ProjectPage() {
   const hasMoreContent = hasHighlights || hasGallery;
 
   return (
-    <div>
+    <div className="w-full bg-(--surface)">
       <div className="pb-32 lg:pb-0">
         <ProjectHeader project={project} hasMoreContent={hasMoreContent} />
         <ProjectInfo project={project} hasMoreContent={hasMoreContent} />
@@ -71,7 +76,7 @@ export default function ProjectPage() {
             />
           </div>
         )}
-        <ProjectPrevNext previous={previousProject} next={nextProject} />
+        {/* <ProjectPrevNext previous={previousProject} next={nextProject} onNavigateProject={onNavigateProject} /> */}
       </div>
     </div>
   );

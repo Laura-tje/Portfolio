@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useState, useContext } from "react";
 import { LanguageContext } from "../contexts/LanguageContext";
 
-export default function ProjectCard({ project, inDevelopment = false }) {
+export default function ProjectCard({ project, inDevelopment = false, onOpenProject }) {
   const [isCardHovering, setIsCardHovering] = useState(false);
   const { language } = useContext(LanguageContext);
   
@@ -84,20 +84,30 @@ export default function ProjectCard({ project, inDevelopment = false }) {
 
   const baseClasses = "group relative block bg-(--surface) rounded-lg border transition-all duration-300 project-card";
   const hoverStyle = isCardHovering ? {
-    animation: 'card-hover-lift 300ms ease-out forwards'
+    animation: 'card-hover-lift 300ms ease-out forwards',
+    cursor: onOpenProject ? 'pointer' : 'default',
   } : {};
   
   const baseClasses2 = `${baseClasses} border-(--bordercolor) hover:border-(--accent)`;
 
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      onOpenProject?.(project.id);
+    }
+  };
+
   return (
-    <Link
-      to={`/projects/${project.id}`}
+    <div
+      role="button"
+      tabIndex={0}
       className={baseClasses2}
       onMouseEnter={() => setIsCardHovering(true)}
       onMouseLeave={() => setIsCardHovering(false)}
-      style={hoverStyle}
+      onClick={() => onOpenProject?.(project.id)}
+      onKeyDown={handleKeyDown}
     >
       {cardContent}
-    </Link>
+    </div>
   );
 }

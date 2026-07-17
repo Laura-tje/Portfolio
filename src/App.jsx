@@ -9,7 +9,7 @@ export default function App() {
       <div className="min-h-screen flex flex-col bg-(--bg) text-(--text)">
         <Header />
 
-        <main className="flex-1 container mx-auto">
+        <main className="flex-1 w-full relative">
           <Outlet />
         </main>
 

@@ -1,6 +1,6 @@
 export const BeeAGardener = {
   id: "Bee A Gardener",
-  thumbnail: "assets/beeagardener/banner.png",
+  thumbnail: "assets/beeagardener/Logo.png",
   gif: "assets/beeagardener/arcade.gif",
   youtube: "",
   screenshots: [],

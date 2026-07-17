@@ -6,7 +6,7 @@ export default function ProjectHeader({ project, hasMoreContent = false }) {
   
   return (
     <div>
-      <div className="relative w-full mb-4 overflow-hidden">
+      <div className="relative w-full mb-2 overflow-hidden">
         {/* Banner Image */}
         <img 
           src={`${import.meta.env.BASE_URL}${bannerImage}`}
@@ -16,8 +16,8 @@ export default function ProjectHeader({ project, hasMoreContent = false }) {
           fetchPriority="high"
         />
 
-        {/* Gradient overlay voor leesbaarheid */}
-        <div className="absolute inset-0 bg-linear-to-t from-black/80 to-transparent" />
+        {/* Solid overlay voor leesbaarheid */}
+        <div className="absolute inset-0 bg-black/10" />
 
         {/* Text overlay */}
         <div className="absolute bottom-4 left-4">

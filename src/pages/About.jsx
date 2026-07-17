@@ -15,18 +15,18 @@ export default function About() {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative h-96 flex items-center justify-center px-4 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-transparent to-purple-500/10" />
-        <div className="absolute top-0 right-0 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl" />
+        <div className="absolute inset-0 bg-(--surface)" />
+        <div className="absolute top-0 right-0 w-96 h-96 bg-(--surface) rounded-full blur-3xl opacity-70" />
         
-        <div className="container mx-auto relative z-10 text-center">
+        <div className="w-full relative z-10 text-center px-4 md:px-8 lg:px-12">
           <h1 className="text-5xl md:text-6xl font-bold text-(--text) mb-4">
             {language === "nl" ? "Over mij" : "About Me"}
           </h1>
-          <div className="h-1 w-12 bg-gradient-to-r from-cyan-400 to-purple-500 mx-auto" />
+          <div className="h-1 w-12 bg-(--accent) mx-auto" />
         </div>
       </section>
 
-      <div className="container mx-auto max-w-5xl px-4 py-20">
+      <div className="w-full max-w-7xl mx-auto px-4 md:px-8 lg:px-12 py-20">
         {/* Main Content Grid */}
         <div className="space-y-20">
           
@@ -34,7 +34,7 @@ export default function About() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Image */}
             <div className="relative group">
-              <div className="absolute -inset-4 bg-gradient-to-br from-cyan-400 to-purple-500 rounded-lg opacity-20 group-hover:opacity-30 blur transition-opacity" />
+              <div className="absolute -inset-4 bg-(--surface) rounded-lg opacity-60 group-hover:opacity-80 blur transition-opacity" />
               <img
                 src={siteConfig.aboutImage}
                 alt={siteConfig.name}
@@ -100,7 +100,7 @@ export default function About() {
                 {(siteConfig[language]?.hardSkills || siteConfig.nl.hardSkills).map((skill) => (
                   <div
                     key={skill}
-                    className="px-4 py-2 bg-(--surface-alt) border border-(--bordercolor) rounded-full text-(--text) hover:border-(--accent) hover:text-(--accent) transition-all"
+                    className="px-4 py-2 bg-(--surface) border border-(--bordercolor) rounded-full text-(--text) hover:border-(--accent) hover:text-(--accent) transition-all"
                   >
                     {skill}
                   </div>
@@ -117,7 +117,7 @@ export default function About() {
                 {(siteConfig[language]?.softSkills || siteConfig.nl.softSkills).map((skill) => (
                   <div
                     key={skill}
-                    className="px-4 py-2 bg-(--surface-alt) border border-(--bordercolor) rounded-full text-(--text) hover:border-(--secondary) hover:text-(--secondary) transition-all"
+                    className="px-4 py-2 bg-(--surface) border border-(--bordercolor) rounded-full text-(--text) hover:border-(--secondary) hover:text-(--secondary) transition-all"
                   >
                     {skill}
                   </div>

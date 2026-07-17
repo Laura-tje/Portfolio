@@ -7,11 +7,13 @@ import { ChevronDown, ArrowRight } from "../components/icons/icons";
 import CommitCalendar from "../components/CommitCalendar";
 import { useContext, useEffect, useMemo, useState } from "react";
 import { LanguageContext } from "../contexts/LanguageContext";
+import ProjectPage from "./ProjectPage";
 
 export default function Home() {
   const { language } = useContext(LanguageContext);
   const [hoveredImage, setHoveredImage] = useState(false);
   const [selectedFilters, setSelectedFilters] = useState([]);
+  const [selectedProjectId, setSelectedProjectId] = useState(null);
 
   // Extract all unique tags from config
   const availableFilters = useMemo(() => {
@@ -71,6 +73,29 @@ export default function Home() {
     });
   }, []);
 
+  useEffect(() => {
+    if (selectedProjectId) {
+      document.body.style.overflow = "hidden";
+      document.documentElement.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
+    };
+  }, [selectedProjectId]);
+
+  const openProject = (projectId) => {
+    setSelectedProjectId(projectId);
+  };
+
+  const closeProject = () => {
+    setSelectedProjectId(null);
+  };
+
   const handleScrollToProjects = (e) => {
     e.preventDefault();
     const projectsSection = document.getElementById("projects");
@@ -80,29 +105,37 @@ export default function Home() {
   };
   
   return (
-    <div className="min-h-screen">
-      {/* Hero Section - Two Column Layout */}
-      <section className="relative min-h-screen flex items-center justify-center px-4 overflow-hidden">
-        {/* Animated background gradient */}
-        <div className="absolute inset-0 opacity-40">
-          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-br from-cyan-500/20 to-transparent rounded-full blur-3xl" />
-          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-gradient-to-tr from-purple-500/20 to-transparent rounded-full blur-3xl" />
+    <div className="w-full min-h-screen relative">
+      {selectedProjectId && (
+        <div className="fixed inset-0 z-[999] flex items-start justify-center overflow-y-auto bg-black/0 px-2 py-2 backdrop-blur-sm sm:px-4 sm:py-4 md:px-6 md:py-6">
+          <div className="relative z-[1000] w-full max-w-6xl overflow-visible rounded-[32px] border border-(--bordercolor) bg-(--surface) shadow-2xl">
+            <button
+              type="button"
+              onClick={closeProject}
+              aria-label="Sluit project"
+              className="absolute right-5 top-5 z-50 flex h-12 w-12 items-center justify-center rounded-full border border-(--bordercolor) bg-(--surface-alt) text-3xl leading-none text-(--text) shadow-xl transition hover:border-(--accent) hover:text-(--accent)"
+            >
+              ×
+            </button>
+
+            <div className="h-[93vh] overflow-y-auto rounded-[32px] pt-0">
+              <ProjectPage projectId={selectedProjectId} onNavigateProject={setSelectedProjectId} isModal />
+            </div>
+          </div>
         </div>
-
-        {/* Geometric accents */}
-        <div className="absolute top-20 right-40 w-1 h-32 bg-gradient-to-b from-cyan-400 to-transparent opacity-60" />
-        <div className="absolute bottom-32 left-20 w-1 h-40 bg-gradient-to-t from-purple-400 to-transparent opacity-60" />
-
-        <div className="container mx-auto relative z-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
-            {/* Left Column - Image */}
+      )}
+      {/* HERO / INTRO SECTION */}
+      <section className="relative min-h-screen w-[95vw] flex items-center justify-center px-4 overflow-hidden">
+        <div className="w-full relative z-10 px-4 md:px-8 lg:px-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
+            {/* LEFT: PROFILE IMAGE */}
             <div className="flex justify-center md:order-2" style={{ animation: 'fade-in-up 0.8s ease-out' }}>
               <div 
                 className="relative w-full max-w-md aspect-square cursor-pointer"
                 onMouseEnter={() => setHoveredImage(true)}
                 onMouseLeave={() => setHoveredImage(false)}
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-purple-500/20 rounded-2xl blur-2xl" />
+                <div className="absolute inset-0 bg-(--surface) rounded-2xl blur-2xl opacity-60" />
                 <img 
                   src={`${import.meta.env.BASE_URL}${hoveredImage ? siteConfig.profileImages[1] : siteConfig.profileImages[0]}`}
                   alt="Laura"
@@ -113,9 +146,9 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Right Column - Text */}
+            {/* RIGHT: TEXT CONTENT */}
             <div className="space-y-8 md:order-1">
-              {/* Greeting */}
+              {/* GREETING / NAME */}
               <div style={{ animation: 'fade-in-up 0.8s ease-out 0.1s both' }}>
                 <p className="text-sm text-(--accent) font-semibold uppercase tracking-[0.2em] mb-4">
                   {language === "nl" ? "XR Developer" : "XR Developer"}
@@ -125,20 +158,20 @@ export default function Home() {
                     {language === "nl" ? "Hey, ik ben" : "Hey, I'm"}
                   </span>
                   <br />
-                  <span className="bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">
+                  <span className="text-(--accent)">
                     Laura
                   </span>
                 </h1>
               </div>
 
-              {/* Tagline */}
+              {/* TAGLINE */}
               <div style={{ animation: 'fade-in-up 1s ease-out 0.2s both' }}>
                 <p className="text-lg md:text-xl text-(--muted) font-light leading-relaxed">
                   {siteConfig[language]?.tagline || siteConfig.nl.tagline}
                 </p>
               </div>
 
-              {/* CTA Buttons */}
+              {/* CTA BUTTONS */}
               <div className="flex flex-col sm:flex-row gap-4 pt-8" style={{ animation: 'fade-in-up 1.2s ease-out 0.4s both' }}>
                 <button 
                   onClick={handleScrollToProjects}
@@ -157,24 +190,24 @@ export default function Home() {
                 </Link>
               </div>
 
-              {/* GitHub Activity */}
+              {/* GITHUB ACTIVITY */}
               <CommitCalendar />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Projects Section */}
+      {/* PROJECTS SECTION */}
       <section id="projects" className="py-20 px-4">
-        <div className="container mx-auto max-w-6xl">
+        <div className="mx-auto max-w-6xl">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-(--text) mb-4">
               {language === "nl" ? "Mijn Projecten" : "My Projects"}
             </h2>
-            <div className="h-1 w-12 bg-gradient-to-r from-cyan-400 to-purple-500 mx-auto" />
+            <div className="h-1 w-12 bg-(--accent) mx-auto" />
           </div>
 
-          {/* Filter Section */}
+          {/* FILTERS */}
           <ProjectFilter 
             selectedFilters={selectedFilters}
             onFilterChange={setSelectedFilters}
@@ -183,7 +216,7 @@ export default function Home() {
             allProjects={allProjectsForFiltering}
           />
 
-          {/* Projects Grid */}
+          {/* PROJECT GRID */}
           {filteredProjects.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
               {filteredProjects.map((project, index) => (
@@ -191,7 +224,7 @@ export default function Home() {
                   key={index} 
                   style={{ animation: `fade-in-up 0.8s ease-out ${0.2 + index * 0.1}s both` }}
                 >
-                  <ProjectCard project={project} />
+                  <ProjectCard project={project} onOpenProject={openProject} />
                 </div>
               ))}
             </div>
@@ -205,7 +238,7 @@ export default function Home() {
             </div>
           )}
 
-          {/* In Development */}
+          {/* IN DEVELOPMENT */}
           {filteredInDevelopment.length > 0 && (
             <div className="mt-16">
               <h3 className="text-2xl font-bold text-(--text) mb-8 text-center">
@@ -217,7 +250,7 @@ export default function Home() {
                     key={index} 
                     style={{ animation: `fade-in-up 0.8s ease-out ${0.2 + index * 0.1}s both` }}
                   >
-                    <ProjectCard project={project} inDevelopment={true} />
+                    <ProjectCard project={project} inDevelopment={true} onOpenProject={openProject} />
                   </div>
                 ))}
               </div>
@@ -226,17 +259,17 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Skills Section */}
+      {/* SKILLS SECTION */}
       <section className="py-20 px-4">
-        <div className="container mx-auto max-w-6xl">
+        <div className="w-full max-w-7xl mx-auto px-4 md:px-8 lg:px-12">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-(--text) mb-4">
               {language === "nl" ? "Ik heb ervaring met" : "I have experience with"}
             </h2>
-            <div className="h-1 w-12 bg-gradient-to-r from-cyan-400 to-purple-500 mx-auto" />
+            <div className="h-1 w-12 bg-(--accent) mx-auto" />
           </div>
 
-          {/* Game Engines */}
+          {/* GAME ENGINES */}
           <div className="mb-16 flex justify-center">
             <div>
               <h3 className="text-2xl font-semibold text-(--accent) mb-6 text-center">
@@ -271,7 +304,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Programming Languages */}
+          {/* PROGRAMMING LANGUAGES */}
           <div className="mb-16 flex justify-center">
             <div>
               <h3 className="text-2xl font-semibold text-(--secondary) mb-6 text-center">
@@ -317,7 +350,7 @@ export default function Home() {
               </h3>
               <div className="flex flex-wrap gap-3 justify-center">
                 {[
-                  { name: "Arduino", logo: "arduino.png" },
+                  //{ name: "Arduino", logo: "arduino.png" },
                   { name: "Raspberry Pi", logo: "raspberrypi.png" },
                   { name: "OpenCV", logo: "opencv.png" },
                   { name: "Socket.io", logo: "socketio.png" },
@@ -351,40 +384,6 @@ export default function Home() {
               </div>
             </div>
           </div>
-
-          {/* Tools & Hardware
-          <div className="mb-16 flex justify-center">
-            <div>
-              <h3 className="text-2xl font-semibold text-(--primary) mb-6 text-center">
-                {language === "nl" ? "Programmeertalen" : "Programming Languages"}
-              </h3>
-              <div className="flex flex-wrap gap-3 justify-center">
-                {[
-                  { name: "Arduino", logo: "arduino.png" },
-                  { name: "Raspberry Pi", logo: "raspberrypi.png" },
-                  { name: "Github", logo: "github.png" },
-                ].map((skill, idx) => (
-                  <div 
-                    key={idx}
-                    className="flex flex-col items-center justify-center"
-                    style={{ animation: `fade-in-up 0.8s ease-out ${0.2 + idx * 0.05}s both` }}
-                  >
-                    <img 
-                      src={`${import.meta.env.BASE_URL}assets/skills/${skill.logo}`} 
-                      alt={skill.name}
-                      className="h-16 mb-2 object-contain"
-                      onError={(e) => {
-                        e.target.style.display = 'none';
-                      }}
-                    />
-                    <p className="text-sm font-semibold text-(--text) text-center">
-                      {skill.name}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div> */}
           </div>
       </section>
     </div>

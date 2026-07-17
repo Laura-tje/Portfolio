@@ -267,6 +267,7 @@ button:disabled, input:disabled {
 /* Project card with overflow for ribbon visibility */
 .project-card {
   overflow: hidden;
+  cursor: pointer;
 }
 
 .project-card > .award-ribbon {

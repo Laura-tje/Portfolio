@@ -23,7 +23,7 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 bg-(--surface) border-b border-(--bordercolor) backdrop-blur-sm bg-opacity-95">
-      <nav className="container mx-auto px-4 py-4 flex items-center justify-between gap-2 md:gap-8">
+      <nav className="w-full px-4 py-4 flex items-center justify-between gap-2 md:gap-8">
         {/* Logo / Site naam */}
         <Link 
           to="/" 

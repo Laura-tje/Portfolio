@@ -11,9 +11,9 @@ import { BeeAGardener } from "./projects/beeagardener";
 //import { Template } from "./projects/template";
 
 export const projects = [
-  Vlindertuin,
-  ColourMadness,
-  BeeAGardener,
+  Vlindertuin, //is not done yet, still needs proper text
+  ColourMadness, //is almost done, 
+  BeeAGardener, //is far form done
   CloudIX,
   Chess,
   PiracyItsACrime,

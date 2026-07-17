@@ -41,18 +41,18 @@ export default function Contact() {
       {/* Hero Section */}
       <section className="relative py-20 px-4 overflow-hidden">
         <div className="absolute inset-0 opacity-40">
-          <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-gradient-to-br from-purple-500/20 to-transparent rounded-full blur-3xl" />
-          <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-gradient-to-tl from-cyan-500/20 to-transparent rounded-full blur-3xl" />
+          <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-(--surface) rounded-full blur-3xl" />
+          <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-(--surface) rounded-full blur-3xl" />
         </div>
 
-        <div className="container mx-auto max-w-4xl relative z-10">
+        <div className="w-full max-w-7xl mx-auto relative z-10 px-4 md:px-8 lg:px-12">
           <div className="text-center space-y-6 mb-20">
             <h1 className="text-5xl md:text-6xl font-bold">
               <span className="text-(--text)">
                 {language === "nl" ? "Laten we" : "Let's"}
               </span>
               {" "}
-              <span className="bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">
+              <span className="text-(--accent)">
                 {language === "nl" ? "samenwerken" : "Work Together"}
               </span>
             </h1>
@@ -86,7 +86,7 @@ export default function Contact() {
                 <a
                   href={`mailto:${siteConfig.socials.email}`}
                   onClick={handleCopyEmail}
-                  className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-cyan-400 to-cyan-500 text-white rounded-lg font-bold text-lg hover:shadow-lg hover:from-cyan-300 hover:to-cyan-400 transition-all group"
+                  className="inline-flex items-center gap-3 px-8 py-4 bg-(--accent) text-white rounded-lg font-bold text-lg hover:shadow-lg hover:bg-(--accent-hover) transition-all group"
                 >
                   <Envelope className="w-5 h-5" />
                   <span className="break-all">{siteConfig.socials.email}</span>
@@ -102,8 +102,8 @@ export default function Contact() {
 
               {/* Decorative Element */}
               <div className="hidden lg:block relative">
-                <div className="absolute -inset-4 bg-gradient-to-br from-cyan-400 to-purple-500 rounded-full opacity-20 blur" />
-                <div className="relative w-32 h-32 rounded-full bg-(--surface-alt) border-2 border-(--bordercolor) flex items-center justify-center">
+                <div className="absolute -inset-4 bg-(--surface) rounded-full opacity-70 blur" />
+                <div className="relative w-32 h-32 rounded-full bg-(--surface) border-2 border-(--bordercolor) flex items-center justify-center">
                   <Envelope className="w-12 h-12 text-(--accent)" />
                 </div>
               </div>
@@ -113,13 +113,13 @@ export default function Contact() {
       </section>
 
       {/* Social Links Section */}
-      <section className="py-20 px-4 bg-(--surface-alt)">
-        <div className="container mx-auto max-w-4xl">
+      <section className="py-20 px-4 bg-(--surface)">
+        <div className="w-full max-w-7xl mx-auto px-4 md:px-8 lg:px-12">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-(--text) mb-4">
               {language === "nl" ? "Vind mij online" : "Find Me Online"}
             </h2>
-            <div className="h-1 w-12 bg-gradient-to-r from-cyan-400 to-purple-500 mx-auto" />
+            <div className="h-1 w-12 bg-(--accent) mx-auto" />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -133,7 +133,7 @@ export default function Contact() {
                 style={{ animation: `fade-in-up 0.8s ease-out ${0.2 + idx * 0.1}s both` }}
               >
                 <div className="flex flex-col gap-4">
-                  <div className="w-12 h-12 rounded-lg bg-(--surface-alt) border border-(--bordercolor) flex items-center justify-center text-(--muted) group-hover:text-(--accent) group-hover:border-(--accent) transition-all">
+                  <div className="w-12 h-12 rounded-lg bg-(--surface) border border-(--bordercolor) flex items-center justify-center text-(--muted) group-hover:text-(--accent) group-hover:border-(--accent) transition-all">
                     {social.icon}
                   </div>
                   <div>
@@ -153,7 +153,7 @@ export default function Contact() {
 
       {/* Bottom CTA */}
       <section className="py-20 px-4">
-        <div className="container mx-auto max-w-2xl text-center">
+        <div className="w-full max-w-7xl mx-auto px-4 md:px-8 lg:px-12 text-center">
           <div className="space-y-6 p-8 bg-(--surface) border border-(--bordercolor) rounded-lg">
             <p className="text-(--muted) italic">
               "{language === "nl"
