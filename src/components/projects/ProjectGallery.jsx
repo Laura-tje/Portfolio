@@ -44,7 +44,8 @@ export default function ProjectGallery({ project, showDetails = false }) {
                 src={`${import.meta.env.BASE_URL}${slides[currentIndex].src}`}
                 alt="Project GIF"
                 className="w-full h-full object-contain"
-                loading="lazy"
+                loading="eager"
+                fetchPriority="high"
               />
             )}
 

@@ -5,7 +5,7 @@ import ProjectFilter from "../components/ProjectFilter";
 import { projects, inDevelopment } from "../data/index";
 import { ChevronDown, ArrowRight } from "../components/icons/icons";
 import CommitCalendar from "../components/CommitCalendar";
-import { useContext, useState, useMemo } from "react";
+import { useContext, useEffect, useMemo, useState } from "react";
 import { LanguageContext } from "../contexts/LanguageContext";
 
 export default function Home() {
@@ -58,6 +58,18 @@ export default function Home() {
       )
     );
   }, [selectedFilters]);
+
+  useEffect(() => {
+    const gifSources = [...projects, ...inDevelopment]
+      .map((project) => project.gif)
+      .filter(Boolean)
+      .map((gif) => `${import.meta.env.BASE_URL}${gif}`);
+
+    gifSources.forEach((src) => {
+      const image = new Image();
+      image.src = src;
+    });
+  }, []);
 
   const handleScrollToProjects = (e) => {
     e.preventDefault();

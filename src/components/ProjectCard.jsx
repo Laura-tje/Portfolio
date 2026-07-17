@@ -30,7 +30,7 @@ export default function ProjectCard({ project, inDevelopment = false }) {
         className="relative aspect-video overflow-hidden"
       >
         {isCardHovering && project.gif ? (
-          <img src={`${import.meta.env.BASE_URL}${project.gif}`} alt={content.title} className="w-full h-full object-cover" loading="lazy" />
+          <img src={`${import.meta.env.BASE_URL}${project.gif}`} alt={content.title} className="w-full h-full object-cover" loading="eager" fetchPriority="high" />
         ) : (
           <img src={`${import.meta.env.BASE_URL}${project.thumbnail}`} alt={content.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
         )}

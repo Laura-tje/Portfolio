@@ -102,7 +102,8 @@ export default function ProjectMechanics({ project, hasMoreContent = false }) {
                           alt={m.subtitle}
                           className="w-full h-full object-contain"
                           style={{ borderRadius: "0.5rem" }}
-                          loading="lazy"
+                          loading={getMediaArray(m)[mediaIndices[i] || 0].type === 'gif' ? 'eager' : 'lazy'}
+                          fetchPriority={getMediaArray(m)[mediaIndices[i] || 0].type === 'gif' ? 'high' : 'auto'}
                         />
                         
                         {/* Navigation arrows */}
@@ -210,7 +211,8 @@ export default function ProjectMechanics({ project, hasMoreContent = false }) {
                       alt={m.subtitle}
                       className="w-full h-full object-contain"
                       style={{ borderRadius: "0.5rem" }}
-                      loading="lazy"
+                      loading={getMediaArray(m)[mediaIndices[i] || 0].type === 'gif' ? 'eager' : 'lazy'}
+                      fetchPriority={getMediaArray(m)[mediaIndices[i] || 0].type === 'gif' ? 'high' : 'auto'}
                     />
                     
                     {/* Navigation arrows */}
