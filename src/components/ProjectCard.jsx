@@ -12,6 +12,8 @@ export default function ProjectCard({ project, inDevelopment = false, onOpenProj
     { key: "unity", src: "assets/skills/unity.png" },
     { key: "unreal", src: "assets/skills/unreal.png" },
     { key: "godot", src: "assets/skills/godot.png" },
+    { key: "raspberry pi", src: "assets/skills/raspberrypi.png" },
+    { key: "arduino", src: "assets/skills/arduino.png" },
   ];
   const engineIcon = engineIcons.find(({ key }) =>
     project.tags?.some((tag) => tag.toLowerCase().includes(key))
@@ -84,8 +86,7 @@ export default function ProjectCard({ project, inDevelopment = false, onOpenProj
 
   const baseClasses = "group relative block bg-(--surface) rounded-lg border transition-all duration-300 project-card";
   const hoverStyle = isCardHovering ? {
-    animation: 'card-hover-lift 300ms ease-out forwards',
-    cursor: onOpenProject ? 'pointer' : 'default',
+    animation: 'card-hover-lift 300ms ease-out forwards'
   } : {};
   
   const baseClasses2 = `${baseClasses} border-(--bordercolor) hover:border-(--accent)`;
