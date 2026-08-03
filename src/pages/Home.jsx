@@ -125,14 +125,14 @@ export default function Home() {
         </div>
       )}
       {/* HERO / INTRO SECTION */}
-      <section className="relative min-h-screen w-[95vw] flex items-center justify-center px-4 overflow-hidden">
+      <section className="relative min-h-screen max-w-screen flex items-center justify-center px-4 overflow-hidden">
         <div className="w-full relative z-10 px-4 md:px-8 lg:px-12">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
             {/* LEFT: PROFILE IMAGE */}
             <div className="flex justify-center md:order-2" style={{ animation: 'fade-in-up 0.8s ease-out' }}>
               <div 
                 className="relative w-full max-w-md aspect-square cursor-pointer"
-                onMouseEnter={() => setHoveredImage(true)}
+                //onMouseEnter={() => setHoveredImage(true)}
                 onMouseLeave={() => setHoveredImage(false)}
               >
                 <div className="absolute inset-0 bg-(--surface) rounded-2xl blur-2xl opacity-60" />
