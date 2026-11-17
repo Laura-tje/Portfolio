@@ -5,12 +5,4 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineConfig({
   plugins: [tailwindcss(), react()],
   base: '/',
-  build: {
-    rollupOptions: {
-      input: {
-        main: 'index.html',
-        '404': 'index.html',
-      },
-    },
-  },
 });
