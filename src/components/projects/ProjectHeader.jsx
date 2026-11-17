@@ -1,3 +1,4 @@
+import React from "react";
 import TagBadge from "../TagBadge";
 
 export default function ProjectHeader({ project, hasMoreContent = false }) {

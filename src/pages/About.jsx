@@ -1,3 +1,4 @@
+import React from "react";
 import { siteConfig } from "../siteConfig";
 import { Download } from "../components/icons/icons.jsx";
 import { useContext } from "react";
@@ -14,12 +15,9 @@ export default function About() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-96 flex items-center justify-center px-4 overflow-hidden">
-        <div className="absolute inset-0 bg-(--surface)" />
-        <div className="absolute top-0 right-0 w-96 h-96 bg-(--surface) rounded-full blur-3xl opacity-70" />
-        
-        <div className="w-full relative z-10 text-center px-4 md:px-8 lg:px-12">
-          <h1 className="text-5xl md:text-6xl font-bold text-(--text) mb-4">
+      <section className="relative flex min-h-[clamp(220px,28vw,320px)] items-center justify-center overflow-hidden px-4 py-12">
+        <div className="relative z-10 w-full px-4 text-center md:px-8 lg:px-12">
+          <h1 className="mb-4 text-4xl font-bold text-(--text) sm:text-5xl md:text-6xl">
             {language === "nl" ? "Over mij" : "About Me"}
           </h1>
           <div className="h-1 w-12 bg-(--accent) mx-auto" />

@@ -1,12 +1,11 @@
+import React from "react";
 import { siteConfig } from "../siteConfig";
 import { GitHub, LinkedIn, Itch, Envelope, ArrowRight } from "../components/icons/icons.jsx";
 import { useContext, useState } from "react";
 import { LanguageContext } from "../contexts/LanguageContext";
-import { usePageTranslations } from "../hooks/useTranslations";
 
 export default function Contact() {
   const { language } = useContext(LanguageContext);
-  const { t } = usePageTranslations("contact");
   const [copied, setCopied] = useState(false);
 
   const handleCopyEmail = () => {

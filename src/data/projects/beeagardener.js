@@ -22,7 +22,9 @@ export const BeeAGardener = {
   nl: {
     title: "Bee A Gardener",
     tagline: "Een schattige moestuin-tycoon",
-    description: `Een schattige moestuin-tycoon game gebouwd met Unity. Spelers kunnen hun virtuele tuin beheren, verschillende soorten planten laten groeien en interageren met andere spelers in een gedeeld wereld. Het project omvatte het implementeren van spellen mechanics, een gebruikersinterface en netwerkcommunicatie.`,
+    description: `Een schattige moestuin-tycoon game gebouwd met Unity. Spelers kunnen hun virtuele tuin beheren, 
+                  verschillende soorten planten laten groeien en interageren met andere spelers in een gedeeld wereld. Het project 
+                  omvatte het implementeren van spellen mechanics, een gebruikersinterface en netwerkcommunicatie.`,
     projectRole: "Developer",
     timeline: "4 weken",
     mechanics: 

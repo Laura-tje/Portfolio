@@ -1,3 +1,5 @@
+import React from "react";
+
 export default function GamePreview({ gameUrl, width = '600px', height = '500px', aspectRatio = null }) {
   return (
     <div 

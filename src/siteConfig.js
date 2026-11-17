@@ -1,11 +1,7 @@
 export const siteConfig = {
   name: "Laura Delissen",
-  role: "XR Developer",
-  aboutImage: "assets/aboutme/profilepic1.png",
-  profileImages: [
-    "assets/aboutme/profilepic1.png",
-    "assets/aboutme/vr.jpg",
-  ],
+  aboutImage: "assets/aboutme/profilepic2.png",
+  profileImage: "assets/aboutme/profilepic2.png",
   cv: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
 
   // Include in-development projects in the filter system
@@ -84,8 +80,8 @@ export const siteConfig = {
       Zo heb ik bijvoorbeeld een simulatie gemaakt die laat zien hoe kleurenblindheid wordt 
       ervaren, met als doel om iets abstracts ineens concreet en invoelbaar te maken. Ook 
       werk ik in mijn vrije tijd aan een distraction tracker, die mensen bewust maakt van 
-      hoe snel en vaak ze eigenlijk worden afgeleid — iets waar veel mensen zich nauwelijks v
-      an bewust zijn.
+      hoe snel en vaak ze eigenlijk worden afgeleid — iets waar veel mensen zich nauwelijks 
+      van bewust zijn.
 
       Mijn motivatie komt niet uit een liefde voor games, want die heb ik eigenlijk nooit 
       gehad. Ik ben opgegroeid zonder, en daardoor kijk ik er ook anders naar. Waar anderen 
@@ -103,9 +99,28 @@ export const siteConfig = {
   en: {
     tagline: "I build simulations with a purpose; to help people learn something new.",
     aboutLong: `
-      VOEG ENGELSE ABOUT BESCHRIJVING IN
+      I am driven by building things that mean something to other people. While many 
+      people focus on creating games, my interest lies elsewhere: I want to use 
+      technology to help people or teach them something.
+
+      During my projects, I naturally think from the user's perspective. What do they see? 
+      What don't they understand? Where do they get stuck? Those questions shape the way I 
+      work. For example, I made a simulation that shows how colour blindness is experienced, 
+      with the goal of turning something abstract into something concrete and understandable. 
+      I also work on a distraction tracker in my free time, which helps people become more 
+      aware of how quickly and often they get distracted.
+
+      My motivation does not come from a love of games, because I honestly never had that. 
+      I grew up without them, and that means I look at them differently too. Where others 
+      focus on entertainment and "feel", I focus on clarity, insight, and impact. I want 
+      someone to use something and afterwards think: "now I get it."
+
+      That also means I am critical of my own work. I know I rely less on playfulness or 
+      game feel, and that is exactly why I pay extra attention to how an experience can be 
+      logical, clear, and meaningful. For me, a project is only successful if it not only 
+      works, but also really communicates something.
     `,
-    softSkills: ["VOEG ENGELSE SOFT SKILLS IN"],
-    hardSkills: ["VOEG ENGELSE HARD SKILLS IN"],
+    softSkills: ["Collaboration with artists", "Giving and receiving feedback", "Problem-solving"],
+    hardSkills: ["Unity & XR Interaction Toolkit", "C# scripting", "Git & version control"],
   }
 };

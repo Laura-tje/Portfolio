@@ -1,3 +1,4 @@
+import React from "react";
 import { useContext, useState, useRef, useEffect } from "react";
 import { LanguageContext } from "../contexts/LanguageContext";
 
@@ -63,13 +64,8 @@ export default function ProjectFilter({
   };
 
   // Get selected filter count per category
-  const getSelectedCountInCategory = (categoryKey, category) => {
+  const getSelectedCountInCategory = (category) => {
     return category.tags.filter(tag => selectedFilters.includes(tag)).length;
-  };
-
-  const clearFilters = () => {
-    onFilterChange([]);
-    setOpenDropdown(null);
   };
 
   const availableTags = getAvailableTags();
@@ -156,7 +152,7 @@ export default function ProjectFilter({
               }}
             >
               <span>{category.label}</span>
-              {getSelectedCountInCategory(categoryKey, category) > 0 && (
+              {getSelectedCountInCategory(category) > 0 && (
                 <span style={{
                   backgroundColor: "var(--accent)",
                   color: "#0a0e27",
@@ -170,7 +166,7 @@ export default function ProjectFilter({
                   alignItems: "center",
                   justifyContent: "center"
                 }}>
-                  {getSelectedCountInCategory(categoryKey, category)}
+                  {getSelectedCountInCategory(category)}
                 </span>
               )}
               <svg

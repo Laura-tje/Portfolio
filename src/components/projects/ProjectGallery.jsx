@@ -1,24 +1,22 @@
+import React from "react";
 import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "../icons/icons.jsx";
 
-export default function ProjectGallery({ project, showDetails = false }) {
-  const { screenshots, youtube, gif } = project;
+export default function ProjectGallery({ project }) {
+  const { screenshots = [], youtube, gif } = project;
 
-  // Toon YouTube video als beschikbaar, anders GIF, daarna screenshots
   const slides = [
     ...(youtube ? [{ type: "video", src: youtube }] : gif ? [{ type: "gif", src: gif }] : []),
     ...screenshots.map((s) => ({ type: "image", src: s })),
   ];
 
-  // Track huidige slide
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Navigatie functies
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + 1) % slides.length);
   };
 
-  const prevSlide = () => {
+  const previousSlide = () => {
     setCurrentIndex((prev) => (prev - 1 + slides.length) % slides.length);
   };
 
@@ -65,7 +63,7 @@ export default function ProjectGallery({ project, showDetails = false }) {
           {slides.length > 1 && (
             <>
               <button
-                onClick={prevSlide}
+                onClick={previousSlide}
                 className="absolute left-4 top-1/2 -translate-y-1/2 p-3 rounded-full 
                            bg-black/50 text-white hover:bg-black/70 transition-colors"
               >

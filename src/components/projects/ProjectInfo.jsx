@@ -1,3 +1,4 @@
+import React from "react";
 import { usePageTranslations } from "../../hooks/useTranslations";
 import ProjectGallery from "./ProjectGallery";
 import TagBadge from "../TagBadge";

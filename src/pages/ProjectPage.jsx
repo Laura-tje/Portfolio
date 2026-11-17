@@ -1,3 +1,4 @@
+import React from "react";
 import { useParams } from "react-router-dom";
 import { useEffect, useContext } from "react";
 import { projects, inDevelopment } from "../data/index";
@@ -5,10 +6,9 @@ import ProjectHeader from "../components/projects/ProjectHeader";
 import ProjectInfo from "../components/projects/ProjectInfo";
 import GamePreview from "../components/projects/GamePreview";
 import ProjectMechanics from "../components/projects/ProjectMechanics";
-import ProjectPrevNext from "../components/projects/ProjectPrevNext";
 import { LanguageContext } from "../contexts/LanguageContext";
 
-export default function ProjectPage({ projectId: projectIdProp, onNavigateProject, isModal = false }) {
+export default function ProjectPage({ projectId: projectIdProp, isModal = false }) {
   const { projectId: routeProjectId } = useParams();
   const { language } = useContext(LanguageContext);
   const projectId = projectIdProp || routeProjectId;
@@ -35,26 +35,6 @@ export default function ProjectPage({ projectId: projectIdProp, onNavigateProjec
   const projectContent = baseProject[language] || baseProject.nl;
   const project = { ...baseProject, ...projectContent };
 
-  const currentIndex = allProjects.findIndex(p => p.id === projectId);
-  
-  // Find next project
-  let nextIndex = (currentIndex + 1) % allProjects.length;
-  
-  // Find previous project
-  let previousIndex = (currentIndex - 1 + allProjects.length) % allProjects.length;
-
-  const previousProject = { 
-    id: allProjects[previousIndex].id,
-    title: allProjects[previousIndex][language]?.title || allProjects[previousIndex].nl.title, 
-    url: `/projects/${allProjects[previousIndex].id}` 
-  };
-  
-  const nextProject = { 
-    id: allProjects[nextIndex].id,
-    title: allProjects[nextIndex][language]?.title || allProjects[nextIndex].nl.title, 
-    url: `/projects/${allProjects[nextIndex].id}` 
-  };
-
   const hasHighlights = project.mechanics && project.mechanics.length > 0;
   const hasGallery = project.youtube || (project.screenshots && project.screenshots.length > 0);
   const hasMoreContent = hasHighlights || hasGallery;
@@ -76,7 +56,6 @@ export default function ProjectPage({ projectId: projectIdProp, onNavigateProjec
             />
           </div>
         )}
-        {/* <ProjectPrevNext previous={previousProject} next={nextProject} onNavigateProject={onNavigateProject} /> */}
       </div>
     </div>
   );

@@ -13,7 +13,7 @@ export const ColourMadness = {
     "3D",
   ],
   git: "https://github.com/Daangulitz/XRpedition-team-10",
-  itch: "https://daangulitz.itch.io/colormadness",
+  itch: "https://laura-tje.itch.io/colour-madness",
 
   nl: {
     title: "Colour Madness",

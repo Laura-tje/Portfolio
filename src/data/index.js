@@ -1,27 +1,17 @@
 import { CloudIX } from "./projects/cloudix";
 import { ColourMadness } from "./projects/colour-madness";
-import { PiracyItsACrime } from "./projects/piracy-its-a-crime";
-import { Tamagotchi } from "./projects/tamagotchi";
-import { Fruitpocalypse } from "./projects/fruitpocalypse";
-import { Chess } from "./projects/chess";
-import { Distractiontracker } from "./projects/distractiontracker";
 import { Vlindertuin } from "./projects/vlindertuin";
-import { FightorFlirt } from "./projects/fight-or-flirt";
 import { BeeAGardener } from "./projects/beeagardener";
-//import { Template } from "./projects/template";
+import { SterileZone } from "./projects/sterilezone";
+import { CoreControl } from "./projects/corecontrol";
 
 export const projects = [
-  Vlindertuin, //is not done yet, still needs proper text
-  ColourMadness, //is almost done, 
-  BeeAGardener, //is far form done
+  Vlindertuin,
+  SterileZone,
+  CoreControl,
+  ColourMadness,
+  BeeAGardener,
   CloudIX,
-  Chess,
-  PiracyItsACrime,
 ];
 
-export const inDevelopment = [
-  //Tamagotchi,
-  //Fruitpocalypse,
-  //FightorFlirt,
-  //Distractiontracker,
-];
+export const inDevelopment = [];

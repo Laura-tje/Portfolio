@@ -1,3 +1,4 @@
+import React from "react";
 import { useContext } from "react";
 import { LanguageContext } from "../contexts/LanguageContext";
 import "./CommitCalendar.css";

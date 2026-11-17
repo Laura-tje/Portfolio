@@ -1,12 +1,11 @@
-import { Link } from "react-router-dom";
-import { useState, useContext } from "react";
+import React from "react";
+import { useContext, useState } from "react";
 import { LanguageContext } from "../contexts/LanguageContext";
 
 export default function ProjectCard({ project, inDevelopment = false, onOpenProject }) {
   const [isCardHovering, setIsCardHovering] = useState(false);
   const { language } = useContext(LanguageContext);
   
-  // Get language-specific content
   const content = project[language] || project.nl;
   const engineIcons = [
     { key: "unity", src: "assets/skills/unity.png" },
@@ -85,12 +84,6 @@ export default function ProjectCard({ project, inDevelopment = false, onOpenProj
   );
 
   const baseClasses = "group relative block bg-(--surface) rounded-lg border transition-all duration-300 project-card";
-  const hoverStyle = isCardHovering ? {
-    animation: 'card-hover-lift 300ms ease-out forwards'
-  } : {};
-  
-  const baseClasses2 = `${baseClasses} border-(--bordercolor) hover:border-(--accent)`;
-
   const handleKeyDown = (event) => {
     if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
@@ -102,7 +95,7 @@ export default function ProjectCard({ project, inDevelopment = false, onOpenProj
     <div
       role="button"
       tabIndex={0}
-      className={baseClasses2}
+      className={`${baseClasses} border-(--bordercolor) hover:border-(--accent)`}
       onMouseEnter={() => setIsCardHovering(true)}
       onMouseLeave={() => setIsCardHovering(false)}
       onClick={() => onOpenProject?.(project.id)}

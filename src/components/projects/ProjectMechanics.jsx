@@ -1,3 +1,4 @@
+import React from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { useState, useContext } from "react";
@@ -5,8 +6,7 @@ import { LanguageContext } from "../../contexts/LanguageContext";
 import { ChevronLeft, ChevronRight } from "../icons/icons.jsx";
 
 export default function ProjectMechanics({ project, hasMoreContent = false }) {
-  const [hoveredIndex, setHoveredIndex] = useState(null);
-  const [mediaIndices, setMediaIndices] = useState({}); // Track current media index for each mechanic
+  const [mediaIndices, setMediaIndices] = useState({});
   const { language } = useContext(LanguageContext);
 
   const renderDescription = (description) =>
@@ -24,10 +24,8 @@ export default function ProjectMechanics({ project, hasMoreContent = false }) {
     return null;
   }
 
-  // Helper function to check if a mechanic has media
   const hasMedia = (m) => m.youtube || m.images?.length > 0 || m.gifs?.length > 0;
 
-  // Combine images and gifs into a single media array
   const getMediaArray = (m) => {
     const media = [];
     if (m.images?.length > 0) {
@@ -39,7 +37,6 @@ export default function ProjectMechanics({ project, hasMoreContent = false }) {
     return media;
   };
 
-  // Navigate to next media item for a mechanic
   const goToNextMedia = (mechanicIndex, totalItems) => {
     setMediaIndices(prev => ({
       ...prev,
@@ -47,7 +44,6 @@ export default function ProjectMechanics({ project, hasMoreContent = false }) {
     }));
   };
 
-  // Navigate to previous media item for a mechanic
   const goToPrevMedia = (mechanicIndex, totalItems) => {
     setMediaIndices(prev => ({
       ...prev,
@@ -57,8 +53,11 @@ export default function ProjectMechanics({ project, hasMoreContent = false }) {
 
   return (
     <div className={`mx-4 mt-12 ${!hasMoreContent ? 'mb-4' : ''}`}>
-      {project.mechanics.map((m, i, arr) => (
-        <div
+      {project.mechanics.map((m, i, arr) => {
+        const media = getMediaArray(m);
+
+        return (
+          <div
           key={i}
           className={`flex flex-col gap-4 pb-8 ${i === 0 ? 'pt-0' : 'pt-2'} ${i !== arr.length - 1 ? 'border-b border-(--bordercolor)' : ''}`}
         >
@@ -82,8 +81,6 @@ export default function ProjectMechanics({ project, hasMoreContent = false }) {
                   {/* Media Carousel */}
                   <div 
                     className="w-full h-60 rounded-lg overflow-hidden relative group"
-                    onMouseEnter={() => setHoveredIndex(i)}
-                    onMouseLeave={() => setHoveredIndex(null)}
                   >
                     {m.youtube && (
                       <iframe
@@ -95,22 +92,22 @@ export default function ProjectMechanics({ project, hasMoreContent = false }) {
                       />
                     )}
                   
-                    {!m.youtube && getMediaArray(m).length > 0 && (
+                    {!m.youtube && media.length > 0 && (
                       <>
                         <img
-                          src={`${import.meta.env.BASE_URL}${getMediaArray(m)[mediaIndices[i] || 0].src}`}
+                          src={`${import.meta.env.BASE_URL}${media[mediaIndices[i] || 0].src}`}
                           alt={m.subtitle}
                           className="w-full h-full object-contain"
                           style={{ borderRadius: "0.5rem" }}
-                          loading={getMediaArray(m)[mediaIndices[i] || 0].type === 'gif' ? 'eager' : 'lazy'}
-                          fetchPriority={getMediaArray(m)[mediaIndices[i] || 0].type === 'gif' ? 'high' : 'auto'}
+                          loading={media[mediaIndices[i] || 0].type === 'gif' ? 'eager' : 'lazy'}
+                          fetchPriority={media[mediaIndices[i] || 0].type === 'gif' ? 'high' : 'auto'}
                         />
                         
                         {/* Navigation arrows */}
-                        {getMediaArray(m).length > 1 && (
+                        {media.length > 1 && (
                           <>
                             <button
-                              onClick={() => goToPrevMedia(i, getMediaArray(m).length)}
+                              onClick={() => goToPrevMedia(i, media.length)}
                               className="absolute left-2 top-1/2 -translate-y-1/2 p-2 rounded-full 
                                        bg-black/50 text-white hover:bg-black/70 transition-colors 
                                        opacity-100 md:opacity-0 md:group-hover:opacity-100"
@@ -119,7 +116,7 @@ export default function ProjectMechanics({ project, hasMoreContent = false }) {
                             </button>
                             
                             <button
-                              onClick={() => goToNextMedia(i, getMediaArray(m).length)}
+                              onClick={() => goToNextMedia(i, media.length)}
                               className="absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-full 
                                        bg-black/50 text-white hover:bg-black/70 transition-colors 
                                        opacity-100 md:opacity-0 md:group-hover:opacity-100"
@@ -129,7 +126,7 @@ export default function ProjectMechanics({ project, hasMoreContent = false }) {
 
                             {/* Media counter */}
                             <div className="absolute bottom-2 right-2 px-2 py-1 bg-black/50 text-white text-xs rounded">
-                              {(mediaIndices[i] || 0) + 1} / {getMediaArray(m).length}
+                              {(mediaIndices[i] || 0) + 1} / {media.length}
                             </div>
                           </>
                         )}
@@ -191,8 +188,6 @@ export default function ProjectMechanics({ project, hasMoreContent = false }) {
               {/* Media Carousel */}
               <div 
                 className="w-full h-60 rounded-lg overflow-hidden relative group"
-                onMouseEnter={() => setHoveredIndex(i)}
-                onMouseLeave={() => setHoveredIndex(null)}
               >
                 {m.youtube && (
                   <iframe
@@ -204,22 +199,22 @@ export default function ProjectMechanics({ project, hasMoreContent = false }) {
                   />
                 )}
               
-                {!m.youtube && getMediaArray(m).length > 0 && (
+                {!m.youtube && media.length > 0 && (
                   <>
                     <img
-                      src={`${import.meta.env.BASE_URL}${getMediaArray(m)[mediaIndices[i] || 0].src}`}
+                      src={`${import.meta.env.BASE_URL}${media[mediaIndices[i] || 0].src}`}
                       alt={m.subtitle}
                       className="w-full h-full object-contain"
                       style={{ borderRadius: "0.5rem" }}
-                      loading={getMediaArray(m)[mediaIndices[i] || 0].type === 'gif' ? 'eager' : 'lazy'}
-                      fetchPriority={getMediaArray(m)[mediaIndices[i] || 0].type === 'gif' ? 'high' : 'auto'}
+                      loading={media[mediaIndices[i] || 0].type === 'gif' ? 'eager' : 'lazy'}
+                      fetchPriority={media[mediaIndices[i] || 0].type === 'gif' ? 'high' : 'auto'}
                     />
                     
                     {/* Navigation arrows */}
-                    {getMediaArray(m).length > 1 && (
+                    {media.length > 1 && (
                       <>
                         <button
-                          onClick={() => goToPrevMedia(i, getMediaArray(m).length)}
+                          onClick={() => goToPrevMedia(i, media.length)}
                           className="absolute left-2 top-1/2 -translate-y-1/2 p-2 rounded-full 
                                    bg-black/50 text-white hover:bg-black/70 transition-colors 
                                    opacity-100 md:opacity-0 md:group-hover:opacity-100"
@@ -228,7 +223,7 @@ export default function ProjectMechanics({ project, hasMoreContent = false }) {
                         </button>
                         
                         <button
-                          onClick={() => goToNextMedia(i, getMediaArray(m).length)}
+                          onClick={() => goToNextMedia(i, media.length)}
                           className="absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-full 
                                    bg-black/50 text-white hover:bg-black/70 transition-colors 
                                    opacity-100 md:opacity-0 md:group-hover:opacity-100"
@@ -238,7 +233,7 @@ export default function ProjectMechanics({ project, hasMoreContent = false }) {
 
                         {/* Media counter */}
                         <div className="absolute bottom-2 right-2 px-2 py-1 bg-black/50 text-white text-xs rounded">
-                          {(mediaIndices[i] || 0) + 1} / {getMediaArray(m).length}
+                          {(mediaIndices[i] || 0) + 1} / {media.length}
                         </div>
                       </>
                     )}
@@ -266,8 +261,9 @@ export default function ProjectMechanics({ project, hasMoreContent = false }) {
               </div>
             </div>
           )}
-        </div>
-      ))}
+          </div>
+        );
+      })}
     </div>
   );
 }

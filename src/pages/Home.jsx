@@ -1,9 +1,10 @@
+import React from "react";
 import { siteConfig } from "../siteConfig";
 import { Link } from "react-router-dom";
 import ProjectCard from "../components/ProjectCard";
 import ProjectFilter from "../components/ProjectFilter";
 import { projects, inDevelopment } from "../data/index";
-import { ChevronDown, ArrowRight } from "../components/icons/icons";
+import { ArrowRight } from "../components/icons/icons";
 import CommitCalendar from "../components/CommitCalendar";
 import { useContext, useEffect, useMemo, useState } from "react";
 import { LanguageContext } from "../contexts/LanguageContext";
@@ -11,7 +12,6 @@ import ProjectPage from "./ProjectPage";
 
 export default function Home() {
   const { language } = useContext(LanguageContext);
-  const [hoveredImage, setHoveredImage] = useState(false);
   const [selectedFilters, setSelectedFilters] = useState([]);
   const [selectedProjectId, setSelectedProjectId] = useState(null);
 
@@ -107,8 +107,8 @@ export default function Home() {
   return (
     <div className="w-full min-h-screen relative">
       {selectedProjectId && (
-        <div className="fixed inset-0 z-[999] flex items-start justify-center overflow-y-auto bg-black/0 px-2 py-2 backdrop-blur-sm sm:px-4 sm:py-4 md:px-6 md:py-6">
-          <div className="relative z-[1000] w-full max-w-6xl overflow-visible rounded-[32px] border border-(--bordercolor) bg-(--surface) shadow-2xl">
+        <div className="fixed inset-0 z-999 flex items-start justify-center overflow-y-auto bg-black/0 px-2 py-2 backdrop-blur-sm sm:px-4 sm:py-4 md:px-6 md:py-6">
+          <div className="relative z-1000 w-full max-w-6xl overflow-visible rounded-4xl border border-(--bordercolor) bg-(--surface) shadow-2xl">
             <button
               type="button"
               onClick={closeProject}
@@ -118,8 +118,8 @@ export default function Home() {
               ×
             </button>
 
-            <div className="h-[93vh] overflow-y-auto rounded-[32px] pt-0">
-              <ProjectPage projectId={selectedProjectId} onNavigateProject={setSelectedProjectId} isModal />
+            <div className="h-[93vh] overflow-y-auto rounded-4xl pt-0">
+              <ProjectPage projectId={selectedProjectId} isModal />
             </div>
           </div>
         </div>
@@ -132,12 +132,10 @@ export default function Home() {
             <div className="flex justify-center md:order-2" style={{ animation: 'fade-in-up 0.8s ease-out' }}>
               <div 
                 className="relative w-full max-w-md aspect-square cursor-pointer"
-                //onMouseEnter={() => setHoveredImage(true)}
-                onMouseLeave={() => setHoveredImage(false)}
               >
                 <div className="absolute inset-0 bg-(--surface) rounded-2xl blur-2xl opacity-60" />
                 <img 
-                  src={`${import.meta.env.BASE_URL}${hoveredImage ? siteConfig.profileImages[1] : siteConfig.profileImages[0]}`}
+                  src={`${import.meta.env.BASE_URL}${siteConfig.profileImage}`}
                   alt="Laura"
                   className="relative w-full h-full object-cover rounded-2xl shadow-2xl transition-all duration-300"
                   loading="eager"
